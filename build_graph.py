@@ -69,6 +69,36 @@ def canonical_title(title):
     return re.sub(r"\s*\([^)]*\)\s*$", "", title).strip()
 
 
+# 수상 연도는 관계가 아니라 **노드 속성**으로 붙인다.
+# 연도를 노드로 만들면 같은 해 수상자가 전부 한 노드에 묶여 정보량 0 인 허브가 된다
+# (`노벨 문학상` 노드가 이미 그렇다). 속성으로 두면 허브를 만들지 않고도
+# '1945년 수상자는?' 같은 질문에 답할 수 있다.
+NOBEL_PAT = re.compile(r"노벨\s?문학상")
+YEAR_PAT = re.compile(r"(1[89]\d{2}|20[0-2]\d)년")
+
+
+def award_year(body):
+    """본문에서 노벨문학상 수상 연도를 찾는다.
+
+    '노벨 문학상' 이 나온 자리마다 **가장 가까운 연도** 하나만 표로 받는다.
+    창(窓) 안의 연도를 아무거나 집으면 다른 상의 연도를 가져온다 —
+    "1971년에 맨부커상을, 2001년에 노벨 문학상을 받았다" 에서 1971 을 집는 식이다.
+    여러 자리에서 표가 갈리면 많이 나온 해를 쓴다.
+    """
+    votes = Counter()
+    for m in NOBEL_PAT.finditer(body):
+        lo, hi = max(0, m.start() - 30), min(len(body), m.end() + 30)
+        best, best_d = None, 10 ** 9
+        for y in YEAR_PAT.finditer(body, lo, hi):
+            # '노벨 문학상' 과 연도 사이의 글자 수
+            d = m.start() - y.end() if y.end() <= m.start() else y.start() - m.end()
+            if d < best_d:
+                best, best_d = int(y.group(1)), d
+        if best:
+            votes[best] += 1
+    return votes.most_common(1)[0][0] if votes else None
+
+
 def extract_doc(client, model, prompt, title, text, max_chars=12000):
     body = text[:max_chars]
     canon = canonical_title(title)
@@ -261,8 +291,9 @@ def normalize(raw, cfg):
 
 # ──────────────────────────────────────────────────────────── 그래프
 
-def to_graph(triples, cfg):
+def to_graph(triples, cfg, years=None):
     G = nx.MultiDiGraph()
+    years = years or {}
     # 노드 타입은 관계가 정한다 — AUTHORED 의 주어는 Laureate, 목적어는 Work.
     # triples 는 스키마 필터를 이미 통과했으므로 여기서 못 찾는 관계는 없다.
     rel_to = {r["name"]: (r["from"], r["to"]) for r in cfg["schema"]["relations"]}
@@ -271,6 +302,8 @@ def to_graph(triples, cfg):
         for name, typ in ((t["subject"], st), (t["object"], ot)):
             if name not in G:
                 G.add_node(name, type=typ)
+            if typ == "Laureate" and name in years:
+                G.nodes[name]["nobel_year"] = years[name]
         G.add_edge(t["subject"], t["object"], key=t["relation"], relation=t["relation"],
                    docs="|".join(t["docs"]), evidence=" ⏐ ".join(t["evidence"])[:900])
     return G
@@ -316,7 +349,13 @@ def main():
         for m in stats["fuzzy_merges"][:10]:
             print(f"    {m['from']}  →  {m['to']}  ({m['score']:.0f})")
 
-    G = to_graph(triples, cfg)
+    # 문서 제목 = 그 인물의 표준 표기이므로, 연도를 그 이름에 붙인다
+    years = {}
+    for title, text in docs:
+        y = award_year(text.split("\n\n", 2)[-1])
+        if y:
+            years[canonical_title(title)] = y
+    G = to_graph(triples, cfg, years)
     out = os.path.join(HERE, "output")
     os.makedirs(out, exist_ok=True)
     nx.write_graphml(G, os.path.join(out, "graph.graphml"))
@@ -327,6 +366,9 @@ def main():
     by_type = Counter(d.get("type", "?") for _, d in G.nodes(data=True))
     by_rel = Counter(d["relation"] for _, _, d in G.edges(data=True))
 
+    n_year = sum(1 for _, d in G.nodes(data=True) if "nobel_year" in d)
+    print(f"\n수상 연도 속성: Laureate 노드 {n_year}개에 부착 "
+          f"(본문에서 {len(years)}/{len(docs)}건 추출)")
     print(f"\n그래프: 노드 {G.number_of_nodes():,} · 엣지 {G.number_of_edges():,}")
     print(f"  노드 타입: {dict(by_type)}")
     print(f"  관계별:    {dict(by_rel)}")
@@ -340,6 +382,9 @@ def main():
         "model": cfg["llm"]["extract_model"],
         "tokens": {"in": ti, "out": to},
         "cached_docs": n_cached,
+        "award_years": {"found": len(years), "of": len(docs),
+                        "missing": sorted(canonical_title(t) for t, _ in docs
+                                          if canonical_title(t) not in years)},
         "tokens_note": ("이번 실행은 캐시에서 나온 문서가 있어 토큰이 실제 추출량보다 적다"
                         if n_cached else "캐시 없이 전부 새로 추출했다"),
         "normalize": stats,

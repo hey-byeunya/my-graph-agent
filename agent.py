@@ -4,6 +4,7 @@
   python agent.py "한강이 받은 국제 부커상을 받은 다른 수상자는?"
   python agent.py                 # 대화형
   python agent.py --json "..."    # 결과를 JSON 으로
+  python agent.py --mermaid       # 구조도 (Mermaid) 출력
 
 State 흐름
   find_seed → expand → answer → (근거 부족이면) widen → expand → answer → …
@@ -15,6 +16,7 @@ State 흐름
 import argparse
 import json
 import os
+import re
 import sys
 import time
 from collections import deque
@@ -42,6 +44,8 @@ class AgentState(TypedDict, total=False):
     notes: list            # 사람이 읽을 진행 기록
     widened: int           # widen 을 몇 번 썼는가
     used: list             # 답변이 실제로 인용한 근거 번호
+    asked_year: int        # 질문이 연도로 물었다면 그 연도
+    year_seeds: list       # 연도 조회로 얻은 시드 (연도 근거를 붙일 대상)
 
 
 # ──────────────────────────────────────────────────────────── 에이전트
@@ -89,7 +93,7 @@ class GraphAgent:
         for a, b in self.alias.items():
             q = q.replace(a, b)
 
-        seeds, taken = [], []
+        seeds, taken, year_seeds = [], [], []
         for name in self.node_names:
             if len(name) < 2 or name in self.never:
                 continue                      # 허브는 시작점으로도 쓰지 않는다
@@ -103,10 +107,48 @@ class GraphAgent:
                 break
 
         notes = [f"질문에서 찾은 시작 개체: {seeds or '없음'}"]
+
+        # 연도로 묻는 질문 — 수상 연도는 관계가 아니라 노드 속성이라 이름 매칭에 걸리지 않는다.
+        # 속성을 뒤져 그 해 수상자를 시작 개체로 삼는다.
+        #
+        # 단, **이름을 하나도 못 찾았을 때만** 쓴다. 질문 속 연도가 노벨상 연도라는
+        # 보장이 없기 때문이다 — "이시구로가 1989년 맨부커상을 받은 작품은?" 에서
+        # 1989 는 부커상 연도인데, 그 해 노벨상 수상자(카밀로 호세 셀라)를 끌어와
+        # 근거를 오염시킨다. 이름이 있으면 그쪽이 훨씬 확실한 시작점이다.
+        year, by_year = self._year_lookup(q)
+        if year and seeds:
+            notes.append(f"질문에 {year}년이 있지만 시작 개체를 이름으로 찾았으므로 "
+                         f"연도 조회는 쓰지 않는다")
+        elif year:
+            if by_year:
+                for name in by_year:
+                    if name not in seeds:
+                        seeds.append(name)
+                        year_seeds.append(name)
+                notes.append(f"{year}년 수상자를 속성에서 찾음: {', '.join(by_year)}")
+            else:
+                notes.append(
+                    f"{year}년을 질문에서 읽었지만, 그 해 수상자 문서가 코퍼스에 없다")
+
         if not seeds:
             notes.append("시작 개체가 없다 — 그래프에 없는 것을 묻고 있다")
         return {**state, "seeds": seeds, "hops": self.tv["max_hops"],
-                "widened": 0, "notes": notes}
+                "widened": 0, "asked_year": year, "year_seeds": year_seeds,
+                "notes": notes}
+
+    def _year_lookup(self, question):
+        """질문의 연도와, 그 해에 수상한 사람들을 돌려준다.
+
+        연도를 노드로 만들지 않았기 때문에(허브가 되므로) 이 조회가 필요하다.
+        config 의 excluded_relations_note 가 말하는 '속성 조회' 가 이것이다.
+        """
+        m = re.search(r"(1[89]\d{2}|20[0-2]\d)\s*년", question)
+        if not m:
+            return None, []
+        year = int(m.group(1))
+        winners = sorted(n for n, d in self.G.nodes(data=True)
+                         if d.get("nobel_year") == year)
+        return year, winners
 
     # ── 노드 2: n홉 확장
     def expand(self, state: AgentState) -> AgentState:
@@ -172,6 +214,21 @@ class GraphAgent:
             dropped = len(evidence) - cap
             evidence = evidence[:cap]
 
+        # 수상 연도는 속성이라 BFS 가 닿지 않는다. 연도로 물었을 때만, 그 조회로 나온
+        # 사람에게만 연도를 근거로 얹는다 (그래프에 노드를 만들지는 않는다).
+        #
+        # 모든 시드에 무조건 붙였더니 1홉 문항이 무너졌다 — "이시구로가 1989년
+        # 맨부커상을 받은 작품은?" 에서 '이시구로 -WON_IN_YEAR-> 2017' 이 근거
+        # 맨 앞에 뜨자, 질문의 1989 와 어긋나 답을 못 하게 됐다.
+        for name in state.get("year_seeds") or []:
+            y = self.G.nodes.get(name, {}).get("nobel_year")
+            if y:
+                evidence.insert(0, {
+                    "subject": name, "relation": "WON_IN_YEAR", "object": str(y),
+                    "depth": 0, "docs": [name],
+                    "quote": f"{name} 문서에서 읽은 노벨문학상 수상 연도",
+                })
+
         for e in evidence:
             arrow = f"{e['subject']} -{e['relation']}-> {e['object']}"
             if arrow not in path:
@@ -198,6 +255,12 @@ class GraphAgent:
         )
         alias_lines = "\n".join(f"  - '{a}' 는 '{b}' 와 같은 것이다"
                                 for a, b in self.alias.items())
+        # 연도 근거가 실제로 있을 때만 설명한다. 늘 붙이면 연도와 무관한 질문까지
+        # 연도로 끌려간다 — "맨부커상을 받은 다른 수상자는?" 이 "같은 해에 받은
+        # 다른 수상자는?" 으로 답해졌다.
+        year_line = ("- `WON_IN_YEAR` 는 **그 사람이 노벨문학상을 받은 해**를 뜻한다. "
+                     "연도로 물었다면 이 삼중항이 바로 답의 근거다.\n"
+                     if any(e["relation"] == "WON_IN_YEAR" for e in ev) else "")
         system = (
             "너는 지식 그래프에서 뽑아 온 삼중항만 보고 질문에 답하는 도구다.\n\n"
             "지켜야 할 것\n"
@@ -206,6 +269,7 @@ class GraphAgent:
             "드물다. A-관계->B 와 B-관계->C 를 이어 A 에서 C 를 끌어내는 것이 네 일이다.\n"
             "- 삼중항의 표기는 통일돼 있다. 질문의 표기가 달라도 같은 것으로 본다:\n"
             f"{alias_lines}\n"
+            f"{year_line}"
             "- 질문에 연도·순서·'데뷔' 같은 부수 조건이 붙어 있고 그것을 삼중항으로 "
             "확인할 수 없더라도, 질문이 묻는 **핵심 관계**가 삼중항에 있으면 "
             "sufficient 를 true 로 두고 답한다. 대신 확인하지 못한 부분을 answer 에 "
@@ -244,7 +308,14 @@ class GraphAgent:
 
     # ── 노드 5: 거절
     def refuse(self, state: AgentState) -> AgentState:
-        if not state["seeds"]:
+        year = state.get("asked_year")
+        if not state["seeds"] and year:
+            # 연도는 알아들었다. 그 해 수상자가 코퍼스에 없을 뿐이다.
+            # 이 둘을 같은 문장으로 뭉뚱그리면 '연도를 못 읽는다' 로 오해된다.
+            msg = (f"{year}년 수상자는 이 지식 그래프에 없습니다. "
+                   f"코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 "
+                   f"담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.")
+        elif not state["seeds"]:
             msg = "질문에 나온 개체를 지식 그래프에서 찾지 못했습니다. 답할 근거가 없습니다."
         else:
             msg = (f"{state['hops']}홉까지 넓혀 봤지만, 질문에 답할 근거를 "
@@ -358,9 +429,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("question", nargs="*")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--mermaid", action="store_true",
+                    help="컴파일된 LangGraph 를 Mermaid 로 출력한다 (REPORT 구조도용)")
     args = ap.parse_args()
 
     agent = GraphAgent()
+    if args.mermaid:
+        # 그림을 손으로 그리면 코드와 어긋난다. 실제 그래프에서 뽑는다.
+        print(agent.app.get_graph().draw_mermaid())
+        return 0
     if args.question:
         r = agent.ask(" ".join(args.question))
         if args.json:

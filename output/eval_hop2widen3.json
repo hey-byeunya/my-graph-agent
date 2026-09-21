@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-09-21 11:39:32",
+  "evaluated_at": "2026-09-21 11:59:28",
   "tag": "hop2widen3",
   "traverse": {
     "max_hops": 2,
@@ -9,7 +9,7 @@
   "model": "gpt-4o-mini",
   "by_hops": {
     "1홉": {
-      "n": 3,
+      "n": 4,
       "graph": 1.0,
       "basic": null,
       "path_recall": 1.0
@@ -27,7 +27,7 @@
       "path_recall": 1.0
     },
     "거절": {
-      "n": 2,
+      "n": 3,
       "graph": 1.0,
       "basic": null,
       "path_recall": null
@@ -318,20 +318,23 @@
         {
           "run": 1,
           "score": 1.0,
-          "why": "2개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "why": "3개 맞힘",
+          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 8,
           "path": [
-            "한강 -WON-> 국제 부커상",
-            "앨리스 먼로 -WON-> 노벨 문학상",
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 노벨 문학상"
+            "올가 토카르추크 -WON-> 국제 부커상",
+            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
+            "한강 -WON-> 국제 부커상",
+            "한강 -WON-> 노벨 문학상",
+            "앨리스 먼로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
             "올가 토카르추크",
+            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -349,20 +352,23 @@
         {
           "run": 2,
           "score": 1.0,
-          "why": "2개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "why": "3개 맞힘",
+          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 8,
           "path": [
-            "한강 -WON-> 국제 부커상",
-            "앨리스 먼로 -WON-> 노벨 문학상",
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 노벨 문학상"
+            "올가 토카르추크 -WON-> 국제 부커상",
+            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
+            "한강 -WON-> 국제 부커상",
+            "한강 -WON-> 노벨 문학상",
+            "앨리스 먼로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
             "올가 토카르추크",
+            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -433,7 +439,38 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "가브리엘라 미스트랄도 칠레 출신으로 노벨 문학상을 수상한 작가입니다.",
+          "answer": "가브리엘라 미스트랄이 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 4,
+          "path": [
+            "파블로 네루다 -NATIONALITY-> 칠레",
+            "파블로 네루다 -WON-> 노벨 문학상",
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
+            "도리스 레싱 -BELONGS_TO-> 공산주의"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄",
+            "도리스 레싱",
+            "파블로 네루다"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "파블로 네루다 -NATIONALITY-> 칠레",
+              "hit": true
+            },
+            {
+              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
+              "hit": true
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "가브리엘라 미스트랄은 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 3,
@@ -459,53 +496,20 @@
           ]
         },
         {
-          "run": 2,
-          "score": 1.0,
-          "why": "정답",
-          "answer": "가브리엘라 미스트랄이 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
-          "hops_used": 2,
-          "widened": 0,
-          "n_evidence": 4,
-          "path": [
-            "파블로 네루다 -NATIONALITY-> 칠레",
-            "파블로 네루다 -WON-> 노벨 문학상",
-            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
-            "도리스 레싱 -BELONGS_TO-> 공산주의"
-          ],
-          "sources": [
-            "가브리엘라 미스트랄",
-            "도리스 레싱",
-            "파블로 네루다"
-          ],
-          "path_recall": 1.0,
-          "path_detail": [
-            {
-              "step": "파블로 네루다 -NATIONALITY-> 칠레",
-              "hit": true
-            },
-            {
-              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
-              "hit": true
-            }
-          ]
-        },
-        {
           "run": 3,
           "score": 1.0,
           "why": "정답",
-          "answer": "가브리엘라 미스트랄이 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
+          "answer": "가브리엘라 미스트랄은 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 3,
           "path": [
             "파블로 네루다 -NATIONALITY-> 칠레",
             "파블로 네루다 -WON-> 노벨 문학상",
-            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
-            "도리스 레싱 -BELONGS_TO-> 공산주의"
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레"
           ],
           "sources": [
             "가브리엘라 미스트랄",
-            "도리스 레싱",
             "파블로 네루다"
           ],
           "path_recall": 1.0,
@@ -608,7 +612,7 @@
           "run": 3,
           "score": 1.0,
           "why": "2개 맞힘",
-          "answer": "가즈오 이시구로는 부커상과 노벨 문학상을 수상했습니다. 부커상을 수상한 다른 작가로는 윌리엄 골딩과 네이딘 고디머가 있으며, 이들은 각각 노벨 문학상도 수상했습니다.",
+          "answer": "가즈오 이시구로는 노벨 문학상을 수상한 작가입니다. 그와 함께 노벨 문학상을 수상한 다른 작가는 윌리엄 골딩과 네이딘 고디머입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 6,
@@ -692,11 +696,12 @@
           "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 3,
+          "n_evidence": 4,
           "path": [
             "요하네스 빌헬름 옌센 -NATIONALITY-> 덴마크",
             "요하네스 빌헬름 옌센 -WON-> 노벨 문학상",
-            "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크"
+            "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크",
+            "카를 아돌프 기엘레루프 -WROTE_IN-> 덴마크어"
           ],
           "sources": [
             "요하네스 빌헬름 옌센",
@@ -1220,6 +1225,150 @@
             "한강 -NATIONALITY-> 대한민국",
             "한강 -WON-> 이상문학상"
           ],
+          "sources": [],
+          "path_recall": null,
+          "path_detail": []
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "hops": 1,
+      "question": "1945년 노벨문학상 수상자는 누구인가?",
+      "basic_evidence_doc_recall": 0.0,
+      "graph_score": 1.0,
+      "basic_score": null,
+      "path_recall": 1.0,
+      "stable": true,
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "failure_layer": null,
+      "runs": [
+        {
+          "run": 1,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 2,
+          "path": [
+            "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+              "hit": true
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 2,
+          "path": [
+            "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+              "hit": true
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 2,
+          "path": [
+            "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+              "hit": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "hops": 0,
+      "question": "1994년 노벨문학상 수상자는 누구인가?",
+      "basic_evidence_doc_recall": null,
+      "graph_score": 1.0,
+      "basic_score": null,
+      "path_recall": null,
+      "stable": true,
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "failure_layer": null,
+      "runs": [
+        {
+          "run": 1,
+          "score": 1.0,
+          "why": "옳게 거절",
+          "answer": "1994년 수상자는 이 지식 그래프에 없습니다. 코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 0,
+          "path": [],
+          "sources": [],
+          "path_recall": null,
+          "path_detail": []
+        },
+        {
+          "run": 2,
+          "score": 1.0,
+          "why": "옳게 거절",
+          "answer": "1994년 수상자는 이 지식 그래프에 없습니다. 코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 0,
+          "path": [],
+          "sources": [],
+          "path_recall": null,
+          "path_detail": []
+        },
+        {
+          "run": 3,
+          "score": 1.0,
+          "why": "옳게 거절",
+          "answer": "1994년 수상자는 이 지식 그래프에 없습니다. 코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 0,
+          "path": [],
           "sources": [],
           "path_recall": null,
           "path_detail": []

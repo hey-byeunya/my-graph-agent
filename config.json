@@ -1,7 +1,6 @@
 {
   "domain": "노벨문학상 수상자",
   "domain_note": "한국어 위키백과의 노벨문학상 수상자·대표작 문서. 수상자들이 언어·국가·문학사조를 공유하며 겹치므로 한 문서만 읽어서는 답이 나오지 않는 2홉 질문이 성립한다.",
-
   "corpus": {
     "dir": "data/docs",
     "manifest": "data/manifest.json",
@@ -19,23 +18,70 @@
     ],
     "min_chars": 800,
     "target_docs": 60,
-    "exclude_patterns": ["^\\d{4}년$", "목록$", "^분류:", "^틀:"]
+    "exclude_patterns": [
+      "^\\d{4}년$",
+      "목록$",
+      "^분류:",
+      "^틀:"
+    ]
   },
-
   "schema": {
-    "node_types": ["Laureate", "Work", "Country", "Language", "Genre", "Movement", "Award"],
-    "relations": [
-      {"name": "AUTHORED",      "from": "Laureate", "to": "Work",     "desc": "수상자가 그 작품을 썼다"},
-      {"name": "WROTE_IN",      "from": "Laureate", "to": "Language", "desc": "작품 활동의 주 언어"},
-      {"name": "NATIONALITY",   "from": "Laureate", "to": "Country",  "desc": "국적 또는 출신국"},
-      {"name": "WON",           "from": "Laureate", "to": "Award",    "desc": "받은 문학상 (노벨문학상 포함)"},
-      {"name": "HAS_GENRE",     "from": "Work",     "to": "Genre",    "desc": "작품의 갈래 (소설·희곡·시 등)"},
-      {"name": "BELONGS_TO",    "from": "Laureate", "to": "Movement", "desc": "속한 문학사조"},
-      {"name": "INFLUENCED_BY", "from": "Laureate", "to": "Laureate", "desc": "영향을 받았다고 원문이 밝힌 경우만"}
+    "node_types": [
+      "Laureate",
+      "Work",
+      "Country",
+      "Language",
+      "Genre",
+      "Movement",
+      "Award"
     ],
-    "excluded_relations_note": "출판사·번역가·수상연도를 관계로 뽑지 않는다. 연도는 노드가 아니라 Laureate 속성으로 둔다 — 연도를 노드로 만들면 같은 해 수상자가 전부 묶여 의미 없는 허브가 된다. 대가: '1994년 수상자는?' 류 질문은 그래프 탐색이 아니라 속성 조회로 답해야 한다."
+    "relations": [
+      {
+        "name": "AUTHORED",
+        "from": "Laureate",
+        "to": "Work",
+        "desc": "수상자가 그 작품을 썼다"
+      },
+      {
+        "name": "WROTE_IN",
+        "from": "Laureate",
+        "to": "Language",
+        "desc": "작품 활동의 주 언어"
+      },
+      {
+        "name": "NATIONALITY",
+        "from": "Laureate",
+        "to": "Country",
+        "desc": "국적 또는 출신국"
+      },
+      {
+        "name": "WON",
+        "from": "Laureate",
+        "to": "Award",
+        "desc": "받은 문학상 (노벨문학상 포함)"
+      },
+      {
+        "name": "HAS_GENRE",
+        "from": "Work",
+        "to": "Genre",
+        "desc": "작품의 갈래 (소설·희곡·시 등)"
+      },
+      {
+        "name": "BELONGS_TO",
+        "from": "Laureate",
+        "to": "Movement",
+        "desc": "속한 문학사조"
+      },
+      {
+        "name": "INFLUENCED_BY",
+        "from": "Laureate",
+        "to": "Laureate",
+        "desc": "영향을 받았다고 원문이 밝힌 경우만"
+      }
+    ],
+    "excluded_relations_note": "출판사·번역가를 관계로 뽑지 않는다 — 위키 본문에 일관되게 나오지 않는다. 수상 연도는 관계가 아니라 Laureate 의 nobel_year **속성**으로 둔다: 연도를 노드로 만들면 같은 해 수상자가 전부 묶여 정보량 0 인 허브가 된다(`노벨 문학상` 노드가 이미 그렇다). 대신 에이전트가 '1945년 수상자는?' 같은 질문에서 연도를 읽어 속성으로 조회한다 (agent.py 의 _year_lookup). 대가: 연도는 그래프 탐색의 경유지가 될 수 없어 'X와 같은 해에 받은 사람은?' 류는 여전히 못 푼다.",
+    "award_year_note": "본문에서 '노벨 문학상' 이 나온 자리마다 가장 가까운 연도를 표로 받아 정한다. 창 안의 아무 연도나 집으면 다른 상의 연도를 가져온다 — '1971년에 맨부커상을, 2001년에 노벨 문학상을 받았다' 에서 1971 을 집는 식이다. 60건 중 59건에서 추출됐고, 그래프의 Laureate 노드 55개에 붙었다."
   },
-
   "normalize": {
     "alias_map": {
       "맨부커상": "부커상",
@@ -45,26 +91,45 @@
       "노벨문학상": "노벨 문학상"
     },
     "never_merge": [
-      ["부커상", "국제 부커상"]
+      [
+        "부커상",
+        "국제 부커상"
+      ]
     ],
-    "stopword_nodes": ["작가", "소설", "문학", "작품", "사람", "책", "시", "시인", "소설가"],
+    "stopword_nodes": [
+      "작가",
+      "소설",
+      "문학",
+      "작품",
+      "사람",
+      "책",
+      "시",
+      "시인",
+      "소설가"
+    ],
     "fuzzy_threshold": 92,
     "note": "코퍼스에 부커상 계열 표기가 5종 있다 — 국제 부커상(12) · 맨부커상(7) · 부커상(4) · 부커 상(1) · 맨부커 국제상(1).",
     "never_merge_note": "핵심 함정: '국제 부커상'(번역서 대상)과 '부커상'(영어 원작 대상)은 이름이 비슷하지만 서로 다른 상이다. 문자열 유사도만 쓰면 반드시 합쳐지고, 그러면 평가셋 4번과 6번의 정답이 뒤섞인다. 그래서 fuzzy 병합 전에 never_merge 쌍을 먼저 걸러낸다. 표기 통일을 문자열 거리에 맡길 수 없다는 근거 사례."
   },
-
   "traverse": {
     "max_hops": 2,
     "widen_to_hops": 3,
-    "never_traverse": ["노벨문학상", "노벨 문학상"],
-    "cap_fanout_node_types": ["Language", "Country", "Genre", "Movement"],
+    "never_traverse": [
+      "노벨문학상",
+      "노벨 문학상"
+    ],
+    "cap_fanout_node_types": [
+      "Language",
+      "Country",
+      "Genre",
+      "Movement"
+    ],
     "max_nodes_per_hop": 40,
     "max_neighbors_per_bridge": 12,
     "max_evidence_triples": 60,
     "note": "허브를 차수로 일괄 차단하지 않는다. 이 도메인에서 2홉 다리는 바로 언어·국가 노드라, 차수 상한으로 막으면 정답 경로를 스스로 끊는다. 대신 두 갈래로 나눈다 — (1) '노벨문학상' 노드는 수상자 전원을 잇고 정보량이 0이므로 통과 금지. (2) 언어·국가·갈래·사조는 통과를 허용하되, 이웃을 질문과의 관련도 순으로 정렬해 max_neighbors_per_bridge 개만 편다. 즉 '차단'이 아니라 '정렬 후 자르기'.",
     "cutoff_note": "max_neighbors_per_bridge 값은 3단계에서 실제 차수 분포를 보고 확정한다."
   },
-
   "llm": {
     "extract_model": "gpt-4o-mini",
     "answer_model": "gpt-4o-mini",

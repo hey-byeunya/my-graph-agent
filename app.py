@@ -26,6 +26,8 @@ EXAMPLES = [
     ("3홉", "한강이 받은 국제 부커상을 받은 다른 수상자 중 캐나다 국적인 사람은 누구인가?"),
     ("3홉", "하뤼 마르틴손과 같은 나라 출신인 다른 노벨문학상 수상자가 쓴 작품을 하나 들어라."),
     ("1홉", "윌리엄 골딩의 데뷔 소설은 무엇인가?"),
+    ("연도", "2024년 노벨문학상 수상자는 누구인가?"),
+    ("거절", "1994년 노벨문학상 수상자는 누구인가?"),
     ("거절", "무라카미 하루키는 몇 년에 노벨문학상을 받았는가?"),
     ("거절", "한강과 윌리엄 포크너가 함께 작업한 작품은 무엇인가?"),
 ]
@@ -160,13 +162,18 @@ def main():
     agent = load_agent()
     sidebar(agent)
 
-    st.subheader("예시 질문")
-    cols = st.columns(4)
-    for i, (tag, ex) in enumerate(EXAMPLES):
-        if cols[i % 4].button(f"[{tag}] {ex[:26]}…", key=f"ex{i}",
-                              use_container_width=True):
-            st.session_state["q"] = ex
+    # 예시는 한 줄짜리 목록으로 접어 둔다 — 화면의 주인공은 답변과 근거다
+    DIRECT = "선택"
+    labels = [DIRECT] + [f"[{tag}] {ex}" for tag, ex in EXAMPLES]
+
+    def _pick():
+        chosen = st.session_state.get("ex", DIRECT)
+        if chosen != DIRECT:
+            st.session_state["q"] = chosen.split("] ", 1)[1]
             st.session_state["run"] = True
+
+    st.selectbox("예시 질문", labels, key="ex", on_change=_pick,
+                 help="고르면 바로 물어봅니다. 직접 물어보려면 아래 질문 칸에 쓰세요.")
 
     q = st.text_input("질문", key="q",
                       placeholder="예: 조수에 카르두치와 같은 나라 출신인 다른 노벨문학상 수상자는?")

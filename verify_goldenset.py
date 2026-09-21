@@ -71,6 +71,17 @@ def main():
     both = [f for f, t in corpus.items() if "한강" in t and "포크너" in t]
     if both:
         errors.append(f"Q12: 한강과 포크너가 같은 문서에 있다 — {both}")
+    # Q14 는 '연도는 알아듣지만 그 해 수상자가 없다' 를 시험한다.
+    # 코퍼스에 1994년 수상자가 들어오면 문항이 무의미해지므로 감시한다.
+    try:
+        import networkx as nx
+        G = nx.read_graphml(os.path.join(HERE, "output", "graph.graphml"),
+                            force_multigraph=True)
+        y94 = [n for n, d in G.nodes(data=True) if d.get("nobel_year") == 1994]
+        if y94:
+            errors.append(f"Q14: 1994년 수상자가 그래프에 생겼다 — {y94}. 문항을 바꿔야 한다")
+    except FileNotFoundError:
+        warnings.append("graph.graphml 이 없어 Q14 전제는 확인하지 못했다")
 
     # 홉 분포
     dist = Counter(str(i["hops"]) if i["hops"] else "거절" for i in items)

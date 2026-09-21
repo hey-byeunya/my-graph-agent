@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-09-21 11:03:43",
+  "evaluated_at": "2026-09-21 12:01:58",
   "tag": "hop3",
   "traverse": {
     "max_hops": 3,
@@ -9,7 +9,7 @@
   "model": "gpt-4o-mini",
   "by_hops": {
     "1홉": {
-      "n": 3,
+      "n": 4,
       "graph": 1.0,
       "basic": null,
       "path_recall": 1.0
@@ -27,7 +27,7 @@
       "path_recall": 1.0
     },
     "거절": {
-      "n": 2,
+      "n": 3,
       "graph": 1.0,
       "basic": null,
       "path_recall": null
@@ -48,7 +48,7 @@
       "id": 1,
       "hops": 1,
       "question": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 무엇인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -67,20 +67,13 @@
           "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 '남아 있는 나날'입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 13,
+          "n_evidence": 2,
           "path": [
-            "가즈오 이시구로 -AUTHORED-> 부유하는 세상의 화가",
-            "가즈오 이시구로 -AUTHORED-> 나를 보내지 마",
-            "가즈오 이시구로 -AUTHORED-> 위로받지 못한 사람들",
             "가즈오 이시구로 -AUTHORED-> 남아 있는 나날",
-            "가즈오 이시구로 -NATIONALITY-> 일본",
-            "가즈오 이시구로 -BELONGS_TO-> 포스트모더니즘"
+            "가즈오 이시구로 -WON-> 부커상"
           ],
           "sources": [
-            "V. S. 나이폴",
-            "가즈오 이시구로",
-            "네이딘 고디머",
-            "윌리엄 골딩"
+            "가즈오 이시구로"
           ],
           "path_recall": 1.0,
           "path_detail": [
@@ -97,20 +90,13 @@
           "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 '남아 있는 나날'입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 13,
+          "n_evidence": 2,
           "path": [
-            "가즈오 이시구로 -AUTHORED-> 부유하는 세상의 화가",
-            "가즈오 이시구로 -AUTHORED-> 나를 보내지 마",
-            "가즈오 이시구로 -AUTHORED-> 위로받지 못한 사람들",
             "가즈오 이시구로 -AUTHORED-> 남아 있는 나날",
-            "가즈오 이시구로 -NATIONALITY-> 일본",
-            "가즈오 이시구로 -BELONGS_TO-> 포스트모더니즘"
+            "가즈오 이시구로 -WON-> 부커상"
           ],
           "sources": [
-            "V. S. 나이폴",
-            "가즈오 이시구로",
-            "네이딘 고디머",
-            "윌리엄 골딩"
+            "가즈오 이시구로"
           ],
           "path_recall": 1.0,
           "path_detail": [
@@ -127,20 +113,13 @@
           "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 '남아 있는 나날'입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 13,
+          "n_evidence": 2,
           "path": [
-            "가즈오 이시구로 -AUTHORED-> 부유하는 세상의 화가",
-            "가즈오 이시구로 -AUTHORED-> 나를 보내지 마",
-            "가즈오 이시구로 -AUTHORED-> 위로받지 못한 사람들",
             "가즈오 이시구로 -AUTHORED-> 남아 있는 나날",
-            "가즈오 이시구로 -NATIONALITY-> 일본",
-            "가즈오 이시구로 -BELONGS_TO-> 포스트모더니즘"
+            "가즈오 이시구로 -WON-> 부커상"
           ],
           "sources": [
-            "V. S. 나이폴",
-            "가즈오 이시구로",
-            "네이딘 고디머",
-            "윌리엄 골딩"
+            "가즈오 이시구로"
           ],
           "path_recall": 1.0,
           "path_detail": [
@@ -156,7 +135,7 @@
       "id": 2,
       "hops": 1,
       "question": "네이딘 고디머는 어느 나라의 소설가인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -175,14 +154,9 @@
           "answer": "네이딘 고디머는 남아프리카 공화국의 소설가입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 9,
+          "n_evidence": 1,
           "path": [
-            "네이딘 고디머 -NATIONALITY-> 남아프리카 공화국",
-            "네이딘 고디머 -WON-> 노벨 문학상",
-            "네이딘 고디머 -WON-> 부커상",
-            "네이딘 고디머 -AUTHORED-> The Quest for Seen Gold",
-            "네이딘 고디머 -AUTHORED-> Face to Face",
-            "네이딘 고디머 -AUTHORED-> The Lying Days"
+            "네이딘 고디머 -NATIONALITY-> 남아프리카 공화국"
           ],
           "sources": [
             "네이딘 고디머"
@@ -202,14 +176,9 @@
           "answer": "네이딘 고디머는 남아프리카 공화국의 소설가입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 9,
+          "n_evidence": 1,
           "path": [
-            "네이딘 고디머 -NATIONALITY-> 남아프리카 공화국",
-            "네이딘 고디머 -WON-> 노벨 문학상",
-            "네이딘 고디머 -WON-> 부커상",
-            "네이딘 고디머 -AUTHORED-> The Quest for Seen Gold",
-            "네이딘 고디머 -AUTHORED-> Face to Face",
-            "네이딘 고디머 -AUTHORED-> The Lying Days"
+            "네이딘 고디머 -NATIONALITY-> 남아프리카 공화국"
           ],
           "sources": [
             "네이딘 고디머"
@@ -229,14 +198,9 @@
           "answer": "네이딘 고디머는 남아프리카 공화국의 소설가입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 9,
+          "n_evidence": 1,
           "path": [
-            "네이딘 고디머 -NATIONALITY-> 남아프리카 공화국",
-            "네이딘 고디머 -WON-> 노벨 문학상",
-            "네이딘 고디머 -WON-> 부커상",
-            "네이딘 고디머 -AUTHORED-> The Quest for Seen Gold",
-            "네이딘 고디머 -AUTHORED-> Face to Face",
-            "네이딘 고디머 -AUTHORED-> The Lying Days"
+            "네이딘 고디머 -NATIONALITY-> 남아프리카 공화국"
           ],
           "sources": [
             "네이딘 고디머"
@@ -255,7 +219,7 @@
       "id": 3,
       "hops": 1,
       "question": "윌리엄 골딩의 데뷔 소설은 무엇인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -274,14 +238,9 @@
           "answer": "윌리엄 골딩의 데뷔 소설은 '파리대왕'입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 6,
+          "n_evidence": 1,
           "path": [
-            "윌리엄 골딩 -BELONGS_TO-> 왕립문학회",
-            "윌리엄 골딩 -AUTHORED-> 파리대왕",
-            "윌리엄 골딩 -AUTHORED-> 통과 의례",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -NATIONALITY-> 영국",
-            "윌리엄 골딩 -WON-> 노벨 문학상"
+            "윌리엄 골딩 -AUTHORED-> 파리대왕"
           ],
           "sources": [
             "윌리엄 골딩"
@@ -301,14 +260,9 @@
           "answer": "윌리엄 골딩의 데뷔 소설은 '파리대왕'입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 6,
+          "n_evidence": 1,
           "path": [
-            "윌리엄 골딩 -BELONGS_TO-> 왕립문학회",
-            "윌리엄 골딩 -AUTHORED-> 파리대왕",
-            "윌리엄 골딩 -AUTHORED-> 통과 의례",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -NATIONALITY-> 영국",
-            "윌리엄 골딩 -WON-> 노벨 문학상"
+            "윌리엄 골딩 -AUTHORED-> 파리대왕"
           ],
           "sources": [
             "윌리엄 골딩"
@@ -328,14 +282,9 @@
           "answer": "윌리엄 골딩의 데뷔 소설은 '파리대왕'입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 6,
+          "n_evidence": 1,
           "path": [
-            "윌리엄 골딩 -BELONGS_TO-> 왕립문학회",
-            "윌리엄 골딩 -AUTHORED-> 파리대왕",
-            "윌리엄 골딩 -AUTHORED-> 통과 의례",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -NATIONALITY-> 영국",
-            "윌리엄 골딩 -WON-> 노벨 문학상"
+            "윌리엄 골딩 -AUTHORED-> 파리대왕"
           ],
           "sources": [
             "윌리엄 골딩"
@@ -354,7 +303,7 @@
       "id": 4,
       "hops": 2,
       "question": "한강이 받은 국제 부커상을 받은 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -373,14 +322,14 @@
           "answer": "한강과 함께 국제 부커상을 받은 노벨문학상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 26,
+          "n_evidence": 8,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
             "올가 토카르추크 -WON-> 국제 부커상",
             "크러스너호르커이 라슬로 -WON-> 국제 부커상",
             "한강 -WON-> 국제 부커상",
-            "한강 -NATIONALITY-> 대한민국",
-            "한강 -WON-> 노벨 문학상"
+            "한강 -WON-> 노벨 문학상",
+            "앨리스 먼로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
@@ -407,14 +356,14 @@
           "answer": "한강과 함께 국제 부커상을 받은 노벨문학상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 26,
+          "n_evidence": 8,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
             "올가 토카르추크 -WON-> 국제 부커상",
             "크러스너호르커이 라슬로 -WON-> 국제 부커상",
             "한강 -WON-> 국제 부커상",
-            "한강 -NATIONALITY-> 대한민국",
-            "한강 -WON-> 노벨 문학상"
+            "한강 -WON-> 노벨 문학상",
+            "앨리스 먼로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
@@ -438,17 +387,17 @@
           "run": 3,
           "score": 1.0,
           "why": "3개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "answer": "한강과 함께 국제 부커상을 받은 노벨문학상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 26,
+          "n_evidence": 8,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
             "올가 토카르추크 -WON-> 국제 부커상",
             "크러스너호르커이 라슬로 -WON-> 국제 부커상",
             "한강 -WON-> 국제 부커상",
-            "한강 -NATIONALITY-> 대한민국",
-            "한강 -WON-> 노벨 문학상"
+            "한강 -WON-> 노벨 문학상",
+            "앨리스 먼로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
@@ -474,7 +423,7 @@
       "id": 5,
       "hops": 2,
       "question": "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -493,14 +442,12 @@
           "answer": "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는 가브리엘라 미스트랄입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 21,
+          "n_evidence": 4,
           "path": [
             "파블로 네루다 -NATIONALITY-> 칠레",
             "파블로 네루다 -WON-> 노벨 문학상",
-            "파블로 네루다 -WON-> 스탈린 평화상",
-            "파블로 네루다 -BELONGS_TO-> 공산주의",
-            "파블로 네루다 -AUTHORED-> 변천해가는 것",
-            "파블로 네루다 -AUTHORED-> 20편의 사랑의 시와 한 편의 절망의 노래"
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
           ],
           "sources": [
             "가브리엘라 미스트랄",
@@ -522,17 +469,15 @@
           "run": 2,
           "score": 1.0,
           "why": "정답",
-          "answer": "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "answer": "파블로 네루다와 같은 칠레 출신의 노벨문학상 수상자는 가브리엘라 미스트랄입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 21,
+          "n_evidence": 4,
           "path": [
             "파블로 네루다 -NATIONALITY-> 칠레",
             "파블로 네루다 -WON-> 노벨 문학상",
-            "파블로 네루다 -WON-> 스탈린 평화상",
-            "파블로 네루다 -BELONGS_TO-> 공산주의",
-            "파블로 네루다 -AUTHORED-> 변천해가는 것",
-            "파블로 네루다 -AUTHORED-> 20편의 사랑의 시와 한 편의 절망의 노래"
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
           ],
           "sources": [
             "가브리엘라 미스트랄",
@@ -557,14 +502,12 @@
           "answer": "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는 가브리엘라 미스트랄입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 21,
+          "n_evidence": 4,
           "path": [
             "파블로 네루다 -NATIONALITY-> 칠레",
             "파블로 네루다 -WON-> 노벨 문학상",
-            "파블로 네루다 -WON-> 스탈린 평화상",
-            "파블로 네루다 -BELONGS_TO-> 공산주의",
-            "파블로 네루다 -AUTHORED-> 변천해가는 것",
-            "파블로 네루다 -AUTHORED-> 20편의 사랑의 시와 한 편의 절망의 노래"
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
           ],
           "sources": [
             "가브리엘라 미스트랄",
@@ -588,7 +531,7 @@
       "id": 6,
       "hops": 2,
       "question": "가즈오 이시구로가 받은 맨부커상을 받은 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -607,22 +550,19 @@
           "answer": "가즈오 이시구로는 노벨 문학상을 수상한 작가입니다. 그와 함께 노벨 문학상을 수상한 다른 작가는 윌리엄 골딩과 네이딘 고디머입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 26,
+          "n_evidence": 6,
           "path": [
-            "가즈오 이시구로 -AUTHORED-> 부유하는 세상의 화가",
-            "가즈오 이시구로 -AUTHORED-> 나를 보내지 마",
-            "가즈오 이시구로 -AUTHORED-> 위로받지 못한 사람들",
-            "가즈오 이시구로 -AUTHORED-> 남아 있는 나날",
-            "가즈오 이시구로 -NATIONALITY-> 일본",
-            "가즈오 이시구로 -BELONGS_TO-> 포스트모더니즘"
+            "가즈오 이시구로 -WON-> 부커상",
+            "가즈오 이시구로 -WON-> 노벨 문학상",
+            "윌리엄 골딩 -WON-> 부커상",
+            "윌리엄 골딩 -WON-> 노벨 문학상",
+            "네이딘 고디머 -WON-> 부커상",
+            "네이딘 고디머 -WON-> 노벨 문학상"
           ],
           "sources": [
-            "V. S. 나이폴",
-            "가와바타 야스나리",
             "가즈오 이시구로",
-            "게르하르트 하웁트만",
-            "귄터 그라스",
-            "네이딘 고디머"
+            "네이딘 고디머",
+            "윌리엄 골딩"
           ],
           "path_recall": 1.0,
           "path_detail": [
@@ -640,25 +580,22 @@
           "run": 2,
           "score": 1.0,
           "why": "2개 맞힘",
-          "answer": "가즈오 이시구로는 노벨 문학상을 수상한 작가입니다. 그와 함께 노벨 문학상을 수상한 다른 작가는 윌리엄 골딩과 네이딘 고디머입니다.",
+          "answer": "가즈오 이시구로는 부커상과 노벨 문학상을 수상했습니다. 부커상을 수상한 다른 작가로는 윌리엄 골딩과 네이딘 고디머가 있습니다. 다만 이들이 노벨 문학상을 수상했는지는 확인할 수 없습니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 26,
+          "n_evidence": 6,
           "path": [
-            "가즈오 이시구로 -AUTHORED-> 부유하는 세상의 화가",
-            "가즈오 이시구로 -AUTHORED-> 나를 보내지 마",
-            "가즈오 이시구로 -AUTHORED-> 위로받지 못한 사람들",
-            "가즈오 이시구로 -AUTHORED-> 남아 있는 나날",
-            "가즈오 이시구로 -NATIONALITY-> 일본",
-            "가즈오 이시구로 -BELONGS_TO-> 포스트모더니즘"
+            "가즈오 이시구로 -WON-> 부커상",
+            "윌리엄 골딩 -WON-> 부커상",
+            "네이딘 고디머 -WON-> 부커상",
+            "가즈오 이시구로 -WON-> 노벨 문학상",
+            "윌리엄 골딩 -WON-> 노벨 문학상",
+            "네이딘 고디머 -WON-> 노벨 문학상"
           ],
           "sources": [
-            "V. S. 나이폴",
-            "가와바타 야스나리",
             "가즈오 이시구로",
-            "게르하르트 하웁트만",
-            "귄터 그라스",
-            "네이딘 고디머"
+            "네이딘 고디머",
+            "윌리엄 골딩"
           ],
           "path_recall": 1.0,
           "path_detail": [
@@ -676,25 +613,22 @@
           "run": 3,
           "score": 1.0,
           "why": "2개 맞힘",
-          "answer": "가즈오 이시구로는 부커상과 노벨 문학상을 수상했습니다. 부커상을 수상한 다른 작가로는 윌리엄 골딩과 네이딘 고디머가 있으며, 이들은 각각 노벨 문학상도 수상했습니다.",
+          "answer": "가즈오 이시구로는 노벨 문학상을 수상한 작가입니다. 그와 함께 노벨 문학상을 수상한 다른 작가는 윌리엄 골딩과 네이딘 고디머입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 27,
+          "n_evidence": 6,
           "path": [
-            "가즈오 이시구로 -AUTHORED-> 부유하는 세상의 화가",
-            "가즈오 이시구로 -AUTHORED-> 나를 보내지 마",
-            "가즈오 이시구로 -AUTHORED-> 위로받지 못한 사람들",
-            "가즈오 이시구로 -AUTHORED-> 남아 있는 나날",
-            "가즈오 이시구로 -NATIONALITY-> 일본",
-            "가즈오 이시구로 -BELONGS_TO-> 포스트모더니즘"
+            "가즈오 이시구로 -WON-> 부커상",
+            "가즈오 이시구로 -WON-> 노벨 문학상",
+            "윌리엄 골딩 -WON-> 부커상",
+            "윌리엄 골딩 -WON-> 노벨 문학상",
+            "네이딘 고디머 -WON-> 부커상",
+            "네이딘 고디머 -WON-> 노벨 문학상"
           ],
           "sources": [
-            "V. S. 나이폴",
-            "가와바타 야스나리",
             "가즈오 이시구로",
-            "게르하르트 하웁트만",
-            "귄터 그라스",
-            "네이딘 고디머"
+            "네이딘 고디머",
+            "윌리엄 골딩"
           ],
           "path_recall": 1.0,
           "path_detail": [
@@ -714,7 +648,7 @@
       "id": 7,
       "hops": 2,
       "question": "요하네스 빌헬름 옌센과 같은 나라 출신인 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -730,17 +664,15 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 다른 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
+          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 8,
+          "n_evidence": 4,
           "path": [
             "요하네스 빌헬름 옌센 -NATIONALITY-> 덴마크",
             "요하네스 빌헬름 옌센 -WON-> 노벨 문학상",
-            "요하네스 빌헬름 옌센 -AUTHORED-> 긴 여행",
-            "요하네스 빌헬름 옌센 -WROTE_IN-> 덴마크어",
             "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크",
-            "카를 아돌프 기엘레루프 -WROTE_IN-> 덴마크어"
+            "카를 아돌프 기엘레루프 -WON-> 노벨 문학상"
           ],
           "sources": [
             "요하네스 빌헬름 옌센",
@@ -762,17 +694,15 @@
           "run": 2,
           "score": 1.0,
           "why": "정답",
-          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 다른 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
+          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨 문학상 수상자는 카를 아돌프 기엘레루프입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 8,
+          "n_evidence": 4,
           "path": [
             "요하네스 빌헬름 옌센 -NATIONALITY-> 덴마크",
             "요하네스 빌헬름 옌센 -WON-> 노벨 문학상",
-            "요하네스 빌헬름 옌센 -AUTHORED-> 긴 여행",
-            "요하네스 빌헬름 옌센 -WROTE_IN-> 덴마크어",
             "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크",
-            "카를 아돌프 기엘레루프 -WROTE_IN-> 덴마크어"
+            "카를 아돌프 기엘레루프 -WON-> 노벨 문학상"
           ],
           "sources": [
             "요하네스 빌헬름 옌센",
@@ -797,14 +727,12 @@
           "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 다른 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 8,
+          "n_evidence": 4,
           "path": [
             "요하네스 빌헬름 옌센 -NATIONALITY-> 덴마크",
             "요하네스 빌헬름 옌센 -WON-> 노벨 문학상",
-            "요하네스 빌헬름 옌센 -AUTHORED-> 긴 여행",
-            "요하네스 빌헬름 옌센 -WROTE_IN-> 덴마크어",
             "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크",
-            "카를 아돌프 기엘레루프 -WROTE_IN-> 덴마크어"
+            "카를 아돌프 기엘레루프 -WON-> 노벨 문학상"
           ],
           "sources": [
             "요하네스 빌헬름 옌센",
@@ -828,7 +756,7 @@
       "id": 8,
       "hops": 2,
       "question": "조수에 카르두치와 같은 나라 출신인 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -847,14 +775,12 @@
           "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨문학상 수상자는 그라치아 델레다입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 9,
+          "n_evidence": 4,
           "path": [
             "조수에 카르두치 -NATIONALITY-> 이탈리아",
             "조수에 카르두치 -WON-> 노벨 문학상",
-            "조수에 카르두치 -BELONGS_TO-> 낭만주의",
-            "조수에 카르두치 -AUTHORED-> 민중의 하프",
-            "조수에 카르두치 -AUTHORED-> 유베닐리아",
-            "그라치아 델레다 -NATIONALITY-> 이탈리아"
+            "그라치아 델레다 -NATIONALITY-> 이탈리아",
+            "그라치아 델레다 -WON-> 노벨 문학상"
           ],
           "sources": [
             "그라치아 델레다",
@@ -879,14 +805,12 @@
           "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨문학상 수상자는 그라치아 델레다입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 9,
+          "n_evidence": 4,
           "path": [
             "조수에 카르두치 -NATIONALITY-> 이탈리아",
             "조수에 카르두치 -WON-> 노벨 문학상",
-            "조수에 카르두치 -BELONGS_TO-> 낭만주의",
-            "조수에 카르두치 -AUTHORED-> 민중의 하프",
-            "조수에 카르두치 -AUTHORED-> 유베닐리아",
-            "그라치아 델레다 -NATIONALITY-> 이탈리아"
+            "그라치아 델레다 -NATIONALITY-> 이탈리아",
+            "그라치아 델레다 -WON-> 노벨 문학상"
           ],
           "sources": [
             "그라치아 델레다",
@@ -911,14 +835,12 @@
           "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨문학상 수상자는 그라치아 델레다입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 9,
+          "n_evidence": 4,
           "path": [
             "조수에 카르두치 -NATIONALITY-> 이탈리아",
             "조수에 카르두치 -WON-> 노벨 문학상",
-            "조수에 카르두치 -BELONGS_TO-> 낭만주의",
-            "조수에 카르두치 -AUTHORED-> 민중의 하프",
-            "조수에 카르두치 -AUTHORED-> 유베닐리아",
-            "그라치아 델레다 -NATIONALITY-> 이탈리아"
+            "그라치아 델레다 -NATIONALITY-> 이탈리아",
+            "그라치아 델레다 -WON-> 노벨 문학상"
           ],
           "sources": [
             "그라치아 델레다",
@@ -942,7 +864,7 @@
       "id": 9,
       "hops": 3,
       "question": "하뤼 마르틴손과 같은 나라 출신인 다른 노벨문학상 수상자가 쓴 작품을 하나 들어라.",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -961,17 +883,15 @@
           "answer": "하뤼 마르틴손과 같은 스웨덴 출신의 노벨 문학상 수상자인 에위빈드 욘손이 쓴 작품으로는 '해변의 파도'가 있습니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 18,
+          "n_evidence": 5,
           "path": [
             "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
             "하뤼 마르틴손 -WON-> 노벨 문학상",
-            "하뤼 마르틴손 -AUTHORED-> 아니아라",
-            "하뤼 마르틴손 -AUTHORED-> 케이프여 안녕",
-            "하뤼 마르틴손 -AUTHORED-> 유령선",
-            "하뤼 마르틴손 -AUTHORED-> 유목민"
+            "에위빈드 욘손 -NATIONALITY-> 스웨덴",
+            "에위빈드 욘손 -WON-> 노벨 문학상",
+            "에위빈드 욘손 -AUTHORED-> 해변의 파도"
           ],
           "sources": [
-            "베르네르 폰 헤이덴스탐",
             "에위빈드 욘손",
             "하뤼 마르틴손"
           ],
@@ -998,17 +918,15 @@
           "answer": "하뤼 마르틴손과 같은 스웨덴 출신의 노벨 문학상 수상자인 에위빈드 욘손이 쓴 작품으로는 '해변의 파도'가 있습니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 18,
+          "n_evidence": 5,
           "path": [
             "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
             "하뤼 마르틴손 -WON-> 노벨 문학상",
-            "하뤼 마르틴손 -AUTHORED-> 아니아라",
-            "하뤼 마르틴손 -AUTHORED-> 케이프여 안녕",
-            "하뤼 마르틴손 -AUTHORED-> 유령선",
-            "하뤼 마르틴손 -AUTHORED-> 유목민"
+            "에위빈드 욘손 -NATIONALITY-> 스웨덴",
+            "에위빈드 욘손 -WON-> 노벨 문학상",
+            "에위빈드 욘손 -AUTHORED-> 해변의 파도"
           ],
           "sources": [
-            "베르네르 폰 헤이덴스탐",
             "에위빈드 욘손",
             "하뤼 마르틴손"
           ],
@@ -1035,17 +953,15 @@
           "answer": "하뤼 마르틴손과 같은 스웨덴 출신의 노벨 문학상 수상자인 에위빈드 욘손이 쓴 작품으로는 '해변의 파도'가 있습니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 18,
+          "n_evidence": 5,
           "path": [
             "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
             "하뤼 마르틴손 -WON-> 노벨 문학상",
-            "하뤼 마르틴손 -AUTHORED-> 아니아라",
-            "하뤼 마르틴손 -AUTHORED-> 케이프여 안녕",
-            "하뤼 마르틴손 -AUTHORED-> 유령선",
-            "하뤼 마르틴손 -AUTHORED-> 유목민"
+            "에위빈드 욘손 -NATIONALITY-> 스웨덴",
+            "에위빈드 욘손 -WON-> 노벨 문학상",
+            "에위빈드 욘손 -AUTHORED-> 해변의 파도"
           ],
           "sources": [
-            "베르네르 폰 헤이덴스탐",
             "에위빈드 욘손",
             "하뤼 마르틴손"
           ],
@@ -1071,7 +987,7 @@
       "id": 10,
       "hops": 3,
       "question": "한강이 받은 국제 부커상을 받은 다른 수상자 중 캐나다 국적인 사람은 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": 1.0,
@@ -1090,19 +1006,14 @@
           "answer": "한강이 받은 국제 부커상 수상자 중 캐나다 국적인 사람은 앨리스 먼로입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 14,
+          "n_evidence": 3,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 국제 부커상",
-            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
-            "한강 -WON-> 국제 부커상",
             "앨리스 먼로 -NATIONALITY-> 캐나다",
-            "한강 -NATIONALITY-> 대한민국"
+            "한강 -WON-> 국제 부커상"
           ],
           "sources": [
             "앨리스 먼로",
-            "올가 토카르추크",
-            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -1128,19 +1039,14 @@
           "answer": "한강이 받은 국제 부커상 수상자 중 캐나다 국적인 사람은 앨리스 먼로입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 14,
+          "n_evidence": 3,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 국제 부커상",
-            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
-            "한강 -WON-> 국제 부커상",
             "앨리스 먼로 -NATIONALITY-> 캐나다",
-            "한강 -NATIONALITY-> 대한민국"
+            "한강 -WON-> 국제 부커상"
           ],
           "sources": [
             "앨리스 먼로",
-            "올가 토카르추크",
-            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -1166,19 +1072,14 @@
           "answer": "한강이 받은 국제 부커상 수상자 중 캐나다 국적인 사람은 앨리스 먼로입니다.",
           "hops_used": 3,
           "widened": 0,
-          "n_evidence": 14,
+          "n_evidence": 3,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 국제 부커상",
-            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
-            "한강 -WON-> 국제 부커상",
             "앨리스 먼로 -NATIONALITY-> 캐나다",
-            "한강 -NATIONALITY-> 대한민국"
+            "한강 -WON-> 국제 부커상"
           ],
           "sources": [
             "앨리스 먼로",
-            "올가 토카르추크",
-            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -1203,7 +1104,7 @@
       "id": 11,
       "hops": 0,
       "question": "무라카미 하루키는 몇 년에 노벨문학상을 받았는가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": null,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": null,
@@ -1260,7 +1161,7 @@
       "id": 12,
       "hops": 0,
       "question": "한강과 윌리엄 포크너가 함께 작업한 작품은 무엇인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": null,
       "graph_score": 1.0,
       "basic_score": null,
       "path_recall": null,
@@ -1328,6 +1229,150 @@
             "한강 -NATIONALITY-> 대한민국",
             "한강 -WON-> 이상문학상"
           ],
+          "sources": [],
+          "path_recall": null,
+          "path_detail": []
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "hops": 1,
+      "question": "1945년 노벨문학상 수상자는 누구인가?",
+      "basic_evidence_doc_recall": 0.0,
+      "graph_score": 1.0,
+      "basic_score": null,
+      "path_recall": 1.0,
+      "stable": true,
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "failure_layer": null,
+      "runs": [
+        {
+          "run": 1,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "hops_used": 3,
+          "widened": 0,
+          "n_evidence": 2,
+          "path": [
+            "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+              "hit": true
+            }
+          ]
+        },
+        {
+          "run": 2,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "hops_used": 3,
+          "widened": 0,
+          "n_evidence": 2,
+          "path": [
+            "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+              "hit": true
+            }
+          ]
+        },
+        {
+          "run": 3,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "hops_used": 3,
+          "widened": 0,
+          "n_evidence": 2,
+          "path": [
+            "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+            "가브리엘라 미스트랄 -WON-> 노벨 문학상"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "가브리엘라 미스트랄 -WON_IN_YEAR-> 1945",
+              "hit": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "hops": 0,
+      "question": "1994년 노벨문학상 수상자는 누구인가?",
+      "basic_evidence_doc_recall": null,
+      "graph_score": 1.0,
+      "basic_score": null,
+      "path_recall": null,
+      "stable": true,
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "failure_layer": null,
+      "runs": [
+        {
+          "run": 1,
+          "score": 1.0,
+          "why": "옳게 거절",
+          "answer": "1994년 수상자는 이 지식 그래프에 없습니다. 코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.",
+          "hops_used": 3,
+          "widened": 0,
+          "n_evidence": 0,
+          "path": [],
+          "sources": [],
+          "path_recall": null,
+          "path_detail": []
+        },
+        {
+          "run": 2,
+          "score": 1.0,
+          "why": "옳게 거절",
+          "answer": "1994년 수상자는 이 지식 그래프에 없습니다. 코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.",
+          "hops_used": 3,
+          "widened": 0,
+          "n_evidence": 0,
+          "path": [],
+          "sources": [],
+          "path_recall": null,
+          "path_detail": []
+        },
+        {
+          "run": 3,
+          "score": 1.0,
+          "why": "옳게 거절",
+          "answer": "1994년 수상자는 이 지식 그래프에 없습니다. 코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.",
+          "hops_used": 3,
+          "widened": 0,
+          "n_evidence": 0,
+          "path": [],
           "sources": [],
           "path_recall": null,
           "path_detail": []
