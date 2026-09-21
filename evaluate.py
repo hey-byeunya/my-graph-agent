@@ -196,11 +196,15 @@ def main():
             print(f"      사유: {samples[-1]['why']} · 실패 층: "
                   f"{max(set(layers), key=layers.count) if layers else '-'}")
 
-        refs_l = it["reference"] if isinstance(it["reference"], list) else [it["reference"]]
-        answer_named = any(squash(r) in squash(it["question"]) for r in refs_l)
+        # 대조군이 이기고 지는 이유를 설명하는 값:
+        # 정답의 근거가 적힌 문서를 BM25 가 몇 개나 물어왔는가.
+        # 전부 물어오면 basic RAG 도 푼다 — 멀티홉이라서 지는 게 아니다.
+        ev_docs = {e["doc"][:-3].replace("_", " ") for e in it["evidence"]}
+        retrieved = set(samples[0].get("basic", {}).get("retrieved", []))
+        doc_recall = (len(ev_docs & retrieved) / len(ev_docs)) if ev_docs else None
         per_item.append({
             "id": qid, "hops": it["hops"], "question": it["question"],
-            "answer_entity_in_question": answer_named,
+            "basic_evidence_doc_recall": doc_recall,
             "graph_score": gm, "basic_score": bm, "path_recall": rec_m,
             "stable": stable, "scores": g_scores,
             "failure_layer": max(set(layers), key=layers.count) if layers else None,

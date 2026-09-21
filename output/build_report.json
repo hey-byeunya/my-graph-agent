@@ -1,11 +1,13 @@
 {
-  "built_at": "2026-09-21 11:21:02",
+  "built_at": "2026-09-21 11:31:08",
   "n_docs": 60,
   "model": "gpt-4o-mini",
   "tokens": {
     "in": 0,
     "out": 0
   },
+  "cached_docs": 60,
+  "tokens_note": "이번 실행은 캐시에서 나온 문서가 있어 토큰이 실제 추출량보다 적다",
   "normalize": {
     "raw": 466,
     "after_alias": 466,

@@ -123,7 +123,7 @@ def extract_all(cfg, docs, use_cache=True):
         print(f"\r  추출 {i}/{len(docs)}  (캐시 {n_cached})  누적 삼중항 {len(raw):,}",
               end="", flush=True)
     print()
-    return raw, tok_in, tok_out
+    return raw, tok_in, tok_out, n_cached
 
 
 # ──────────────────────────────────────────────────────────── 정규화
@@ -293,7 +293,7 @@ def main():
         docs.append((f[:-3].replace("_", " "), text))
     print(f"문서 {len(docs)}건 · 모델 {cfg['llm']['extract_model']}\n")
 
-    raw, ti, to = extract_all(cfg, docs, use_cache=not args.no_cache)
+    raw, ti, to, n_cached = extract_all(cfg, docs, use_cache=not args.no_cache)
     print(f"\n원시 삼중항 {len(raw):,}건  (토큰 in {ti:,} / out {to:,})")
 
     triples, stats = normalize(raw, cfg)
@@ -339,6 +339,9 @@ def main():
         "n_docs": len(docs),
         "model": cfg["llm"]["extract_model"],
         "tokens": {"in": ti, "out": to},
+        "cached_docs": n_cached,
+        "tokens_note": ("이번 실행은 캐시에서 나온 문서가 있어 토큰이 실제 추출량보다 적다"
+                        if n_cached else "캐시 없이 전부 새로 추출했다"),
         "normalize": stats,
         "graph": {
             "nodes": G.number_of_nodes(),

@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-09-21 11:25:21",
+  "evaluated_at": "2026-09-21 11:33:45",
   "tag": "",
   "traverse": {
     "max_hops": 2,
@@ -10,20 +10,20 @@
   "by_hops": {
     "1홉": {
       "n": 3,
-      "graph": 0.933,
+      "graph": 1.0,
       "basic": 1.0,
-      "path_recall": 0.933
+      "path_recall": 1.0
     },
     "2홉": {
       "n": 5,
       "graph": 1.0,
       "basic": 0.3,
-      "path_recall": 1.0
+      "path_recall": 0.98
     },
     "3홉": {
       "n": 2,
       "graph": 1.0,
-      "basic": 1.0,
+      "basic": 0.9,
       "path_recall": 1.0
     },
     "거절": {
@@ -34,23 +34,21 @@
     }
   },
   "overall": {
-    "graph": 0.983,
-    "basic": 0.708
+    "graph": 1.0,
+    "basic": 0.692
   },
   "failure_layers": {
     "색인": 0,
     "탐색": 0,
-    "생성": 1
+    "생성": 0
   },
-  "unstable_items": [
-    3
-  ],
+  "unstable_items": [],
   "items": [
     {
       "id": 1,
       "hops": 1,
       "question": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 무엇인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 1.0,
       "graph_score": 1.0,
       "basic_score": 1.0,
       "path_recall": 1.0,
@@ -235,7 +233,7 @@
       "id": 2,
       "hops": 1,
       "question": "네이딘 고디머는 어느 나라의 소설가인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 1.0,
       "graph_score": 1.0,
       "basic_score": 1.0,
       "path_recall": 1.0,
@@ -415,19 +413,19 @@
       "id": 3,
       "hops": 1,
       "question": "윌리엄 골딩의 데뷔 소설은 무엇인가?",
-      "answer_entity_in_question": false,
-      "graph_score": 0.8,
+      "basic_evidence_doc_recall": 1.0,
+      "graph_score": 1.0,
       "basic_score": 1.0,
-      "path_recall": 0.8,
-      "stable": false,
+      "path_recall": 1.0,
+      "stable": true,
       "scores": [
         1.0,
         1.0,
         1.0,
-        0.0,
+        1.0,
         1.0
       ],
-      "failure_layer": "생성",
+      "failure_layer": null,
       "runs": [
         {
           "run": 1,
@@ -516,7 +514,7 @@
           ],
           "basic": {
             "score": 1.0,
-            "answer": "윌리엄 골딩의 데뷔 소설은 《파리대왕》(1954)이다. 이 작품은 무인도에 고립된 소년들이 질서와 문명을 잃어가는 과정을 통해 인간 내면의 폭력성을 탐구한 내용이다.",
+            "answer": "윌리엄 골딩의 데뷔 소설은 《파리대왕》입니다. 이 소설은 1954년에 출간되었으며, 무인도에 고립된 소년들이 질서와 문명을 잃어가는 과정을 탐구합니다.",
             "retrieved": [
               "버트런드 러셀",
               "윈스턴 처칠",
@@ -527,31 +525,28 @@
         },
         {
           "run": 4,
-          "score": 0.0,
-          "why": "답하지 못함",
-          "answer": "3홉까지 넓혀 봤지만, 질문에 답할 근거를 그래프에서 찾지 못했습니다. 지어내지 않겠습니다.",
+          "score": 1.0,
+          "why": "정답",
+          "answer": "윌리엄 골딩의 데뷔 소설은 '파리대왕'입니다.",
           "hops_used": 3,
           "widened": 1,
-          "n_evidence": 0,
+          "n_evidence": 1,
           "path": [
-            "윌리엄 골딩 -BELONGS_TO-> 왕립문학회",
-            "윌리엄 골딩 -AUTHORED-> 파리대왕",
-            "윌리엄 골딩 -AUTHORED-> 통과 의례",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -NATIONALITY-> 영국",
-            "윌리엄 골딩 -WON-> 노벨 문학상"
+            "윌리엄 골딩 -AUTHORED-> 파리대왕"
           ],
-          "sources": [],
-          "path_recall": 0.0,
+          "sources": [
+            "윌리엄 골딩"
+          ],
+          "path_recall": 1.0,
           "path_detail": [
             {
               "step": "윌리엄 골딩 -AUTHORED-> 파리대왕",
-              "hit": false
+              "hit": true
             }
           ],
           "basic": {
             "score": 1.0,
-            "answer": "윌리엄 골딩의 데뷔 소설은 《파리대왕》(1954)이다. 이 작품은 무인도에 고립된 소년들이 질서와 문명을 잃어가는 과정을 통해 인간 내면의 폭력성을 탐구한 내용이다.",
+            "answer": "윌리엄 골딩의 데뷔 소설은 《파리 대왕》입니다. 이 소설은 1954년에 출간되었으며, 무인도에 고립된 소년들이 질서와 문명을 잃어가는 과정을 다룹니다.",
             "retrieved": [
               "버트런드 러셀",
               "윈스턴 처칠",
@@ -583,7 +578,7 @@
           ],
           "basic": {
             "score": 1.0,
-            "answer": "윌리엄 골딩의 데뷔 소설은 《파리대왕》입니다. 이 소설은 1954년에 출간되었으며, 무인도에 고립된 소년들이 질서와 문명을 잃어가는 과정을 다룹니다.",
+            "answer": "윌리엄 골딩의 데뷔 소설은 《파리대왕》입니다. 이 소설은 1954년에 출간되었으며, 무인도에 고립된 소년들이 질서와 문명을 잃어가는 과정을 탐구합니다.",
             "retrieved": [
               "버트런드 러셀",
               "윈스턴 처칠",
@@ -598,10 +593,10 @@
       "id": 4,
       "hops": 2,
       "question": "한강이 받은 국제 부커상을 받은 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.75,
       "graph_score": 1.0,
       "basic_score": 0.5,
-      "path_recall": 1.0,
+      "path_recall": 0.9,
       "stable": true,
       "scores": [
         1.0,
@@ -655,20 +650,23 @@
         {
           "run": 2,
           "score": 1.0,
-          "why": "2개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "why": "3개 맞힘",
+          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 8,
           "path": [
-            "한강 -WON-> 국제 부커상",
-            "앨리스 먼로 -WON-> 노벨 문학상",
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 노벨 문학상"
+            "올가 토카르추크 -WON-> 국제 부커상",
+            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
+            "한강 -WON-> 국제 부커상",
+            "한강 -WON-> 노벨 문학상",
+            "앨리스 먼로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
             "올가 토카르추크",
+            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -696,7 +694,7 @@
           "run": 3,
           "score": 1.0,
           "why": "3개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다. 이들은 모두 노벨 문학상도 수상했습니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 8,
@@ -785,11 +783,10 @@
           "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 3,
           "path": [
             "한강 -WON-> 국제 부커상",
             "앨리스 먼로 -WON-> 노벨 문학상",
-            "앨리스 먼로 -WON-> 국제 부커상",
             "올가 토카르추크 -WON-> 노벨 문학상"
           ],
           "sources": [
@@ -797,7 +794,7 @@
             "올가 토카르추크",
             "한강 (작가)"
           ],
-          "path_recall": 1.0,
+          "path_recall": 0.5,
           "path_detail": [
             {
               "step": "한강 -WON-> 국제 부커상",
@@ -805,7 +802,7 @@
             },
             {
               "step": "국제 부커상 -~WON-> 앨리스 먼로 / 올가 토카르추크 / 크러스너호르커이 라슬로",
-              "hit": true
+              "hit": false
             }
           ],
           "basic": {
@@ -824,7 +821,7 @@
       "id": 5,
       "hops": 2,
       "question": "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.5,
       "graph_score": 1.0,
       "basic_score": 0.0,
       "path_recall": 1.0,
@@ -840,126 +837,6 @@
       "runs": [
         {
           "run": 1,
-          "score": 1.0,
-          "why": "정답",
-          "answer": "가브리엘라 미스트랄이 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
-          "hops_used": 2,
-          "widened": 0,
-          "n_evidence": 4,
-          "path": [
-            "파블로 네루다 -NATIONALITY-> 칠레",
-            "파블로 네루다 -WON-> 노벨 문학상",
-            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
-            "도리스 레싱 -BELONGS_TO-> 공산주의"
-          ],
-          "sources": [
-            "가브리엘라 미스트랄",
-            "도리스 레싱",
-            "파블로 네루다"
-          ],
-          "path_recall": 1.0,
-          "path_detail": [
-            {
-              "step": "파블로 네루다 -NATIONALITY-> 칠레",
-              "hit": true
-            },
-            {
-              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
-              "hit": true
-            }
-          ],
-          "basic": {
-            "score": 0.0,
-            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
-            "retrieved": [
-              "앨리스 먼로",
-              "어니스트 헤밍웨이",
-              "파블로 네루다"
-            ]
-          }
-        },
-        {
-          "run": 2,
-          "score": 1.0,
-          "why": "정답",
-          "answer": "가브리엘라 미스트랄이 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
-          "hops_used": 2,
-          "widened": 0,
-          "n_evidence": 4,
-          "path": [
-            "파블로 네루다 -NATIONALITY-> 칠레",
-            "파블로 네루다 -WON-> 노벨 문학상",
-            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
-            "도리스 레싱 -BELONGS_TO-> 공산주의"
-          ],
-          "sources": [
-            "가브리엘라 미스트랄",
-            "도리스 레싱",
-            "파블로 네루다"
-          ],
-          "path_recall": 1.0,
-          "path_detail": [
-            {
-              "step": "파블로 네루다 -NATIONALITY-> 칠레",
-              "hit": true
-            },
-            {
-              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
-              "hit": true
-            }
-          ],
-          "basic": {
-            "score": 0.0,
-            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
-            "retrieved": [
-              "앨리스 먼로",
-              "어니스트 헤밍웨이",
-              "파블로 네루다"
-            ]
-          }
-        },
-        {
-          "run": 3,
-          "score": 1.0,
-          "why": "정답",
-          "answer": "가브리엘라 미스트랄이 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
-          "hops_used": 2,
-          "widened": 0,
-          "n_evidence": 4,
-          "path": [
-            "파블로 네루다 -NATIONALITY-> 칠레",
-            "파블로 네루다 -WON-> 노벨 문학상",
-            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
-            "도리스 레싱 -BELONGS_TO-> 공산주의"
-          ],
-          "sources": [
-            "가브리엘라 미스트랄",
-            "도리스 레싱",
-            "파블로 네루다"
-          ],
-          "path_recall": 1.0,
-          "path_detail": [
-            {
-              "step": "파블로 네루다 -NATIONALITY-> 칠레",
-              "hit": true
-            },
-            {
-              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
-              "hit": true
-            }
-          ],
-          "basic": {
-            "score": 0.0,
-            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
-            "retrieved": [
-              "앨리스 먼로",
-              "어니스트 헤밍웨이",
-              "파블로 네루다"
-            ]
-          }
-        },
-        {
-          "run": 4,
           "score": 1.0,
           "why": "정답",
           "answer": "가브리엘라 미스트랄은 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
@@ -997,10 +874,126 @@
           }
         },
         {
-          "run": 5,
+          "run": 2,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "가브리엘라 미스트랄도 칠레 출신으로 노벨 문학상을 수상한 작가입니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 3,
+          "path": [
+            "파블로 네루다 -NATIONALITY-> 칠레",
+            "파블로 네루다 -WON-> 노벨 문학상",
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄",
+            "파블로 네루다"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "파블로 네루다 -NATIONALITY-> 칠레",
+              "hit": true
+            },
+            {
+              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
+              "hit": true
+            }
+          ],
+          "basic": {
+            "score": 0.0,
+            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
+            "retrieved": [
+              "앨리스 먼로",
+              "어니스트 헤밍웨이",
+              "파블로 네루다"
+            ]
+          }
+        },
+        {
+          "run": 3,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "가브리엘라 미스트랄은 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 3,
+          "path": [
+            "파블로 네루다 -NATIONALITY-> 칠레",
+            "파블로 네루다 -WON-> 노벨 문학상",
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄",
+            "파블로 네루다"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "파블로 네루다 -NATIONALITY-> 칠레",
+              "hit": true
+            },
+            {
+              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
+              "hit": true
+            }
+          ],
+          "basic": {
+            "score": 0.0,
+            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
+            "retrieved": [
+              "앨리스 먼로",
+              "어니스트 헤밍웨이",
+              "파블로 네루다"
+            ]
+          }
+        },
+        {
+          "run": 4,
           "score": 1.0,
           "why": "정답",
           "answer": "가브리엘라 미스트랄이 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 4,
+          "path": [
+            "파블로 네루다 -NATIONALITY-> 칠레",
+            "파블로 네루다 -WON-> 노벨 문학상",
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
+            "도리스 레싱 -BELONGS_TO-> 공산주의"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄",
+            "도리스 레싱",
+            "파블로 네루다"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "파블로 네루다 -NATIONALITY-> 칠레",
+              "hit": true
+            },
+            {
+              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
+              "hit": true
+            }
+          ],
+          "basic": {
+            "score": 0.0,
+            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
+            "retrieved": [
+              "앨리스 먼로",
+              "어니스트 헤밍웨이",
+              "파블로 네루다"
+            ]
+          }
+        },
+        {
+          "run": 5,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "가브리엘라 미스트랄도 칠레 출신으로, 노벨 문학상을 수상한 작가입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 4,
@@ -1042,7 +1035,7 @@
       "id": 6,
       "hops": 2,
       "question": "가즈오 이시구로가 받은 맨부커상을 받은 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.5,
       "graph_score": 1.0,
       "basic_score": 0.0,
       "path_recall": 1.0,
@@ -1272,7 +1265,7 @@
       "id": 7,
       "hops": 2,
       "question": "요하네스 빌헬름 옌센과 같은 나라 출신인 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 1.0,
       "graph_score": 1.0,
       "basic_score": 1.0,
       "path_recall": 1.0,
@@ -1290,7 +1283,7 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
+          "answer": "카를 아돌프 기엘레루프는 덴마크 출신의 다른 노벨 문학상 수상자입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 4,
@@ -1410,7 +1403,7 @@
           "run": 4,
           "score": 1.0,
           "why": "정답",
-          "answer": "카를 아돌프 기엘레루프는 덴마크 출신의 다른 노벨 문학상 수상자입니다.",
+          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 4,
@@ -1492,7 +1485,7 @@
       "id": 8,
       "hops": 2,
       "question": "조수에 카르두치와 같은 나라 출신인 다른 노벨문학상 수상자는 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.5,
       "graph_score": 1.0,
       "basic_score": 0.0,
       "path_recall": 1.0,
@@ -1536,7 +1529,7 @@
           ],
           "basic": {
             "score": 0.0,
-            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
+            "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨 문학상 수상자는 없습니다.",
             "retrieved": [
               "나기브 마푸즈",
               "앨리스 먼로",
@@ -1575,7 +1568,7 @@
           ],
           "basic": {
             "score": 0.0,
-            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
+            "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨 문학상 수상자는 없습니다.",
             "retrieved": [
               "나기브 마푸즈",
               "앨리스 먼로",
@@ -1692,7 +1685,7 @@
           ],
           "basic": {
             "score": 0.0,
-            "answer": "문서 조각에서 답할 근거를 찾지 못했습니다.",
+            "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨 문학상 수상자는 없습니다.",
             "retrieved": [
               "나기브 마푸즈",
               "앨리스 먼로",
@@ -1707,9 +1700,9 @@
       "id": 9,
       "hops": 3,
       "question": "하뤼 마르틴손과 같은 나라 출신인 다른 노벨문학상 수상자가 쓴 작품을 하나 들어라.",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 0.6666666666666666,
       "graph_score": 1.0,
-      "basic_score": 1.0,
+      "basic_score": 0.8,
       "path_recall": 1.0,
       "stable": true,
       "scores": [
@@ -1801,8 +1794,8 @@
             }
           ],
           "basic": {
-            "score": 1.0,
-            "answer": "하뤼 마르틴손과 같은 스웨덴 출신의 노벨 문학상 수상자인 에위빈드 욘손이 있습니다. 욘손은 1974년에 마르틴손과 함께 노벨 문학상을 수상하였으며, 그의 작품으로는 《해변의 파도》와 《햇빛과 같이 사라지다》가 있습니다.",
+            "score": 0.0,
+            "answer": "하뤼 마르틴손과 같은 스웨덴 출신의 노벨 문학상 수상자로 에위빈드 욘손이 있습니다. 욘손은 1974년에 마르틴손과 함께 노벨 문학상을 수상했습니다.",
             "retrieved": [
               "나기브 마푸즈",
               "에위빈드 욘손",
@@ -1952,7 +1945,7 @@
       "id": 10,
       "hops": 3,
       "question": "한강이 받은 국제 부커상을 받은 다른 수상자 중 캐나다 국적인 사람은 누구인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": 1.0,
       "graph_score": 1.0,
       "basic_score": 1.0,
       "path_recall": 1.0,
@@ -2187,7 +2180,7 @@
       "id": 11,
       "hops": 0,
       "question": "무라카미 하루키는 몇 년에 노벨문학상을 받았는가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": null,
       "graph_score": 1.0,
       "basic_score": 1.0,
       "path_recall": null,
@@ -2327,7 +2320,7 @@
       "id": 12,
       "hops": 0,
       "question": "한강과 윌리엄 포크너가 함께 작업한 작품은 무엇인가?",
-      "answer_entity_in_question": false,
+      "basic_evidence_doc_recall": null,
       "graph_score": 1.0,
       "basic_score": 1.0,
       "path_recall": null,
