@@ -1,5 +1,5 @@
 {
-  "evaluated_at": "2026-09-21 12:01:08",
+  "evaluated_at": "2026-09-21 13:35:21",
   "tag": "hop2",
   "traverse": {
     "max_hops": 2,
@@ -24,7 +24,7 @@
       "n": 2,
       "graph": 0.5,
       "basic": null,
-      "path_recall": 0.5
+      "path_recall": 0.833
     },
     "거절": {
       "n": 3,
@@ -39,8 +39,8 @@
   },
   "failure_layers": {
     "색인": 0,
-    "탐색": 1,
-    "생성": 1
+    "탐색": 0,
+    "생성": 2
   },
   "unstable_items": [],
   "items": [
@@ -64,7 +64,7 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 '남아 있는 나날'입니다.",
+          "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설은 '남아 있는 나날'입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 2,
@@ -87,7 +87,7 @@
           "run": 2,
           "score": 1.0,
           "why": "정답",
-          "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 '남아 있는 나날'입니다.",
+          "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설은 '남아 있는 나날'입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 2,
@@ -110,7 +110,7 @@
           "run": 3,
           "score": 1.0,
           "why": "정답",
-          "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설의 제목은 '남아 있는 나날'입니다.",
+          "answer": "가즈오 이시구로가 1989년 맨부커상을 받은 장편 소설은 '남아 있는 나날'입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 2,
@@ -234,20 +234,17 @@
         {
           "run": 1,
           "score": 0.0,
-          "why": "답하지 못함",
-          "answer": "2홉까지 넓혀 봤지만, 질문에 답할 근거를 그래프에서 찾지 못했습니다. 지어내지 않겠습니다.",
+          "why": "기대 정답이 답변에 없음 (기대: 파리대왕)",
+          "answer": "윌리엄 골딩의 데뷔 소설은 '통과 의례'입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 0,
+          "n_evidence": 1,
           "path": [
-            "윌리엄 골딩 -NATIONALITY-> 영국",
-            "윌리엄 골딩 -WON-> 노벨 문학상",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -BELONGS_TO-> 왕립문학회",
-            "윌리엄 골딩 -AUTHORED-> 파리대왕",
             "윌리엄 골딩 -AUTHORED-> 통과 의례"
           ],
-          "sources": [],
+          "sources": [
+            "윌리엄 골딩"
+          ],
           "path_recall": 0.0,
           "path_detail": [
             {
@@ -259,20 +256,17 @@
         {
           "run": 2,
           "score": 0.0,
-          "why": "답하지 못함",
-          "answer": "2홉까지 넓혀 봤지만, 질문에 답할 근거를 그래프에서 찾지 못했습니다. 지어내지 않겠습니다.",
+          "why": "기대 정답이 답변에 없음 (기대: 파리대왕)",
+          "answer": "윌리엄 골딩의 데뷔 소설은 '통과 의례'입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 0,
+          "n_evidence": 1,
           "path": [
-            "윌리엄 골딩 -NATIONALITY-> 영국",
-            "윌리엄 골딩 -WON-> 노벨 문학상",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -BELONGS_TO-> 왕립문학회",
-            "윌리엄 골딩 -AUTHORED-> 파리대왕",
             "윌리엄 골딩 -AUTHORED-> 통과 의례"
           ],
-          "sources": [],
+          "sources": [
+            "윌리엄 골딩"
+          ],
           "path_recall": 0.0,
           "path_detail": [
             {
@@ -284,20 +278,17 @@
         {
           "run": 3,
           "score": 0.0,
-          "why": "답하지 못함",
-          "answer": "2홉까지 넓혀 봤지만, 질문에 답할 근거를 그래프에서 찾지 못했습니다. 지어내지 않겠습니다.",
+          "why": "기대 정답이 답변에 없음 (기대: 파리대왕)",
+          "answer": "윌리엄 골딩의 데뷔 소설은 '통과 의례'입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 0,
+          "n_evidence": 1,
           "path": [
-            "윌리엄 골딩 -NATIONALITY-> 영국",
-            "윌리엄 골딩 -WON-> 노벨 문학상",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -BELONGS_TO-> 왕립문학회",
-            "윌리엄 골딩 -AUTHORED-> 파리대왕",
             "윌리엄 골딩 -AUTHORED-> 통과 의례"
           ],
-          "sources": [],
+          "sources": [
+            "윌리엄 골딩"
+          ],
           "path_recall": 0.0,
           "path_detail": [
             {
@@ -327,20 +318,23 @@
         {
           "run": 1,
           "score": 1.0,
-          "why": "2개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "why": "3개 맞힘",
+          "answer": "한강이 받은 국제 부커상 수상자 중 다른 노벨문학상 수상자는 크러스너호르커이 라슬로, 앨리스 먼로, 올가 토카르추크입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 8,
           "path": [
-            "한강 -WON-> 국제 부커상",
-            "앨리스 먼로 -WON-> 노벨 문학상",
+            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 노벨 문학상"
+            "올가 토카르추크 -WON-> 국제 부커상",
+            "한강 -WON-> 국제 부커상",
+            "한강 -WON-> 노벨 문학상",
+            "크러스너호르커이 라슬로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
             "올가 토카르추크",
+            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -359,17 +353,17 @@
           "run": 2,
           "score": 1.0,
           "why": "3개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크, 크러스너호르커이 라슬로입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "answer": "크러스너호르커이 라슬로, 앨리스 먼로, 올가 토카르추크가 한강과 함께 국제 부커상을 수상한 노벨 문학상 수상자입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 8,
           "path": [
+            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
             "앨리스 먼로 -WON-> 국제 부커상",
             "올가 토카르추크 -WON-> 국제 부커상",
-            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
             "한강 -WON-> 국제 부커상",
             "한강 -WON-> 노벨 문학상",
-            "앨리스 먼로 -WON-> 노벨 문학상"
+            "크러스너호르커이 라슬로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
@@ -392,20 +386,23 @@
         {
           "run": 3,
           "score": 1.0,
-          "why": "2개 맞힘",
-          "answer": "한강이 받은 국제 부커상 수상자는 앨리스 먼로와 올가 토카르추크입니다. 이들은 모두 노벨 문학상도 수상한 작가들입니다.",
+          "why": "3개 맞힘",
+          "answer": "크러스너호르커이 라슬로, 앨리스 먼로, 올가 토카르추크가 한강과 함께 국제 부커상을 수상한 노벨 문학상 수상자입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 8,
           "path": [
-            "한강 -WON-> 국제 부커상",
-            "앨리스 먼로 -WON-> 노벨 문학상",
+            "크러스너호르커이 라슬로 -WON-> 국제 부커상",
             "앨리스 먼로 -WON-> 국제 부커상",
-            "올가 토카르추크 -WON-> 노벨 문학상"
+            "올가 토카르추크 -WON-> 국제 부커상",
+            "한강 -WON-> 국제 부커상",
+            "한강 -WON-> 노벨 문학상",
+            "크러스너호르커이 라슬로 -WON-> 노벨 문학상"
           ],
           "sources": [
             "앨리스 먼로",
             "올가 토카르추크",
+            "크러스너호르커이 라슬로",
             "한강 (작가)"
           ],
           "path_recall": 1.0,
@@ -442,38 +439,7 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "가브리엘라 미스트랄도 칠레 출신으로, 노벨 문학상을 수상한 작가입니다.",
-          "hops_used": 2,
-          "widened": 0,
-          "n_evidence": 4,
-          "path": [
-            "파블로 네루다 -NATIONALITY-> 칠레",
-            "파블로 네루다 -WON-> 노벨 문학상",
-            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
-            "도리스 레싱 -BELONGS_TO-> 공산주의"
-          ],
-          "sources": [
-            "가브리엘라 미스트랄",
-            "도리스 레싱",
-            "파블로 네루다"
-          ],
-          "path_recall": 1.0,
-          "path_detail": [
-            {
-              "step": "파블로 네루다 -NATIONALITY-> 칠레",
-              "hit": true
-            },
-            {
-              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
-              "hit": true
-            }
-          ]
-        },
-        {
-          "run": 2,
-          "score": 1.0,
-          "why": "정답",
-          "answer": "가브리엘라 미스트랄도 칠레 출신으로 노벨 문학상을 수상한 작가입니다.",
+          "answer": "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는 가브리엘라 미스트랄입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 3,
@@ -499,10 +465,41 @@
           ]
         },
         {
+          "run": 2,
+          "score": 1.0,
+          "why": "정답",
+          "answer": "가브리엘라 미스트랄과 마리오 바르가스 요사가 있습니다.",
+          "hops_used": 2,
+          "widened": 0,
+          "n_evidence": 4,
+          "path": [
+            "파블로 네루다 -NATIONALITY-> 칠레",
+            "파블로 네루다 -WON-> 노벨 문학상",
+            "가브리엘라 미스트랄 -NATIONALITY-> 칠레",
+            "마리오 바르가스 요사 -WROTE_IN-> 스페인어"
+          ],
+          "sources": [
+            "가브리엘라 미스트랄",
+            "마리오 바르가스 요사",
+            "파블로 네루다"
+          ],
+          "path_recall": 1.0,
+          "path_detail": [
+            {
+              "step": "파블로 네루다 -NATIONALITY-> 칠레",
+              "hit": true
+            },
+            {
+              "step": "칠레 -~NATIONALITY-> 가브리엘라 미스트랄",
+              "hit": true
+            }
+          ]
+        },
+        {
           "run": 3,
           "score": 1.0,
           "why": "정답",
-          "answer": "가브리엘라 미스트랄은 파블로 네루다와 같은 칠레 출신의 노벨 문학상 수상자입니다.",
+          "answer": "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는 가브리엘라 미스트랄입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 3,
@@ -549,17 +546,17 @@
           "run": 1,
           "score": 1.0,
           "why": "2개 맞힘",
-          "answer": "가즈오 이시구로는 부커상과 노벨 문학상을 수상했습니다. 부커상을 수상한 다른 작가로는 윌리엄 골딩과 네이딘 고디머가 있습니다. 다만 이들이 노벨 문학상을 수상했는지는 확인할 수 없습니다.",
+          "answer": "가즈오 이시구로와 같은 맨부커상을 받은 노벨문학상 수상자는 네이딘 고디머와 윌리엄 골딩입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 6,
           "path": [
             "가즈오 이시구로 -WON-> 부커상",
-            "윌리엄 골딩 -WON-> 부커상",
-            "네이딘 고디머 -WON-> 부커상",
             "가즈오 이시구로 -WON-> 노벨 문학상",
-            "윌리엄 골딩 -WON-> 노벨 문학상",
-            "네이딘 고디머 -WON-> 노벨 문학상"
+            "네이딘 고디머 -WON-> 부커상",
+            "네이딘 고디머 -WON-> 노벨 문학상",
+            "윌리엄 골딩 -WON-> 부커상",
+            "윌리엄 골딩 -WON-> 노벨 문학상"
           ],
           "sources": [
             "가즈오 이시구로",
@@ -582,17 +579,17 @@
           "run": 2,
           "score": 1.0,
           "why": "2개 맞힘",
-          "answer": "가즈오 이시구로는 노벨 문학상을 수상한 작가입니다. 그와 함께 노벨 문학상을 수상한 다른 작가는 윌리엄 골딩과 네이딘 고디머입니다.",
+          "answer": "가즈오 이시구로와 같은 맨부커상을 받은 노벨문학상 수상자는 네이딘 고디머와 윌리엄 골딩입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 6,
           "path": [
             "가즈오 이시구로 -WON-> 부커상",
             "가즈오 이시구로 -WON-> 노벨 문학상",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -WON-> 노벨 문학상",
             "네이딘 고디머 -WON-> 부커상",
-            "네이딘 고디머 -WON-> 노벨 문학상"
+            "네이딘 고디머 -WON-> 노벨 문학상",
+            "윌리엄 골딩 -WON-> 부커상",
+            "윌리엄 골딩 -WON-> 노벨 문학상"
           ],
           "sources": [
             "가즈오 이시구로",
@@ -615,17 +612,17 @@
           "run": 3,
           "score": 1.0,
           "why": "2개 맞힘",
-          "answer": "가즈오 이시구로는 노벨 문학상을 수상한 작가입니다. 그와 함께 노벨 문학상을 수상한 다른 작가는 윌리엄 골딩과 네이딘 고디머입니다.",
+          "answer": "가즈오 이시구로와 같은 맨부커상을 받은 노벨문학상 수상자는 네이딘 고디머와 윌리엄 골딩입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 6,
           "path": [
             "가즈오 이시구로 -WON-> 부커상",
             "가즈오 이시구로 -WON-> 노벨 문학상",
-            "윌리엄 골딩 -WON-> 부커상",
-            "윌리엄 골딩 -WON-> 노벨 문학상",
             "네이딘 고디머 -WON-> 부커상",
-            "네이딘 고디머 -WON-> 노벨 문학상"
+            "네이딘 고디머 -WON-> 노벨 문학상",
+            "윌리엄 골딩 -WON-> 부커상",
+            "윌리엄 골딩 -WON-> 노벨 문학상"
           ],
           "sources": [
             "가즈오 이시구로",
@@ -666,15 +663,13 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
+          "answer": "카를 아돌프 기엘레루프가 있습니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 2,
           "path": [
             "요하네스 빌헬름 옌센 -NATIONALITY-> 덴마크",
-            "요하네스 빌헬름 옌센 -WON-> 노벨 문학상",
-            "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크",
-            "카를 아돌프 기엘레루프 -WROTE_IN-> 덴마크어"
+            "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크"
           ],
           "sources": [
             "요하네스 빌헬름 옌센",
@@ -696,15 +691,13 @@
           "run": 2,
           "score": 1.0,
           "why": "정답",
-          "answer": "요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨문학상 수상자는 카를 아돌프 기엘레루프입니다.",
+          "answer": "카를 아돌프 기엘레루프가 있습니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 2,
           "path": [
             "요하네스 빌헬름 옌센 -NATIONALITY-> 덴마크",
-            "요하네스 빌헬름 옌센 -WON-> 노벨 문학상",
-            "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크",
-            "카를 아돌프 기엘레루프 -WROTE_IN-> 덴마크어"
+            "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크"
           ],
           "sources": [
             "요하네스 빌헬름 옌센",
@@ -726,15 +719,14 @@
           "run": 3,
           "score": 1.0,
           "why": "정답",
-          "answer": "카를 아돌프 기엘레루프는 요하네스 빌헬름 옌센과 같은 덴마크 출신의 노벨 문학상 수상자입니다.",
+          "answer": "카를 아돌프 기엘레루프가 있습니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 4,
+          "n_evidence": 3,
           "path": [
             "요하네스 빌헬름 옌센 -NATIONALITY-> 덴마크",
-            "요하네스 빌헬름 옌센 -WON-> 노벨 문학상",
             "카를 아돌프 기엘레루프 -NATIONALITY-> 덴마크",
-            "카를 아돌프 기엘레루프 -WROTE_IN-> 덴마크어"
+            "요하네스 빌헬름 옌센 -WON-> 노벨 문학상"
           ],
           "sources": [
             "요하네스 빌헬름 옌센",
@@ -774,7 +766,7 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨문학상 수상자는 그라치아 델레다입니다.",
+          "answer": "그라치아 델레다가 있습니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 3,
@@ -803,13 +795,12 @@
           "run": 2,
           "score": 1.0,
           "why": "정답",
-          "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨문학상 수상자는 그라치아 델레다입니다.",
+          "answer": "그라치아 델레다가 있습니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 3,
+          "n_evidence": 2,
           "path": [
             "조수에 카르두치 -NATIONALITY-> 이탈리아",
-            "조수에 카르두치 -WON-> 노벨 문학상",
             "그라치아 델레다 -NATIONALITY-> 이탈리아"
           ],
           "sources": [
@@ -832,13 +823,12 @@
           "run": 3,
           "score": 1.0,
           "why": "정답",
-          "answer": "조수에 카르두치와 같은 이탈리아 출신의 노벨문학상 수상자는 그라치아 델레다입니다.",
+          "answer": "그라치아 델레다가 있습니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 3,
+          "n_evidence": 2,
           "path": [
             "조수에 카르두치 -NATIONALITY-> 이탈리아",
-            "조수에 카르두치 -WON-> 노벨 문학상",
             "그라치아 델레다 -NATIONALITY-> 이탈리아"
           ],
           "sources": [
@@ -866,111 +856,116 @@
       "basic_evidence_doc_recall": 0.0,
       "graph_score": 0.0,
       "basic_score": null,
-      "path_recall": 0.0,
+      "path_recall": 1.0,
       "stable": true,
       "scores": [
         0.0,
         0.0,
         0.0
       ],
-      "failure_layer": "탐색",
+      "failure_layer": "생성",
       "runs": [
         {
           "run": 1,
           "score": 0.0,
-          "why": "답하지 못함",
-          "answer": "2홉까지 넓혀 봤지만, 질문에 답할 근거를 그래프에서 찾지 못했습니다. 지어내지 않겠습니다.",
+          "why": "기대 정답이 답변에 없음 (기대: 한스 알리에누스)",
+          "answer": "하뤼 마르틴손과 같은 스웨덴 출신의 노벨문학상 수상자인 베르네르 폰 헤이덴스탐이 쓴 작품은 '스웨덴'입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 0,
+          "n_evidence": 4,
           "path": [
             "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
             "하뤼 마르틴손 -WON-> 노벨 문학상",
-            "하뤼 마르틴손 -AUTHORED-> 아니아라",
-            "하뤼 마르틴손 -AUTHORED-> 케이프여 안녕",
-            "하뤼 마르틴손 -AUTHORED-> 유령선",
-            "하뤼 마르틴손 -AUTHORED-> 유목민"
+            "베르네르 폰 헤이덴스탐 -NATIONALITY-> 스웨덴",
+            "베르네르 폰 헤이덴스탐 -AUTHORED-> 스웨덴"
           ],
-          "sources": [],
-          "path_recall": 0.0,
+          "sources": [
+            "베르네르 폰 헤이덴스탐",
+            "하뤼 마르틴손"
+          ],
+          "path_recall": 1.0,
           "path_detail": [
             {
               "step": "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
-              "hit": false
+              "hit": true
             },
             {
               "step": "스웨덴 -~NATIONALITY-> 베르네르 폰 헤이덴스탐 / 에위빈드 욘손",
-              "hit": false
+              "hit": true
             },
             {
               "step": "베르네르 폰 헤이덴스탐 / 에위빈드 욘손 -AUTHORED-> 작품",
-              "hit": false
+              "hit": true
             }
           ]
         },
         {
           "run": 2,
           "score": 0.0,
-          "why": "답하지 못함",
-          "answer": "2홉까지 넓혀 봤지만, 질문에 답할 근거를 그래프에서 찾지 못했습니다. 지어내지 않겠습니다.",
+          "why": "기대 정답이 답변에 없음 (기대: 한스 알리에누스)",
+          "answer": "베르네르 폰 헤이덴스탐이 쓴 작품은 '스웨덴'입니다. 하뤼 마르틴손과 같은 스웨덴 출신의 노벨문학상 수상자입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 0,
+          "n_evidence": 4,
           "path": [
             "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
             "하뤼 마르틴손 -WON-> 노벨 문학상",
-            "하뤼 마르틴손 -AUTHORED-> 아니아라",
-            "하뤼 마르틴손 -AUTHORED-> 케이프여 안녕",
-            "하뤼 마르틴손 -AUTHORED-> 유령선",
-            "하뤼 마르틴손 -AUTHORED-> 유목민"
+            "베르네르 폰 헤이덴스탐 -NATIONALITY-> 스웨덴",
+            "베르네르 폰 헤이덴스탐 -AUTHORED-> 스웨덴"
           ],
-          "sources": [],
-          "path_recall": 0.0,
+          "sources": [
+            "베르네르 폰 헤이덴스탐",
+            "하뤼 마르틴손"
+          ],
+          "path_recall": 1.0,
           "path_detail": [
             {
               "step": "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
-              "hit": false
+              "hit": true
             },
             {
               "step": "스웨덴 -~NATIONALITY-> 베르네르 폰 헤이덴스탐 / 에위빈드 욘손",
-              "hit": false
+              "hit": true
             },
             {
               "step": "베르네르 폰 헤이덴스탐 / 에위빈드 욘손 -AUTHORED-> 작품",
-              "hit": false
+              "hit": true
             }
           ]
         },
         {
           "run": 3,
           "score": 0.0,
-          "why": "답하지 못함",
-          "answer": "2홉까지 넓혀 봤지만, 질문에 답할 근거를 그래프에서 찾지 못했습니다. 지어내지 않겠습니다.",
+          "why": "기대 정답이 답변에 없음 (기대: 한스 알리에누스)",
+          "answer": "하뤼 마르틴손과 같은 스웨덴 출신의 노벨문학상 수상자인 베르네르 폰 헤이덴스탐이 쓴 작품은 '스웨덴'입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 0,
+          "n_evidence": 5,
           "path": [
             "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
             "하뤼 마르틴손 -WON-> 노벨 문학상",
-            "하뤼 마르틴손 -AUTHORED-> 아니아라",
-            "하뤼 마르틴손 -AUTHORED-> 케이프여 안녕",
-            "하뤼 마르틴손 -AUTHORED-> 유령선",
-            "하뤼 마르틴손 -AUTHORED-> 유목민"
+            "에위빈드 욘손 -NATIONALITY-> 스웨덴",
+            "베르네르 폰 헤이덴스탐 -NATIONALITY-> 스웨덴",
+            "베르네르 폰 헤이덴스탐 -AUTHORED-> 스웨덴"
           ],
-          "sources": [],
-          "path_recall": 0.0,
+          "sources": [
+            "베르네르 폰 헤이덴스탐",
+            "에위빈드 욘손",
+            "하뤼 마르틴손"
+          ],
+          "path_recall": 1.0,
           "path_detail": [
             {
               "step": "하뤼 마르틴손 -NATIONALITY-> 스웨덴",
-              "hit": false
+              "hit": true
             },
             {
               "step": "스웨덴 -~NATIONALITY-> 베르네르 폰 헤이덴스탐 / 에위빈드 욘손",
-              "hit": false
+              "hit": true
             },
             {
               "step": "베르네르 폰 헤이덴스탐 / 에위빈드 욘손 -AUTHORED-> 작품",
-              "hit": false
+              "hit": true
             }
           ]
         }
@@ -983,7 +978,7 @@
       "basic_evidence_doc_recall": 0.0,
       "graph_score": 1.0,
       "basic_score": null,
-      "path_recall": 1.0,
+      "path_recall": 0.6666666666666666,
       "stable": true,
       "scores": [
         1.0,
@@ -996,24 +991,22 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "한강이 받은 국제 부커상 수상자 중 캐나다 국적인 사람은 앨리스 먼로입니다.",
+          "answer": "앨리스 먼로가 국제 부커상을 수상한 캐나다 국적인 사람입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 3,
+          "n_evidence": 2,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
-            "앨리스 먼로 -NATIONALITY-> 캐나다",
-            "한강 -WON-> 국제 부커상"
+            "앨리스 먼로 -NATIONALITY-> 캐나다"
           ],
           "sources": [
-            "앨리스 먼로",
-            "한강 (작가)"
+            "앨리스 먼로"
           ],
-          "path_recall": 1.0,
+          "path_recall": 0.6666666666666666,
           "path_detail": [
             {
               "step": "한강 -WON-> 국제 부커상",
-              "hit": true
+              "hit": false
             },
             {
               "step": "국제 부커상 -~WON-> 앨리스 먼로",
@@ -1029,24 +1022,22 @@
           "run": 2,
           "score": 1.0,
           "why": "정답",
-          "answer": "한강이 받은 국제 부커상 수상자 중 캐나다 국적인 사람은 앨리스 먼로입니다.",
+          "answer": "앨리스 먼로가 국제 부커상을 수상한 캐나다 국적인 사람입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 3,
+          "n_evidence": 2,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
-            "앨리스 먼로 -NATIONALITY-> 캐나다",
-            "한강 -WON-> 국제 부커상"
+            "앨리스 먼로 -NATIONALITY-> 캐나다"
           ],
           "sources": [
-            "앨리스 먼로",
-            "한강 (작가)"
+            "앨리스 먼로"
           ],
-          "path_recall": 1.0,
+          "path_recall": 0.6666666666666666,
           "path_detail": [
             {
               "step": "한강 -WON-> 국제 부커상",
-              "hit": true
+              "hit": false
             },
             {
               "step": "국제 부커상 -~WON-> 앨리스 먼로",
@@ -1062,24 +1053,22 @@
           "run": 3,
           "score": 1.0,
           "why": "정답",
-          "answer": "한강이 받은 국제 부커상 수상자 중 캐나다 국적인 사람은 앨리스 먼로입니다.",
+          "answer": "앨리스 먼로가 국제 부커상을 수상한 캐나다 국적인 사람입니다.",
           "hops_used": 2,
           "widened": 0,
-          "n_evidence": 3,
+          "n_evidence": 2,
           "path": [
             "앨리스 먼로 -WON-> 국제 부커상",
-            "앨리스 먼로 -NATIONALITY-> 캐나다",
-            "한강 -WON-> 국제 부커상"
+            "앨리스 먼로 -NATIONALITY-> 캐나다"
           ],
           "sources": [
-            "앨리스 먼로",
-            "한강 (작가)"
+            "앨리스 먼로"
           ],
-          "path_recall": 1.0,
+          "path_recall": 0.6666666666666666,
           "path_detail": [
             {
               "step": "한강 -WON-> 국제 부커상",
-              "hit": true
+              "hit": false
             },
             {
               "step": "국제 부커상 -~WON-> 앨리스 먼로",
@@ -1175,12 +1164,12 @@
           "widened": 0,
           "n_evidence": 0,
           "path": [
-            "윌리엄 포크너 -WON-> 노벨 문학상",
-            "윌리엄 포크너 -NATIONALITY-> 미국",
-            "윌리엄 포크너 -AUTHORED-> The Sound and the Fury",
+            "윌리엄 포크너 -AUTHORED-> Absalom, Absalom!",
             "윌리엄 포크너 -AUTHORED-> As I Lay Dying",
             "윌리엄 포크너 -AUTHORED-> Light in August",
-            "윌리엄 포크너 -AUTHORED-> Absalom, Absalom!"
+            "윌리엄 포크너 -AUTHORED-> The Sound and the Fury",
+            "윌리엄 포크너 -WON-> 퓰리처상",
+            "윌리엄 포크너 -NATIONALITY-> 미국"
           ],
           "sources": [],
           "path_recall": null,
@@ -1195,12 +1184,12 @@
           "widened": 0,
           "n_evidence": 0,
           "path": [
-            "윌리엄 포크너 -WON-> 노벨 문학상",
-            "윌리엄 포크너 -NATIONALITY-> 미국",
-            "윌리엄 포크너 -AUTHORED-> The Sound and the Fury",
+            "윌리엄 포크너 -AUTHORED-> Absalom, Absalom!",
             "윌리엄 포크너 -AUTHORED-> As I Lay Dying",
             "윌리엄 포크너 -AUTHORED-> Light in August",
-            "윌리엄 포크너 -AUTHORED-> Absalom, Absalom!"
+            "윌리엄 포크너 -AUTHORED-> The Sound and the Fury",
+            "윌리엄 포크너 -WON-> 퓰리처상",
+            "윌리엄 포크너 -NATIONALITY-> 미국"
           ],
           "sources": [],
           "path_recall": null,
@@ -1215,12 +1204,12 @@
           "widened": 0,
           "n_evidence": 0,
           "path": [
-            "윌리엄 포크너 -WON-> 노벨 문학상",
-            "윌리엄 포크너 -NATIONALITY-> 미국",
-            "윌리엄 포크너 -AUTHORED-> The Sound and the Fury",
+            "윌리엄 포크너 -AUTHORED-> Absalom, Absalom!",
             "윌리엄 포크너 -AUTHORED-> As I Lay Dying",
             "윌리엄 포크너 -AUTHORED-> Light in August",
-            "윌리엄 포크너 -AUTHORED-> Absalom, Absalom!"
+            "윌리엄 포크너 -AUTHORED-> The Sound and the Fury",
+            "윌리엄 포크너 -WON-> 퓰리처상",
+            "윌리엄 포크너 -NATIONALITY-> 미국"
           ],
           "sources": [],
           "path_recall": null,
@@ -1248,7 +1237,7 @@
           "run": 1,
           "score": 1.0,
           "why": "정답",
-          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "answer": "가브리엘라 미스트랄입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 2,
@@ -1271,7 +1260,7 @@
           "run": 2,
           "score": 1.0,
           "why": "정답",
-          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "answer": "가브리엘라 미스트랄입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 2,
@@ -1294,7 +1283,7 @@
           "run": 3,
           "score": 1.0,
           "why": "정답",
-          "answer": "1945년 노벨 문학상 수상자는 가브리엘라 미스트랄입니다.",
+          "answer": "가브리엘라 미스트랄입니다.",
           "hops_used": 2,
           "widened": 0,
           "n_evidence": 2,

@@ -64,9 +64,9 @@
 - [x] 0. 저장소 골격 · 스키마 확정
 - [x] 1. 코퍼스 수집 — 60건 (2홉 후보 610 → 분류 공유 120 → 토막글 3건 탈락)
 - [x] 2. 평가셋 — 12문항 (1홉 3 · 2홉 5 · 3홉 2 · 거절 2), 근거 25개 전부 원문 대조 통과
-- [x] 3. 그래프 구축 — 노드 401 · 엣지 453, 색인 점검 10/10 통과
-- [x] 4. 에이전트 — LangGraph find_seed→expand→answer→widen/refuse, 단일 실행 12/12 (Q3 불안정)
-- [x] 5. 평가 — GraphRAG 0.97 vs basic RAG 0.71, 반경 ablation 4종, 실패 층 분류 검증됨
+- [x] 3. 그래프 구축 — 노드 416 · 엣지 468, 색인 점검 11/11 통과
+- [x] 4. 에이전트 — LangGraph find_seed→expand→answer→widen/refuse + 연도 속성 조회
+- [x] 5. 평가 — GraphRAG 0.90 vs basic RAG 0.66 (14문항 5회), 반경 ablation 4종, 실패 층 분류 검증됨
 - [x] 6. 데모 — streamlit, 경로·근거·출처·거절 모두 화면에 노출, 캡처 2장
 - [x] 7a. REPORT.md 작성 — 6개 절 + Mermaid 2종, 수치 39건 산출물 대조 통과
 - [ ] 7b. 공개 저장소 전환

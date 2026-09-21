@@ -1,6 +1,5 @@
 # 그래프 · 데이터
 networkx
-pandas
 rapidfuzz
 
 # 코퍼스 수집
@@ -10,15 +9,9 @@ requests
 rank_bm25
 
 # LLM / 에이전트
-langchain-core
-langchain-openai
 openai
-langchain-text-splitters
 langgraph
 python-dotenv
 
 # 데모
 streamlit
-
-# 시각화 (구조도 · 그래프 그림)
-matplotlib

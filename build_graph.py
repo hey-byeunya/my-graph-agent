@@ -128,7 +128,9 @@ def extract_all(cfg, docs, use_cache=True):
 
     raw, tok_in, tok_out, n_cached = [], 0, 0, 0
     for i, (title, text) in enumerate(docs, 1):
-        key = hashlib.sha1(f"{pkey}|{model}|{title}|{len(text)}".encode()).hexdigest()[:16]
+        # 길이만 쓰면 같은 길이의 다른 개정판이 옛 추출을 재사용한다. 내용 해시를 쓴다.
+        thash = hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
+        key = hashlib.sha1(f"{pkey}|{model}|{title}|{thash}".encode()).hexdigest()[:16]
         cpath = os.path.join(CACHE, f"{key}.json")
         if use_cache and os.path.exists(cpath):
             triples = json.load(open(cpath, encoding="utf-8"))
@@ -317,7 +319,22 @@ def main():
     args = ap.parse_args()
 
     ddir = os.path.join(HERE, cfg["corpus"]["dir"])
-    files = sorted(f for f in os.listdir(ddir) if f.endswith(".md"))
+    # 코퍼스 멤버십은 **manifest 가 정한다.** 디렉토리를 glob 하면, 수집을 다시 돌려
+    # 파일이 쌓였을 때 그것까지 조용히 흡수한다 (실제로 60 -> 98건이 된 적이 있다).
+    man_path = os.path.join(HERE, cfg["corpus"].get("manifest", "data/manifest.json"))
+    if os.path.exists(man_path):
+        listed = [x["file"] for x in
+                  json.load(open(man_path, encoding="utf-8")).get("saved", [])]
+        files = [f for f in listed if os.path.exists(os.path.join(ddir, f))]
+        gone = [f for f in listed if f not in files]
+        if gone:
+            print(f"⚠️  manifest 에 있는데 파일이 없는 것 {len(gone)}건: {gone[:3]}")
+        on_disk = sum(1 for f in os.listdir(ddir) if f.endswith(".md"))
+        if on_disk != len(files):
+            print(f"ℹ️  data/docs 에 {on_disk}건이 있으나 manifest 의 {len(files)}건만 씁니다.")
+    else:
+        print("⚠️  manifest 가 없어 디렉토리 전체를 읽습니다.")
+        files = sorted(f for f in os.listdir(ddir) if f.endswith(".md"))
     if args.limit:
         files = files[: args.limit]
     docs = []

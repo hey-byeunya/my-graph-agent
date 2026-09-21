@@ -27,7 +27,9 @@ STEPS = [
     ("③' 색인 점검", [PY, "audit_graph.py"]),
     ("④ 답변 생성", [PY, "agent.py",
                    "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는?"]),
-    ("⑤ 채점 + 대조군", [PY, "evaluate.py", "--repeat", "1"]),
+    # --tag 를 붙여 eval_smoke.json 으로 쓴다. 태그가 없으면 기준 성적표인
+    # output/eval.json 을 1회 측정치로 덮어써 버린다 (실제로 그런 적이 있다).
+    ("⑤ 채점 + 대조군", [PY, "evaluate.py", "--repeat", "1", "--tag", "smoke"]),
     ("⑥ 데모 적재", [PY, "-c", "import app; print('app.py import OK')"]),
 ]
 

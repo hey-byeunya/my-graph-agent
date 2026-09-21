@@ -44,6 +44,8 @@ def squash(s):
 def score_item(item, answer, refused):
     """goldenset 의 grading_policy 대로 채점한다. (점수, 사유) 반환."""
     if item["hops"] == 0:
+        # refused 플래그를 먼저 본다. 문구 매칭은 프롬프트를 고칠 때마다 깨지므로
+        # 보조 수단으로만 남긴다 (대조군이 문구로만 거절을 표현하는 경우 대비).
         ok = refused or any(w in answer for w in REFUSAL_WORDS)
         return (1.0, "옳게 거절") if ok else (0.0, "근거 없는데 답을 지어냄")
 
@@ -103,6 +105,11 @@ def classify_failure(item, result, G):
 
     # ① 색인 — 기대 경로의 개체가 그래프에 있는가
     for subj, _rel, obj in steps:
+        if _rel.lstrip("~") == "WON_IN_YEAR":
+            # 연도는 노드가 아니라 속성이다 (audit_graph 와 같은 이유)
+            if subj not in G or G.nodes[subj].get("nobel_year") is None:
+                return "색인"
+            continue
         for name in (subj, obj):
             for part in [p.strip() for p in name.split("/")]:
                 if part and part != "작품" and part not in G:

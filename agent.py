@@ -94,9 +94,17 @@ class GraphAgent:
             q = q.replace(a, b)
 
         seeds, taken, year_seeds = [], [], []
+        bridged = []
         for name in self.node_names:
             if len(name) < 2 or name in self.never:
                 continue                      # 허브는 시작점으로도 쓰지 않는다
+            if self.G.nodes[name].get("type") in self.cap_types:
+                # 언어·국가·갈래·사조는 '다리' 지 출발점이 아니다.
+                # 여기서 출발하면 첫 홉부터 fanout 상한에 걸려 정답이 잘려나간다
+                # ("프랑스에서 노벨상 탄 작가?" 가 프랑스 노드에서 출발한 적이 있다).
+                if name in q:
+                    bridged.append(name)
+                continue
             if name not in q:
                 continue
             if any(name in t for t in taken):  # 이미 잡은 더 긴 이름의 일부면 건너뛴다
@@ -107,6 +115,10 @@ class GraphAgent:
                 break
 
         notes = [f"질문에서 찾은 시작 개체: {seeds or '없음'}"]
+        if bridged and not seeds:
+            # 다리만 잡혔다면 출발점이 없는 것과 같다. 조용히 넘어가지 않고 알린다.
+            notes.append(f"질문에 {', '.join(bridged)} 같은 다리 개체만 있다 — "
+                         f"출발점으로 쓰지 않는다 (거기서 뻗으면 이웃이 상한에 잘린다)")
 
         # 연도로 묻는 질문 — 수상 연도는 관계가 아니라 노드 속성이라 이름 매칭에 걸리지 않는다.
         # 속성을 뒤져 그 해 수상자를 시작 개체로 삼는다.
@@ -116,6 +128,10 @@ class GraphAgent:
         # 1989 는 부커상 연도인데, 그 해 노벨상 수상자(카밀로 호세 셀라)를 끌어와
         # 근거를 오염시킨다. 이름이 있으면 그쪽이 훨씬 확실한 시작점이다.
         year, by_year = self._year_lookup(q)
+        if year == "decade":
+            notes.append("연대(예: 1990년대)로 물었다 — 이 그래프는 수상 연도를 "
+                         "한 해 단위로만 담고 있어 연대 질문은 받지 않는다")
+            year = None
         if year and seeds:
             notes.append(f"질문에 {year}년이 있지만 시작 개체를 이름으로 찾았으므로 "
                          f"연도 조회는 쓰지 않는다")
@@ -142,6 +158,10 @@ class GraphAgent:
         연도를 노드로 만들지 않았기 때문에(허브가 되므로) 이 조회가 필요하다.
         config 의 excluded_relations_note 가 말하는 '속성 조회' 가 이것이다.
         """
+        # '1990년대' 는 한 해가 아니라 10년이다. 단년으로 읽으면 1990년 수상자를
+        # 그 연대 전체의 답인 양 내놓게 된다 — 실제로 그렇게 답한 적이 있다.
+        if re.search(r"(1[89]\d{2}|20[0-2]\d)\s*년\s*대", question):
+            return "decade", []
         m = re.search(r"(1[89]\d{2}|20[0-2]\d)\s*년", question)
         if not m:
             return None, []
@@ -176,6 +196,9 @@ class GraphAgent:
                 nbrs.sort(key=lambda x: self.G.degree(x[0]))
                 nbrs = nbrs[: self.tv["max_neighbors_per_bridge"]]
             else:
+                # 정렬 없이 자르면 NetworkX 인접 삽입 순서(≒추출 순서)에 기대게 되어
+                # 재빌드마다 잘리는 집합이 달라진다. 차수 낮은(구체적인) 것부터.
+                nbrs.sort(key=lambda x: (self.G.degree(x[0]), str(x[0])))
                 nbrs = nbrs[: self.tv["max_nodes_per_hop"]]
 
             for nbr, rel, u, v in nbrs:
@@ -272,15 +295,27 @@ class GraphAgent:
             f"{year_line}"
             "- 질문에 연도·순서·'데뷔' 같은 부수 조건이 붙어 있고 그것을 삼중항으로 "
             "확인할 수 없더라도, 질문이 묻는 **핵심 관계**가 삼중항에 있으면 "
-            "sufficient 를 true 로 두고 답한다. 대신 확인하지 못한 부분을 answer 에 "
-            "한 마디로 밝힌다 (예: '다만 어느 것이 데뷔작인지는 근거에 없습니다').\n"
-            "  핵심 관계가 여럿에 걸릴 때는 해당하는 것을 모두 답한다.\n\n"
+            "sufficient 를 true 로 두고 답한다.\n"
+            "  이때 **답을 먼저 말하고**, 확인하지 못한 부분은 뒤에 한 마디로 덧붙인다. "
+            "단서만 쓰고 답을 빼먹으면 안 된다 — '윌리엄 골딩의 데뷔 소설은?' 에 "
+            "'어느 것이 데뷔작인지는 근거에 없습니다' 라고만 답한 적이 있다. "
+            "'파리대왕과 통과 의례가 있습니다. 다만 어느 것이 먼저인지는 근거에 "
+            "없습니다' 처럼 후보를 대고 단서를 붙여라.\n"
+            "- **해당하는 것이 여럿이면 모두 나열한다.** 하나만 대고 끝내지 않는다. "
+            "삼중항에 그 조건을 만족하는 개체가 셋이면 셋을 다 적어라.\n\n"
             "거절해야 할 때\n"
             "- 질문이 묻는 핵심 관계 자체를 뒷받침하는 삼중항이 없으면 "
             "sufficient 를 false 로 두고 answer 는 비운다.\n"
             "- 두 개체 사이에 경로가 있다는 것만으로 관계가 있다고 하지 않는다. "
             "'A 와 B 가 함께 한 일' 을 물었다면 A 와 B 를 직접 잇는 삼중항이 있어야 한다.\n"
             "- 질문이 어떤 사실을 전제해도, 삼중항에 없으면 전제를 따르지 않는다.\n\n"
+            "- **답의 종류를 질문에 맞춰라.** 작품을 물었으면 작품 이름을, 사람을 "
+            "물었으면 사람 이름을 답한다. 삼중항의 목적어가 나라·언어·상이면 그것은 "
+            "작품이 아니다 (`헤이덴스탐 -NATIONALITY-> 스웨덴` 을 보고 '스웨덴' 을 "
+            "작품이라 답한 적이 있다). 질문이 '2024년 수상작' 처럼 작품을 물었는데 "
+            "삼중항에 사람만 있으면 사람 이름을 작품인 양 내놓지 않는다.\n"
+            "  이 규칙은 **답을 고를 때** 쓰는 것이지 거절 사유가 아니다 — "
+            "위의 '부수 조건' 규칙을 뒤집지 않는다.\n"
             "answer 는 한국어 두세 문장.\n"
             '출력은 JSON 하나로만 한다: {"answer": "...", "sufficient": true/false, '
             '"used": [답에 실제로 쓴 삼중항 번호], "reason": "판단 근거 한 문장"}'
@@ -366,6 +401,8 @@ class GraphAgent:
             ans = final.get("answer", "")
             used = [i for i, e in enumerate(ev, 1)
                     if e["subject"] in ans or e["object"] in ans]
+            for i in used:
+                ev[i - 1]["inferred"] = True   # LLM 이 고른 게 아니라 되채운 것
             if used:
                 final.setdefault("notes", []).append(
                     f"LLM 이 사용 근거를 비워 보내, 답변에 등장하는 개체로 "

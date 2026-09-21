@@ -73,6 +73,13 @@ def main():
         # 기대 경로에 등장하는 개체가 노드로 있는가
         for step in it["expected_path"]:
             subj, rel, obj = step
+            if rel.lstrip("~") == "WON_IN_YEAR":
+                # 연도는 노드가 아니라 Laureate 의 nobel_year 속성이다.
+                # 노드 존재로 검사하면 이 걸음은 늘 '없음' 이 된다.
+                if subj in G and G.nodes[subj].get("nobel_year") is not None:
+                    continue
+                gaps.append(f"수상 연도 속성 없음: {subj}")
+                continue
             for name in (subj, obj):
                 for part in [p.strip() for p in name.split("/")]:
                     if part in ("작품",) or not part:

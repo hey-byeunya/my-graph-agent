@@ -1,6 +1,6 @@
 {
   "source": "한국어 위키백과 (MediaWiki API)",
-  "collected_at": "2026-09-21 13:05:05",
+  "collected_at": "2026-09-21 10:28:04",
   "seeds": [
     "한강 (작가)",
     "가즈오 이시구로",
@@ -20,21 +20,13 @@
   "counts": {
     "seeds": 10,
     "two_hop_candidates": 610,
-    "shared_category": 128,
-    "rejected_no_shared_category": 52,
-    "rejected_stub": 4,
+    "shared_category": 120,
+    "rejected_no_shared_category": 40,
+    "rejected_stub": 3,
     "failed": 0,
     "saved": 60
   },
   "rejected_stub": [
-    {
-      "title": "오디세아스 엘리티스",
-      "chars": 762
-    },
-    {
-      "title": "비센테 알레익산드레",
-      "chars": 741
-    },
     {
       "title": "에리크 악셀 카를펠트",
       "chars": 620
@@ -42,6 +34,10 @@
     {
       "title": "브와디스와프 레이몬트",
       "chars": 582
+    },
+    {
+      "title": "아이작 바셰비스 싱어",
+      "chars": 379
     }
   ],
   "failed": [],
@@ -49,349 +45,302 @@
     {
       "title": "한강 (작가)",
       "file": "한강_(작가).md",
-      "chars": 6781,
-      "cached": true
+      "chars": 2725
     },
     {
       "title": "가즈오 이시구로",
       "file": "가즈오_이시구로.md",
-      "chars": 4196,
-      "cached": true
+      "chars": 1716
     },
     {
       "title": "올가 토카르추크",
       "file": "올가_토카르추크.md",
-      "chars": 3193,
-      "cached": true
+      "chars": 1305
     },
     {
       "title": "가브리엘 가르시아 마르케스",
       "file": "가브리엘_가르시아_마르케스.md",
-      "chars": 3684,
-      "cached": true
+      "chars": 1532
     },
     {
       "title": "오르한 파무크",
       "file": "오르한_파무크.md",
-      "chars": 2914,
-      "cached": true
+      "chars": 1114
     },
     {
       "title": "헤르타 뮐러",
       "file": "헤르타_뮐러.md",
-      "chars": 8456,
-      "cached": true
+      "chars": 3372
     },
     {
       "title": "도리스 레싱",
       "file": "도리스_레싱.md",
-      "chars": 5049,
-      "cached": true
+      "chars": 3396
     },
     {
       "title": "사뮈엘 베케트",
       "file": "사뮈엘_베케트.md",
-      "chars": 2564,
-      "cached": true
+      "chars": 903
     },
     {
       "title": "윌리엄 포크너",
       "file": "윌리엄_포크너.md",
-      "chars": 2774,
-      "cached": true
+      "chars": 1120
     },
     {
       "title": "파블로 네루다",
       "file": "파블로_네루다.md",
-      "chars": 6704,
-      "cached": true
+      "chars": 2690
     },
     {
-      "title": "윌리엄 골딩",
-      "file": "윌리엄_골딩.md",
-      "chars": 2234,
-      "cached": true
+      "title": "슈무엘 요세프 아그논",
+      "file": "슈무엘_요세프_아그논.md",
+      "chars": 1118
     },
     {
-      "title": "V. S. 나이폴",
-      "file": "V._S._나이폴.md",
-      "chars": 3311,
-      "cached": true
-    },
-    {
-      "title": "조지프 브로드스키",
-      "file": "조지프_브로드스키.md",
-      "chars": 1342
-    },
-    {
-      "title": "존 스타인벡",
-      "file": "존_스타인벡.md",
-      "chars": 6308,
-      "cached": true
-    },
-    {
-      "title": "프랑수아 모리아크",
-      "file": "프랑수아_모리아크.md",
-      "chars": 2656,
-      "cached": true
-    },
-    {
-      "title": "게르하르트 하웁트만",
-      "file": "게르하르트_하웁트만.md",
-      "chars": 7636,
-      "cached": true
-    },
-    {
-      "title": "장마리 귀스타브 르 클레지오",
-      "file": "장마리_귀스타브_르_클레지오.md",
-      "chars": 3545,
-      "cached": true
-    },
-    {
-      "title": "앙드레 지드",
-      "file": "앙드레_지드.md",
-      "chars": 9356,
-      "cached": true
-    },
-    {
-      "title": "파울 요한 루트비히 폰 하이제",
-      "file": "파울_요한_루트비히_폰_하이제.md",
-      "chars": 2485,
-      "cached": true
-    },
-    {
-      "title": "넬리 작스",
-      "file": "넬리_작스.md",
-      "chars": 1068
-    },
-    {
-      "title": "셰이머스 히니",
-      "file": "셰이머스_히니.md",
-      "chars": 4050,
-      "cached": true
-    },
-    {
-      "title": "압둘라자크 구르나",
-      "file": "압둘라자크_구르나.md",
-      "chars": 1379
-    },
-    {
-      "title": "카밀로 호세 셀라",
-      "file": "카밀로_호세_셀라.md",
-      "chars": 10825,
-      "cached": true
-    },
-    {
-      "title": "장폴 사르트르",
-      "file": "장폴_사르트르.md",
-      "chars": 13750
-    },
-    {
-      "title": "루돌프 크리스토프 오이켄",
-      "file": "루돌프_크리스토프_오이켄.md",
-      "chars": 3707,
-      "cached": true
-    },
-    {
-      "title": "모옌",
-      "file": "모옌.md",
-      "chars": 2630,
-      "cached": true
-    },
-    {
-      "title": "귄터 그라스",
-      "file": "귄터_그라스.md",
-      "chars": 4011,
-      "cached": true
-    },
-    {
-      "title": "다리오 포",
-      "file": "다리오_포.md",
-      "chars": 4144,
-      "cached": true
-    },
-    {
-      "title": "이보 안드리치",
-      "file": "이보_안드리치.md",
-      "chars": 3041
-    },
-    {
-      "title": "네이딘 고디머",
-      "file": "네이딘_고디머.md",
-      "chars": 4307,
-      "cached": true
-    },
-    {
-      "title": "엘프리데 옐리네크",
-      "file": "엘프리데_옐리네크.md",
-      "chars": 1292
-    },
-    {
-      "title": "요하네스 빌헬름 옌센",
-      "file": "요하네스_빌헬름_옌센.md",
-      "chars": 2981,
-      "cached": true
-    },
-    {
-      "title": "가오싱젠",
-      "file": "가오싱젠.md",
-      "chars": 1167
-    },
-    {
-      "title": "조수에 카르두치",
-      "file": "조수에_카르두치.md",
-      "chars": 2991,
-      "cached": true
-    },
-    {
-      "title": "크러스너호르커이 라슬로",
-      "file": "크러스너호르커이_라슬로.md",
-      "chars": 6375,
-      "cached": true
-    },
-    {
-      "title": "욘 포세",
-      "file": "욘_포세.md",
-      "chars": 7397,
-      "cached": true
-    },
-    {
-      "title": "비스와바 심보르스카",
-      "file": "비스와바_심보르스카.md",
-      "chars": 2302,
-      "cached": true
-    },
-    {
-      "title": "카를 아돌프 기엘레루프",
-      "file": "카를_아돌프_기엘레루프.md",
-      "chars": 2710,
-      "cached": true
-    },
-    {
-      "title": "러디어드 키플링",
-      "file": "러디어드_키플링.md",
-      "chars": 3968,
-      "cached": true
-    },
-    {
-      "title": "하인리히 뵐",
-      "file": "하인리히_뵐.md",
-      "chars": 4967,
-      "cached": true
-    },
-    {
-      "title": "엘리아스 카네티",
-      "file": "엘리아스_카네티.md",
-      "chars": 4479
-    },
-    {
-      "title": "오에 겐자부로",
-      "file": "오에_겐자부로.md",
-      "chars": 9122
-    },
-    {
-      "title": "나기브 마푸즈",
-      "file": "나기브_마푸즈.md",
-      "chars": 8154,
-      "cached": true
-    },
-    {
-      "title": "밥 딜런",
-      "file": "밥_딜런.md",
-      "chars": 11355
+      "title": "가브리엘라 미스트랄",
+      "file": "가브리엘라_미스트랄.md",
+      "chars": 1940
     },
     {
       "title": "가와바타 야스나리",
       "file": "가와바타_야스나리.md",
-      "chars": 16508,
-      "cached": true
+      "chars": 6869
     },
     {
-      "title": "크누트 함순",
-      "file": "크누트_함순.md",
-      "chars": 3015,
-      "cached": true
+      "title": "버트런드 러셀",
+      "file": "버트런드_러셀.md",
+      "chars": 11369
+    },
+    {
+      "title": "호세 에체가라이",
+      "file": "호세_에체가라이.md",
+      "chars": 1035
+    },
+    {
+      "title": "데릭 월컷",
+      "file": "데릭_월컷.md",
+      "chars": 916
+    },
+    {
+      "title": "장마리 귀스타브 르 클레지오",
+      "file": "장마리_귀스타브_르_클레지오.md",
+      "chars": 1530
+    },
+    {
+      "title": "V. S. 나이폴",
+      "file": "V._S._나이폴.md",
+      "chars": 1745
     },
     {
       "title": "패트릭 화이트",
       "file": "패트릭_화이트.md",
-      "chars": 3256,
-      "cached": true
-    },
-    {
-      "title": "요르고스 세페리스",
-      "file": "요르고스_세페리스.md",
-      "chars": 1106
-    },
-    {
-      "title": "헨리크 폰토피단",
-      "file": "헨리크_폰토피단.md",
-      "chars": 1341
-    },
-    {
-      "title": "조지 버나드 쇼",
-      "file": "조지_버나드_쇼.md",
-      "chars": 36515,
-      "cached": true
-    },
-    {
-      "title": "셀마 라겔뢰프",
-      "file": "셀마_라겔뢰프.md",
-      "chars": 6626,
-      "cached": true
-    },
-    {
-      "title": "해럴드 핀터",
-      "file": "해럴드_핀터.md",
-      "chars": 5548,
-      "cached": true
-    },
-    {
-      "title": "라빈드라나트 타고르",
-      "file": "라빈드라나트_타고르.md",
-      "chars": 2896,
-      "cached": true
-    },
-    {
-      "title": "토마스 트란스트뢰메르",
-      "file": "토마스_트란스트뢰메르.md",
-      "chars": 1472
-    },
-    {
-      "title": "존 골즈워디",
-      "file": "존_골즈워디.md",
-      "chars": 2488,
-      "cached": true
-    },
-    {
-      "title": "토니 모리슨",
-      "file": "토니_모리슨.md",
-      "chars": 13568,
-      "cached": true
-    },
-    {
-      "title": "펄 S. 벅",
-      "file": "펄_S._벅.md",
-      "chars": 7833,
-      "cached": true
-    },
-    {
-      "title": "토마스 만",
-      "file": "토마스_만.md",
-      "chars": 8426,
-      "cached": true
-    },
-    {
-      "title": "생존 페르스",
-      "file": "생존_페르스.md",
-      "chars": 2365,
-      "cached": true
+      "chars": 1334
     },
     {
       "title": "윈스턴 처칠",
       "file": "윈스턴_처칠.md",
-      "chars": 118024,
-      "cached": true
+      "chars": 49573
+    },
+    {
+      "title": "클로드 시몽",
+      "file": "클로드_시몽.md",
+      "chars": 5097
+    },
+    {
+      "title": "카밀로 호세 셀라",
+      "file": "카밀로_호세_셀라.md",
+      "chars": 4531
+    },
+    {
+      "title": "페터 한트케",
+      "file": "페터_한트케.md",
+      "chars": 2146
+    },
+    {
+      "title": "모옌",
+      "file": "모옌.md",
+      "chars": 1337
+    },
+    {
+      "title": "앨리스 먼로",
+      "file": "앨리스_먼로.md",
+      "chars": 885
+    },
+    {
+      "title": "파울 요한 루트비히 폰 하이제",
+      "file": "파울_요한_루트비히_폰_하이제.md",
+      "chars": 1113
+    },
+    {
+      "title": "셰이머스 히니",
+      "file": "셰이머스_히니.md",
+      "chars": 1656
+    },
+    {
+      "title": "야로슬라프 사이페르트",
+      "file": "야로슬라프_사이페르트.md",
+      "chars": 3201
+    },
+    {
+      "title": "미하일 숄로호프",
+      "file": "미하일_숄로호프.md",
+      "chars": 1216
+    },
+    {
+      "title": "크누트 함순",
+      "file": "크누트_함순.md",
+      "chars": 1328
+    },
+    {
+      "title": "존 스타인벡",
+      "file": "존_스타인벡.md",
+      "chars": 3276
+    },
+    {
+      "title": "헤르만 헤세",
+      "file": "헤르만_헤세.md",
+      "chars": 5985
+    },
+    {
+      "title": "러디어드 키플링",
+      "file": "러디어드_키플링.md",
+      "chars": 1683
+    },
+    {
+      "title": "에위빈드 욘손",
+      "file": "에위빈드_욘손.md",
+      "chars": 1364
+    },
+    {
+      "title": "윌리엄 골딩",
+      "file": "윌리엄_골딩.md",
+      "chars": 872
+    },
+    {
+      "title": "카를 아돌프 기엘레루프",
+      "file": "카를_아돌프_기엘레루프.md",
+      "chars": 1212
+    },
+    {
+      "title": "월레 소잉카",
+      "file": "월레_소잉카.md",
+      "chars": 1220
+    },
+    {
+      "title": "하뤼 마르틴손",
+      "file": "하뤼_마르틴손.md",
+      "chars": 882
+    },
+    {
+      "title": "앙드레 지드",
+      "file": "앙드레_지드.md",
+      "chars": 4805
+    },
+    {
+      "title": "요하네스 빌헬름 옌센",
+      "file": "요하네스_빌헬름_옌센.md",
+      "chars": 1218
+    },
+    {
+      "title": "조수에 카르두치",
+      "file": "조수에_카르두치.md",
+      "chars": 1232
+    },
+    {
+      "title": "모리스 마테를링크",
+      "file": "모리스_마테를링크.md",
+      "chars": 4369
+    },
+    {
+      "title": "생존 페르스",
+      "file": "생존_페르스.md",
+      "chars": 946
+    },
+    {
+      "title": "나기브 마푸즈",
+      "file": "나기브_마푸즈.md",
+      "chars": 3612
+    },
+    {
+      "title": "네이딘 고디머",
+      "file": "네이딘_고디머.md",
+      "chars": 1664
+    },
+    {
+      "title": "마리오 바르가스 요사",
+      "file": "마리오_바르가스_요사.md",
+      "chars": 1987
+    },
+    {
+      "title": "케르테스 임레",
+      "file": "케르테스_임레.md",
+      "chars": 933
+    },
+    {
+      "title": "프레데리크 미스트랄",
+      "file": "프레데리크_미스트랄.md",
+      "chars": 1376
+    },
+    {
+      "title": "스베틀라나 알렉시예비치",
+      "file": "스베틀라나_알렉시예비치.md",
+      "chars": 1167
+    },
+    {
+      "title": "욘 포세",
+      "file": "욘_포세.md",
+      "chars": 2998
+    },
+    {
+      "title": "크러스너호르커이 라슬로",
+      "file": "크러스너호르커이_라슬로.md",
+      "chars": 2943
+    },
+    {
+      "title": "베르네르 폰 헤이덴스탐",
+      "file": "베르네르_폰_헤이덴스탐.md",
+      "chars": 1134
+    },
+    {
+      "title": "귄터 그라스",
+      "file": "귄터_그라스.md",
+      "chars": 1671
+    },
+    {
+      "title": "게르하르트 하웁트만",
+      "file": "게르하르트_하웁트만.md",
+      "chars": 3518
+    },
+    {
+      "title": "아니 에르노",
+      "file": "아니_에르노.md",
+      "chars": 2041
+    },
+    {
+      "title": "루돌프 크리스토프 오이켄",
+      "file": "루돌프_크리스토프_오이켄.md",
+      "chars": 1566
+    },
+    {
+      "title": "싱클레어 루이스",
+      "file": "싱클레어_루이스.md",
+      "chars": 1189
+    },
+    {
+      "title": "어니스트 헤밍웨이",
+      "file": "어니스트_헤밍웨이.md",
+      "chars": 29048
+    },
+    {
+      "title": "헨리크 시엔키에비치",
+      "file": "헨리크_시엔키에비치.md",
+      "chars": 1060
+    },
+    {
+      "title": "그라치아 델레다",
+      "file": "그라치아_델레다.md",
+      "chars": 1139
     }
   ]
 }

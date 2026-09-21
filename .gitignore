@@ -20,10 +20,16 @@ __pycache__/
 .cache/
 data/.raw_cache/
 
+# ── 실행 로그 — append 전용이라 손으로 물어본 것까지 쌓인다.
+#    재현에 필요한 기록은 output/eval*.json · e2e_run.json 이 담는다.
+output/runs.jsonl
+
 # ── 개발용 도구 · 설정 — 제출물을 돌리는 데 필요 없다
 #    make_screenshots.py 는 문서용 캡처 도구로, playwright 를 따로 깔아야 하고
 #    requirements.txt 에도 없다. 결과물인 docs/*.png 만 저장소에 남긴다.
 make_screenshots.py
+code-review.md
+plan.md
 .claude/
 .streamlit/
 playwright-report/

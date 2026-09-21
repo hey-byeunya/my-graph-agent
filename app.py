@@ -12,6 +12,7 @@
 """
 import json
 import os
+import re
 
 import streamlit as st
 
@@ -40,6 +41,19 @@ def load_agent():
 
 
 @st.cache_data
+def doc_files():
+    """문서 제목 -> 파일명 매핑. 그래프 노드는 정규형('한강')이고
+    파일은 위키 제목('한강_(작가).md')이라 둘 다 키로 넣는다."""
+    man = load_json("data/manifest.json") or {}
+    out = {}
+    for row in man.get("saved", []):
+        title, fname = row["title"], row["file"]
+        out[title] = fname
+        out[re.sub(r"\s*\([^)]*\)\s*$", "", title).strip()] = fname
+    return out
+
+
+@st.cache_data
 def load_json(name):
     path = os.path.join(HERE, name)
     if os.path.exists(path):
@@ -63,7 +77,10 @@ def sidebar(agent):
 
     st.sidebar.divider()
     st.sidebar.subheader("탐색 설정")
-    tv = agent.tv
+    # 캐시된 agent 의 dict 를 직접 고치면 설정이 질문 사이로 새고 원래 값으로
+    # 못 돌아온다. config 원본을 복사해 쓰고, 이번 질문에만 적용한다.
+    tv = dict(agent.cfg["traverse"])
+    agent.tv = tv
     tv["max_hops"] = st.sidebar.slider(
         "기본 반경 (홉)", 1, 3, tv["max_hops"],
         help="여기까지 펼쳐 근거를 모읍니다.")
@@ -135,14 +152,17 @@ def render(r):
 
     with t3:
         if r["sources"]:
+            docmap = doc_files()
             for s in r["sources"]:
-                path = os.path.join(HERE, "data", "docs",
-                                    s.replace(" ", "_") + ".md")
+                # 제목의 공백을 _ 로 바꾸는 것만으로는 '한강 (작가)' 같은 동음이의
+                # 주석이 붙은 파일을 못 찾는다. manifest 의 title->file 매핑을 먼저 본다.
+                name = docmap.get(s) or (s.replace(" ", "_") + ".md")
+                path = os.path.join(HERE, "data", "docs", name)
                 with st.expander(s):
                     if os.path.exists(path):
                         st.text(open(path, encoding="utf-8").read()[:2500])
                     else:
-                        st.caption("원문 파일을 찾지 못했습니다.")
+                        st.caption(f"원문 파일을 찾지 못했습니다 ({name}).")
         else:
             st.info("출처 문서가 없습니다.")
 
