@@ -5,9 +5,11 @@
 한국어 위키백과 문서 60건에서 지식 그래프를 만들고, 멀티홉 질문에 **근거로 쓴 삼중항과 실제로 탄 경로를 함께** 답합니다. 근거가 없으면 지어내지 않고 거절합니다.
 
 ```
-노드 416 · 엣지 468 · 평가셋 14문항
+노드 416 · 엣지 468 · 평가셋 14문항 (5회 반복)
 GraphRAG 0.90  vs  basic RAG(BM25) 0.66     ← 2홉 구간은 1.00 vs 0.30
 ```
+
+설계 근거·측정 결과·실패 분석은 [REPORT.md](REPORT.md) 에 있습니다.
 
 ## 실행 방법
 
@@ -17,51 +19,78 @@ pip install -r requirements.txt
 cp .env.example .env        # OPENAI_API_KEY 를 채웁니다
 ```
 
-파이프라인을 처음부터 돌리려면 순서대로:
+### 바로 써 보기 — 저장소에 든 그래프로
 
-```bash
-python collect_corpus.py     # ① 위키백과에서 문서 60건 수집  → data/docs/
-                             #    (이미 모았으면 아무것도 하지 않음. --refresh 로 재수집)
-python verify_goldenset.py   # ② 평가셋 근거가 원문과 맞는지 대조
-python build_graph.py        # ③ 추출 + 정제            → output/graph.graphml
-python audit_graph.py        # ③' 기대 경로가 그래프에 깔렸는지 점검
-python evaluate.py           # ⑤ 홉 수별 채점 + basic RAG 대조 → output/eval.json
-python run_e2e.py            # 전 구간을 이어서 돌려 무오류 확인 → output/e2e_run.json
-```
-
-이미 만들어진 `output/` 을 쓴다면 바로:
+그래프·평가 결과가 `output/` 에 이미 들어 있으므로 곧바로 질문할 수 있습니다.
 
 ```bash
 python agent.py "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는?"
-streamlit run app.py         # ⑥ 데모 화면 (http://localhost:8501)
+python agent.py                # 대화형
+streamlit run app.py           # 데모 화면 (http://localhost:8501)
 ```
 
-> 코퍼스는 한 번 모으면 고정됩니다 — `collect_corpus.py` 는 manifest 가 완성돼 있으면
-> 아무것도 하지 않습니다(`--refresh` 로만 다시 모음). `build_graph.py` 도 디렉토리가
-> 아니라 manifest 목록만 읽으므로, 재실행해도 같은 그래프가 나옵니다.
-> 추출 결과는 `.cache/` 에 남아 재실행이 공짜입니다.
-> 전체 추출 비용은 gpt-4o-mini 기준 약 $0.035 입니다.
+### 전 구간이 도는지 한 번에 확인
+
+```bash
+python run_e2e.py              # 수집→검사→구축→점검→답변→채점→데모 적재 → output/e2e_run.json
+```
+
+### 단계별로 돌리기
+
+```bash
+python collect_corpus.py       # ① 문서 60건 수집 → data/docs/
+                               #    이미 모았으면 아무것도 하지 않음 (--refresh 로 재수집)
+python verify_goldenset.py     # ② 평가셋 근거 26개가 원문과 글자 그대로 맞는지 대조
+python build_graph.py          # ③ 추출 + 정제 → output/graph.graphml
+python audit_graph.py          # ③' 평가셋의 기대 경로가 그래프에 깔렸는지 점검
+python evaluate.py             # ⑤ 14문항 × 5회 채점 + basic RAG 대조 → output/eval.json
+```
+
+그 밖에:
+
+```bash
+python agent.py --mermaid                               # LangGraph 구조도 (REPORT 4절의 원본)
+python evaluate.py --max-hops 3 --no-widen --tag hop3   # 반경 실험 → output/eval_hop3.json
+```
+
+> **REPORT 의 수치를 그대로 재현하려면 `build_graph.py` 를 다시 돌리지 마세요.**
+> 추출은 LLM 이 하므로, 추출 캐시(`.cache/`, 저장소에 없음)가 없는 상태에서 다시 돌리면
+> 삼중항이 조금 달라지고 그에 따라 성적도 움직입니다. 저장소에 든 `output/graph.graphml`
+> 을 그대로 쓰면 REPORT 와 같은 그래프입니다.
+>
+> 한 번 추출하고 나면 캐시가 생겨 그다음부터는 같은 그래프가 나옵니다 — 캐시 키가
+> 프롬프트·모델·문서 **내용 해시**이기 때문입니다. 전량 추출 비용은 gpt-4o-mini 로 약 $0.04 입니다.
+>
+> 코퍼스는 한 번 모으면 고정됩니다. `collect_corpus.py` 는 `manifest.json` 이 완성돼 있으면
+> 위키백과를 치지 않고, `build_graph.py` 도 디렉토리가 아니라 manifest 목록만 읽습니다.
 
 ## 디렉토리
 
 ```
 collect_corpus.py    ① 코퍼스 수집 (MediaWiki API)
 verify_goldenset.py  ② 평가셋 자체검사 — 근거가 원문에 글자 그대로 있는지 대조
-build_graph.py       ③ 스키마 제한 추출 + 정규화(별칭·불용어·병합)
+build_graph.py       ③ 스키마 제한 추출 + 정규화(별칭·불용어·병합) + 수상 연도 속성
 audit_graph.py       ③' 색인 층 점검 — 기대 경로가 그래프에 있는가
 agent.py             ④ LangGraph 멀티홉 에이전트
 rag_basic.py         ⑤ 대조군 (BM25) — 같은 코퍼스·모델·채점
 evaluate.py          ⑤ 홉 수별 채점 · 경로 재현율 · 실패 층 분류
 app.py               ⑥ 데모 (streamlit)
-run_e2e.py           전 구간 구동 점검 — 수집부터 답변까지 한 번에
+run_e2e.py           전 구간 구동 점검
 
-config.json          도메인에 묶인 값 전부 — 시드·스키마·허브 기준·반경
-data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json
+config.json          시드 · 스키마 · 별칭 · 병합 금지 쌍 · 허브 · 반경 · 모델
+data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json (코퍼스 목록)
 output/              graph.graphml · triples.json · eval.json · eval_hop*.json
                      build_report.json · index_audit.json · e2e_run.json
+docs/                데모 화면 캡처
 REPORT.md            제출용 보고서
 ```
 
-코드에는 도메인 지식을 하드코딩하지 않았습니다 — 주제를 바꾸려면 `config.json` 의 시드와 스키마만 갈아 끼우면 됩니다.
+### 주제를 바꾸려면
+
+도메인에 묶인 **값**(시드 · 스키마 · 별칭 · 병합 금지 쌍 · 통과 금지 허브 · 반경)은 전부 `config.json` 에 있습니다. 다만 아래는 이 주제에 맞춰 코드에 들어가 있어 함께 손봐야 합니다.
+
+- `build_graph.py` 의 수상 연도 추출 — 본문에서 "노벨 문학상" 옆의 연도를 찾는 정규식
+- `agent.py` 의 답변 프롬프트 — 실제로 틀렸던 사례(골딩의 데뷔작, '스웨덴'을 작품이라 답한 것)를 예시로 담고 있음
+- `app.py` 의 제목과 예시 질문
 
 > `.env` 와 실행 로그(`output/runs.jsonl`)는 커밋하지 않습니다.

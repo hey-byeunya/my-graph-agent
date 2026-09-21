@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """5단계 — 홉 수별 채점 + basic RAG 대조 + 실패 층 분류.
 
-  python evaluate.py               # 3회 반복 (불안정한 문항을 드러낸다)
+  python evaluate.py               # 5회 반복 — 기준 성적표 eval.json 을 만든다
   python evaluate.py --repeat 1    # 빠르게 한 번만
   python evaluate.py --only 3 6    # 특정 문항만
 
@@ -129,7 +129,9 @@ def classify_failure(item, result, G):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--repeat", type=int, default=3)
+    # 기본값을 기준 성적표(eval.json)와 같은 5회로 둔다. 3회였을 때는 README 대로
+    # 'python evaluate.py' 만 치면 REPORT 와 다른 반복 횟수로 eval.json 이 덮어써졌다.
+    ap.add_argument("--repeat", type=int, default=5)
     ap.add_argument("--only", type=int, nargs="*")
     ap.add_argument("--no-basic", action="store_true", help="대조군을 건너뛴다")
     ap.add_argument("--max-hops", type=int,
