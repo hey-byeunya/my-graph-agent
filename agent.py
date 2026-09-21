@@ -34,6 +34,7 @@ load_dotenv(os.path.join(HERE, ".env"))
 
 class AgentState(TypedDict, total=False):
     question: str
+    question_norm: str     # 별칭 치환한 질문 — LLM 에는 이걸 준다(원문 question 은 로그·결과용)
     hops: int              # 지금 몇 홉까지 펼쳤는가
     seeds: list            # 질문에서 찾은 시작 개체
     evidence: list         # [{subject, relation, object, docs, evidence}]
@@ -179,7 +180,7 @@ class GraphAgent:
             notes.append("시작 개체가 없다 — 그래프에 없는 것을 묻고 있다")
         return {**state, "seeds": seeds, "hops": self.tv["max_hops"],
                 "widened": 0, "asked_year": year, "year_seeds": year_seeds,
-                "notes": notes}
+                "question_norm": q, "notes": notes}
 
     def _year_lookup(self, question):
         """질문의 연도(또는 연대)와, 그 해(구간)에 수상한 사람들을 돌려준다.
@@ -198,10 +199,11 @@ class GraphAgent:
         if m_decade:
             start = int(m_decade.group(1))
             end = start + 9
-            winners = sorted(n for n, d in self.G.nodes(data=True)
-                             if d.get("type") == "Laureate"
-                             and d.get("nobel_year") is not None
-                             and start <= d["nobel_year"] <= end)
+            winners = sorted((n for n, d in self.G.nodes(data=True)
+                              if d.get("type") == "Laureate"
+                              and d.get("nobel_year") is not None
+                              and start <= d["nobel_year"] <= end),
+                             key=lambda n: (self.G.nodes[n]["nobel_year"], n))
             return (start, end), winners
         m = re.search(r"(1[89]\d{2}|20[0-2]\d)\s*년", question)
         if not m:
@@ -284,14 +286,18 @@ class GraphAgent:
         # 모든 시드에 무조건 붙였더니 1홉 문항이 무너졌다 — "이시구로가 1989년
         # 맨부커상을 받은 작품은?" 에서 '이시구로 -WON_IN_YEAR-> 2017' 이 근거
         # 맨 앞에 뜨자, 질문의 1989 와 어긋나 답을 못 하게 됐다.
-        for name in state.get("year_seeds") or []:
-            y = self.G.nodes.get(name, {}).get("nobel_year")
-            if y:
-                evidence.insert(0, {
-                    "subject": name, "relation": "WON_IN_YEAR", "object": str(y),
-                    "depth": 0, "docs": [name],
-                    "quote": f"{name} 문서에서 읽은 노벨문학상 수상 연도",
-                })
+        # 연도 오름차순으로 모아 한 번에 맨 앞에 끼운다 — 정렬해서 넣어 두면
+        # LLM 이 "정렬해서 나열하라"는 지시 없이 받은 순서대로만 적어도 된다
+        # (연대 질문에서 프롬프트가 하던 정렬을 여기서 대신한다).
+        year_seed_ev = [
+            {"subject": name, "relation": "WON_IN_YEAR", "object": str(y),
+             "depth": 0, "docs": [name],
+             "quote": f"{name} 문서에서 읽은 노벨문학상 수상 연도"}
+            for name in sorted(state.get("year_seeds") or [],
+                               key=lambda n: self.G.nodes.get(n, {}).get("nobel_year") or 0)
+            if (y := self.G.nodes.get(name, {}).get("nobel_year"))
+        ]
+        evidence[0:0] = year_seed_ev
 
         for e in evidence:
             arrow = f"{e['subject']} -{e['relation']}-> {e['object']}"
@@ -317,13 +323,18 @@ class GraphAgent:
             return {**state, "answer": "", "sufficient": False,
                     "notes": state["notes"] + ["근거가 하나도 없다"]}
 
+        # 개체 이름 옆에 그래프의 type 속성을 붙인다 — "목적어가 나라·언어·상이면
+        # 작품이 아니다" 를 산문으로 설명하는 대신, 이미 아는 값을 데이터로 준다.
+        # WON_IN_YEAR 의 목적어는 노드가 아니라 연도 문자열이라 타입이 없다.
+        def _typed(name):
+            t = self.G.nodes.get(name, {}).get("type")
+            return f"{name}:{t}" if t else name
+
         lines = "\n".join(
-            f"{i+1}. [{e['subject']}] -{e['relation']}-> [{e['object']}]"
+            f"{i+1}. [{_typed(e['subject'])}] -{e['relation']}-> [{_typed(e['object'])}]"
             f"   (출처: {', '.join(e['docs']) or '?'})"
             for i, e in enumerate(ev)
         )
-        alias_lines = "\n".join(f"  - '{a}' 는 '{b}' 와 같은 것이다"
-                                for a, b in self.alias.items())
         # 연도 근거 설명(year_line)과 연대 나열 형식(decade_line)은 사실 하나의
         # 블록이다 — decade_line 이 켜지는 조건(year_seeds 2개 이상)이면 evidence
         # 에 WON_IN_YEAR 가 반드시 있어 year_line 도 항상 같이 켜진다. 늘 붙이면
@@ -333,10 +344,13 @@ class GraphAgent:
             year_block = ("- `WON_IN_YEAR` 는 **그 사람이 노벨문학상을 받은 해**를 뜻한다. "
                          "연도로 물었다면 이 삼중항이 바로 답의 근거다.\n")
             if len(state.get("year_seeds") or []) > 1:
-                year_block += ("  질문이 여러 해(연대)를 묻고 있다. 이 삼중항들을 "
-                               "연도 오름차순으로 정렬해 `{연도}년: {이름}` 형식으로 "
-                               "나열하고, 코퍼스에 없는 해는 언급하지 않는다(이미 근거가 "
-                               "없다고 밝힌 것을 또 사과하지 않는다).\n")
+                # 정렬은 expand() 가 이미 연도 오름차순으로 해서 넣었다 —
+                # 여기서는 "정렬해라"가 아니라 "받은 순서대로" 라고만 시킨다.
+                year_block += ("  질문이 여러 해(연대)를 묻고 있다. 이 삼중항들은 "
+                               "이미 연도 오름차순으로 나열돼 있다 — 그 순서 그대로 "
+                               "`{연도}년: {이름}` 형식으로 적고, 코퍼스에 없는 해는 "
+                               "언급하지 않는다(이미 근거가 없다고 밝힌 것을 또 사과하지 "
+                               "않는다).\n")
         else:
             year_block = ""
         system = (
@@ -345,8 +359,9 @@ class GraphAgent:
             "- 아래 삼중항에 있는 것만 쓴다. 상식·추측·바깥 지식을 절대 보태지 않는다.\n"
             "- **여러 삼중항을 이어서 답한다.** 답이 한 삼중항에 통째로 들어 있는 경우는 "
             "드물다. A-관계->B 와 B-관계->C 를 이어 A 에서 C 를 끌어내는 것이 네 일이다.\n"
-            "- 삼중항의 표기는 통일돼 있다. 질문의 표기가 달라도 같은 것으로 본다:\n"
-            f"{alias_lines}\n"
+            "- 개체 이름 뒤 `:타입` 은 그래프 스키마의 분류다(`Laureate`=수상자, "
+            "`Work`=작품, 나머지는 나라·언어·갈래·사조·상). 답의 종류를 고를 때 "
+            "참고한다.\n"
             f"{year_block}"
             "\n답할지 거절할지 — 핵심 판단은 하나다: **질문이 묻는 핵심 관계를 직접 "
             "뒷받침하는 삼중항이 있는가.**\n"
@@ -365,18 +380,20 @@ class GraphAgent:
             "포함) sufficient 를 false 로 두고 answer 는 비운다. 없는 전제를 "
             "따르지 않는다.\n\n"
             "답 형식\n"
-            "- **답의 종류를 질문에 맞춘다** — 작품을 물었으면 작품 이름을, 사람을 "
-            "물었으면 사람 이름을 답한다. 삼중항의 목적어가 나라·언어·상이면 그것은 "
-            "작품이 아니다 (`헤이덴스탐 -NATIONALITY-> 스웨덴` 을 보고 '스웨덴' 을 "
-            "작품이라 답한 적이 있다). 질문이 '2024년 수상작' 처럼 작품을 물었는데 "
-            "삼중항에 사람만 있으면 사람 이름을 작품인 양 내놓지 않는다. 이건 "
+            "- **답의 종류를 질문에 맞춘다** — 작품(`:Work`)을 물었으면 작품 이름을, "
+            "사람(`:Laureate`)을 물었으면 사람 이름을 답한다. `:Country`·"
+            "`:Language`·`:Award` 는 작품이 아니다 (예: '스웨덴' 을 작품이라 답한 "
+            "적이 있다). 질문이 '2024년 수상작' 처럼 작품을 물었는데 삼중항에 "
+            "`:Laureate` 만 있으면 그 이름을 작품인 양 내놓지 않는다. 이건 "
             "**후보를 고르는** 기준이지, 위 '답할지 거절할지' 판단을 다시 여는 "
             "것은 아니다.\n"
             "answer 는 한국어 두세 문장.\n"
             '출력은 JSON 하나로만 한다: {"answer": "...", "sufficient": true/false, '
             '"used": [답에 실제로 쓴 삼중항 번호], "reason": "판단 근거 한 문장"}'
         )
-        user = f"질문: {state['question']}\n\n삼중항:\n{lines}"
+        # 별칭 치환한 질문을 준다 — '맨부커상'/'부커상' 같은 표기 차이를 LLM 이
+        # 추론할 필요 없이, 애초에 근거와 같은 표기로 맞춰서 준다.
+        user = f"질문: {state.get('question_norm') or state['question']}\n\n삼중항:\n{lines}"
         try:
             out = self._chat(system, user)
         except Exception as e:
