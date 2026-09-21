@@ -114,9 +114,13 @@ def render(r):
             f"(넓힌 횟수 {r['widened']}) · 훑어본 삼중항 {r['evidence_pool']}개")
     else:
         st.success(r["answer"], icon="💡")
-        c1, c2, c3, c4 = st.columns(4)
+        # 4열은 좁은 화면에서 Streamlit 이 통째로 한 줄씩 쌓아 버려 세로로
+        # 길어진다. 2×2 로 나누면 같은 폭에서도 훨씬 덜 무너진다(사이드바의
+        # 노드·엣지 카운트도 이미 2열을 쓴다).
+        c1, c2 = st.columns(2)
         c1.metric("탄 홉 수", f"{r['hops_used']}홉")
         c2.metric("넓힌 횟수", r["widened"])
+        c3, c4 = st.columns(2)
         c3.metric("쓴 근거", f"{len(r['evidence'])}개")
         c4.metric("출처 문서", f"{len(r['sources'])}건")
 
