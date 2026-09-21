@@ -260,6 +260,34 @@ Q5 "파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상
 
 ## 4. 파이프라인 구조도
 
+### ① 지식 그래프 구축 (오프라인, 1회)
+
+```mermaid
+graph TD;
+    W[("한국어 위키백과<br/>MediaWiki API")] --> C["collect_corpus.py<br/>시드 10명 → 2홉 후보 610"]
+    C -->|"분류 공유 120<br/>토막글 3건 탈락"| D[/"data/docs<br/>문서 60건"/]
+
+    D --> E["build_graph.py ①추출<br/>스키마 7관계로 제한"]
+    E --> R[/"원시 삼중항 466"/]
+    R --> N["build_graph.py ②정제<br/>별칭 · 불용어 · never_merge"]
+    N --> T[/"삼중항 453"/]
+    D -.->|"'노벨 문학상' 옆<br/>가장 가까운 연도"| Y[/"nobel_year<br/>59건"/]
+
+    T --> G[("graph.graphml<br/>노드 401 · 엣지 453")]
+    Y -.->|"노드 속성으로"| G
+
+    D --> GS[/"goldenset.json<br/>14문항"/]
+    GS --> V{{"verify_goldenset.py<br/>근거 26개를 원문과 대조"}}
+    G --> A{{"audit_graph.py<br/>기대 경로가 깔렸는가"}}
+    GS --> A
+```
+
+`build_graph.py` 는 문서별 추출 결과를 `.cache/` 에 남긴다. 한 번 돌리고 나면 재실행에 LLM 호출이 없다 — 정제 규칙을 고쳐 가며 실험할 때 비용이 0이 된다.
+
+**검사 두 개를 파이프라인 안에 넣었다.** `verify_goldenset.py` 는 평가셋 근거가 원문과 글자 단위로 맞는지, `audit_graph.py` 는 기대 경로가 그래프에 실제로 깔렸는지 본다. 후자가 있어야 나중에 답이 틀렸을 때 **색인 층을 먼저 배제**할 수 있다 (3절).
+
+### ② 질의 (LangGraph)
+
 ```mermaid
 graph TD;
 	__start__([start]) --> find_seed
