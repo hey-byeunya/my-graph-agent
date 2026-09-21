@@ -57,11 +57,11 @@ run_e2e.py           전 구간 구동 점검 — 수집부터 답변까지 한 
 
 config.json          도메인에 묶인 값 전부 — 시드·스키마·허브 기준·반경
 data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json
-output/              graph.graphml · triples.json · runs.jsonl · eval.json
-PLAN.md              작업 계획과 결정 기록
+output/              graph.graphml · triples.json · eval.json · eval_hop*.json
+                     build_report.json · index_audit.json · e2e_run.json
 REPORT.md            제출용 보고서
 ```
 
 코드에는 도메인 지식을 하드코딩하지 않았습니다 — 주제를 바꾸려면 `config.json` 의 시드와 스키마만 갈아 끼우면 됩니다.
 
-> `.env` 는 커밋하지 않습니다.
+> `.env` 와 실행 로그(`output/runs.jsonl`)는 커밋하지 않습니다.
