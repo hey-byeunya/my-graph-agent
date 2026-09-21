@@ -411,9 +411,9 @@ graph TD;
 
 | 노드 | 읽는 것 | 쓰는 것 | LLM |
 | --- | --- | --- | --- |
-| `find_seed` | `question`, 노드 이름·타입, `alias_map`, `nobel_year` 속성 | `seeds`, `hops`, `asked_year`, `year_seeds` | ✕ |
-| `expand` | `seeds`, `hops`, 그래프 | `evidence`, `path`, `visited` | ✕ |
-| `answer` | `evidence`, `question`, `alias_map` | `answer`, `sufficient`, `used` | ○ (구조화 출력) |
+| `find_seed` | `question`, 노드 이름·타입, `alias_map`, `nobel_year` 속성 | `seeds`, `hops`, `asked_year`, `year_seeds`, `question_norm` | ✕ |
+| `expand` | `seeds`, `hops`, `year_seeds`, 그래프 | `evidence`, `path`, `visited` | ✕ |
+| `answer` | `evidence`, `question_norm`, 그래프의 `type` 속성 | `answer`, `sufficient`, `used` | ○ (구조화 출력) |
 | 분기 (`_after_answer`) | `sufficient`, `hops`, `widen_to_hops` | — (경로만 정함) | ✕ |
 | `widen` | `hops` | `hops + 1`, `widened` | ✕ |
 | `refuse` | `seeds`, `asked_year`, `hops` | `answer`, `refused` | ✕ |
