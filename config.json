@@ -46,11 +46,13 @@
   "traverse": {
     "max_hops": 2,
     "widen_to_hops": 3,
-    "hub_degree_cutoff": 25,
-    "hub_nodes_never_traverse": ["노벨문학상"],
+    "never_traverse": ["노벨문학상", "노벨 문학상"],
+    "cap_fanout_node_types": ["Language", "Country", "Genre", "Movement"],
     "max_nodes_per_hop": 40,
+    "max_neighbors_per_bridge": 12,
     "max_evidence_triples": 60,
-    "note": "노벨문학상 노드는 수상자 전원을 잇는 허브라 지나가면 아무 두 수상자나 2홉으로 연결된다. 통과 금지. 언어·국가도 차수가 cutoff 를 넘으면 자동 배제한다."
+    "note": "허브를 차수로 일괄 차단하지 않는다. 이 도메인에서 2홉 다리는 바로 언어·국가 노드라, 차수 상한으로 막으면 정답 경로를 스스로 끊는다. 대신 두 갈래로 나눈다 — (1) '노벨문학상' 노드는 수상자 전원을 잇고 정보량이 0이므로 통과 금지. (2) 언어·국가·갈래·사조는 통과를 허용하되, 이웃을 질문과의 관련도 순으로 정렬해 max_neighbors_per_bridge 개만 편다. 즉 '차단'이 아니라 '정렬 후 자르기'.",
+    "cutoff_note": "max_neighbors_per_bridge 값은 3단계에서 실제 차수 분포를 보고 확정한다."
   },
 
   "llm": {
