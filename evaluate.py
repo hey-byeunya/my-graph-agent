@@ -268,6 +268,11 @@ def main():
         "overall": {"graph": round(gall, 3),
                     "basic": round(statistics.mean(ball), 3) if ball else None},
         "failure_layers": {L: layers.count(L) for L in ("색인", "탐색", "생성")},
+        # 토큰은 화면에만 찍고 버렸는데, 그러면 REPORT 의 비용 수치를 산출물로
+        # 뒷받침할 수 없다. 이 실행에서 쓴 분량을 함께 남긴다.
+        "tokens": {"graph": {"in": agent.token_in, "out": agent.token_out},
+                   "basic": ({"in": basic.token_in, "out": basic.token_out}
+                             if basic else None)},
         "unstable_items": unstable,
         "items": per_item,
     }
