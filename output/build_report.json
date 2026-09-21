@@ -1,11 +1,16 @@
 {
-  "built_at": "2026-09-21 13:49:43",
+  "built_at": "2026-09-21 14:17:46",
   "n_docs": 60,
   "model": "gpt-4o-mini",
   "tokens": {
     "in": 0,
     "out": 0
   },
+  "tokens_full_extraction": {
+    "in": 0,
+    "out": 0
+  },
+  "cost_usd_full_extraction": 0.0,
   "cached_docs": 60,
   "award_years": {
     "found": 59,
@@ -14,7 +19,7 @@
       "존 스타인벡"
     ]
   },
-  "tokens_note": "이번 실행은 캐시에서 나온 문서가 있어 토큰이 실제 추출량보다 적다",
+  "tokens_note": "tokens 는 이번 실행에서 새로 부른 분량이다. tokens_full_extraction 은 캐시 적중분까지 합한 전량 추출 기준이다",
   "normalize": {
     "raw": 485,
     "after_alias": 485,

@@ -16,7 +16,7 @@
                never_merge 쌍은 fuzzy 병합에서 제외한다
   4. 저장      output/graph.graphml · output/triples.json · output/build_report.json
 
-정규화 전후 건수를 찍는다 — 무엇이 합쳐지고 무엇이 버려졌는지가 REPORT 2절의 재료다.
+정규화 전후 건수를 찍는다 — 무엇이 합쳐지고 무엇이 버려졌는지가 REPORT 3절의 재료다.
 """
 import argparse
 import hashlib
@@ -26,6 +26,7 @@ import re
 import sys
 import time
 from collections import Counter, defaultdict
+from pathlib import Path
 
 import networkx as nx
 from dotenv import load_dotenv
@@ -137,7 +138,7 @@ def extract_all(cfg, docs, use_cache=True):
         key = hashlib.sha1(f"{pkey}|{model}|{title}|{thash}".encode()).hexdigest()[:16]
         cpath = os.path.join(CACHE, f"{key}.json")
         if use_cache and os.path.exists(cpath):
-            blob = json.load(open(cpath, encoding="utf-8"))
+            blob = json.loads(Path(cpath).read_text(encoding="utf-8"))
             # 옛 캐시는 삼중항 리스트만 담았다. 새 캐시는 토큰도 함께 담는다 —
             # 캐시가 100% 적중해도 '전량 추출에 얼마가 드는가' 를 말할 수 있어야
             # REPORT 의 비용 수치가 산출물로 뒷받침된다.
@@ -149,6 +150,7 @@ def extract_all(cfg, docs, use_cache=True):
                 triples = blob
             n_cached += 1
         else:
+            triples, ok = [], False
             for attempt in range(3):
                 try:
                     triples, (ti, to) = extract_doc(client, model, prompt, title, text)
@@ -156,15 +158,19 @@ def extract_all(cfg, docs, use_cache=True):
                     tok_out += to
                     tok_all_in += ti
                     tok_all_out += to
+                    ok = True
                     break
                 except Exception as e:
                     if attempt == 2:
                         print(f"\n  ✗ {title}: {type(e).__name__}: {e}")
-                        triples = []
                         break
                     time.sleep(2 ** attempt)
-            json.dump({"triples": triples, "tokens": [ti, to]},
-                      open(cpath, "w", encoding="utf-8"), ensure_ascii=False)
+            # 실패한 추출은 캐시에 쓰지 않는다. 빈 결과를 캐시하면 일시적인 API 장애
+            # 한 번으로 그 문서가 다음 실행부터 영원히 빈 삼중항으로 나온다.
+            if ok:
+                Path(cpath).write_text(
+                    json.dumps({"triples": triples, "tokens": [ti, to]}, ensure_ascii=False),
+                    encoding="utf-8")
         for t in triples:
             t["doc"] = title
         raw.extend(triples)
@@ -328,7 +334,7 @@ def to_graph(triples, cfg, years=None):
 
 
 def main():
-    cfg = json.load(open(os.path.join(HERE, "config.json"), encoding="utf-8"))
+    cfg = json.loads(Path(os.path.join(HERE, "config.json")).read_text(encoding="utf-8"))
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int)
     ap.add_argument("--no-cache", action="store_true")
@@ -340,7 +346,7 @@ def main():
     man_path = os.path.join(HERE, cfg["corpus"].get("manifest", "data/manifest.json"))
     if os.path.exists(man_path):
         listed = [x["file"] for x in
-                  json.load(open(man_path, encoding="utf-8")).get("saved", [])]
+                  json.loads(Path(man_path).read_text(encoding="utf-8")).get("saved", [])]
         files = [f for f in listed if os.path.exists(os.path.join(ddir, f))]
         gone = [f for f in listed if f not in files]
         if gone:
@@ -355,7 +361,7 @@ def main():
         files = files[: args.limit]
     docs = []
     for f in files:
-        text = open(os.path.join(ddir, f), encoding="utf-8").read()
+        text = Path(os.path.join(ddir, f)).read_text(encoding="utf-8")
         docs.append((f[:-3].replace("_", " "), text))
     print(f"문서 {len(docs)}건 · 모델 {cfg['llm']['extract_model']}\n")
 
@@ -395,8 +401,7 @@ def main():
     out = os.path.join(HERE, "output")
     os.makedirs(out, exist_ok=True)
     nx.write_graphml(G, os.path.join(out, "graph.graphml"))
-    json.dump(triples, open(os.path.join(out, "triples.json"), "w", encoding="utf-8"),
-              ensure_ascii=False, indent=1)
+    Path(os.path.join(out, "triples.json")).write_text(json.dumps(triples, ensure_ascii=False, indent=1), encoding="utf-8")
 
     deg = sorted(G.degree, key=lambda x: -x[1])
     by_type = Counter(d.get("type", "?") for _, d in G.nodes(data=True))
@@ -417,12 +422,16 @@ def main():
         "n_docs": len(docs),
         "model": cfg["llm"]["extract_model"],
         "tokens": {"in": ti, "out": to},
+        # 캐시 적중분까지 합한 '전량 추출' 기준. 토큰을 기록하기 전에 만든 캐시는
+        # 0 으로 더해지므로, 그런 캐시가 섞여 있으면 실제보다 작게 나온다.
+        "tokens_full_extraction": {"in": all_in, "out": all_out},
+        "cost_usd_full_extraction": round(cost, 4),
         "cached_docs": n_cached,
         "award_years": {"found": len(years), "of": len(docs),
                         "missing": sorted(canonical_title(t) for t, _ in docs
                                           if canonical_title(t) not in years)},
-        "tokens_note": ("이번 실행은 캐시에서 나온 문서가 있어 토큰이 실제 추출량보다 적다"
-                        if n_cached else "캐시 없이 전부 새로 추출했다"),
+        "tokens_note": ("tokens 는 이번 실행에서 새로 부른 분량이다. "
+                        "tokens_full_extraction 은 캐시 적중분까지 합한 전량 추출 기준이다"),
         "normalize": stats,
         "graph": {
             "nodes": G.number_of_nodes(),
@@ -433,8 +442,7 @@ def main():
                             "type": G.nodes[n].get("type")} for n, d in deg[:25]],
         },
     }
-    json.dump(report, open(os.path.join(out, "build_report.json"), "w", encoding="utf-8"),
-              ensure_ascii=False, indent=2)
+    Path(os.path.join(out, "build_report.json")).write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
     print("\n저장 → output/graph.graphml · triples.json · build_report.json")
     return 0
 

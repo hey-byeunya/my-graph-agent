@@ -17,13 +17,14 @@ import json
 import os
 import sys
 from collections import Counter
+from pathlib import Path
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.join(HERE, "data", "docs")
 
 
 def main():
-    gs = json.load(open(os.path.join(HERE, "data", "goldenset.json"), encoding="utf-8"))
+    gs = json.loads(Path(os.path.join(HERE, "data", "goldenset.json")).read_text(encoding="utf-8"))
     items = gs["items"]
     errors, warnings = [], []
 
@@ -37,7 +38,7 @@ def main():
                 errors.append(f"Q{qid}: 문서 없음 — {ev['doc']}")
                 continue
             docs_cited.add(ev["doc"])
-            text = open(path, encoding="utf-8").read()
+            text = Path(path).read_text(encoding="utf-8")
             if ev["quote"] not in text:
                 errors.append(
                     f"Q{qid}: 근거가 원문에 없음 — {ev['doc']}\n"
@@ -62,7 +63,7 @@ def main():
 
     # 거절 문항의 핵심어가 코퍼스에 정말 없는지
     corpus = {
-        f: open(os.path.join(DOCS, f), encoding="utf-8").read()
+        f: Path(os.path.join(DOCS, f)).read_text(encoding="utf-8")
         for f in os.listdir(DOCS) if f.endswith(".md")
     }
     hits = [f for f, t in corpus.items() if "무라카미" in t]

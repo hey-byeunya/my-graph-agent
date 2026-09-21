@@ -39,7 +39,8 @@ python run_e2e.py              # 수집→검사→구축→점검→답변→�
 
 ```bash
 python collect_corpus.py       # ① 문서 60건 수집 → data/docs/
-                               #    이미 모았으면 아무것도 하지 않음 (--refresh 로 재수집)
+                               #    이미 모았으면 아무것도 하지 않음 · 일부 빠졌으면 그것만 받음
+                               #    --refresh 재수집 · --prune manifest 밖 파일 삭제
 python verify_goldenset.py     # ② 평가셋 근거 26개가 원문과 글자 그대로 맞는지 대조
 python build_graph.py          # ③ 추출 + 정제 → output/graph.graphml
 python audit_graph.py          # ③' 평가셋의 기대 경로가 그래프에 깔렸는지 점검
@@ -49,7 +50,7 @@ python evaluate.py             # ⑤ 14문항 × 5회 채점 + basic RAG 대조 
 그 밖에:
 
 ```bash
-python agent.py --mermaid                               # LangGraph 구조도 (REPORT 4절의 원본)
+python agent.py --mermaid                               # LangGraph 구조도 (REPORT 5절의 원본)
 python evaluate.py --max-hops 3 --no-widen --tag hop3   # 반경 실험 → output/eval_hop3.json
 ```
 

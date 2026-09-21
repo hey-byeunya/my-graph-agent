@@ -3,11 +3,15 @@
 
   python collect_corpus.py              # 코퍼스가 없으면 모으고, 있으면 그대로 둔다
   python collect_corpus.py --refresh    # 고정된 코퍼스를 버리고 처음부터 다시
+  python collect_corpus.py --prune      # manifest 에 없는 문서를 data/docs 에서 지운다
   python collect_corpus.py --target 40  # 목표 건수만 바꿔 빠르게 확인
 
 코퍼스는 한 번 모으면 고정한다. manifest.json 에 적힌 목록이 곧 코퍼스이고,
 완성돼 있으면 API 를 치지 않는다 — 위키백과는 살아 있는 소스라 재수집할 때마다
 후보가 달라져 문서가 계속 쌓였기 때문이다(60 -> 85 -> 98건).
+
+manifest 에 적힌 파일이 일부 없으면 **그 파일만** 다시 받고 목록은 그대로 둔다.
+목록을 새로 짜는 것은 --refresh 뿐이다.
 
 수집 방식
   MediaWiki API 만 쓴다. HTML 크롤링·파싱은 하지 않는다.
@@ -27,6 +31,7 @@ import re
 import sys
 import time
 from collections import Counter
+from pathlib import Path
 
 import requests
 
@@ -133,13 +138,32 @@ def save(title, categories, body):
     return name
 
 
+def prune_orphans(listed, docs_dir):
+    """manifest 에 없는 문서를 지운다. --prune 을 줬을 때만 부른다.
+
+    build_graph 는 manifest 목록만 읽으므로 고아 파일은 그래프에 들어가지 않는다.
+    다만 디렉토리를 본 사람이 코퍼스가 몇 건인지 헷갈리지 않게 치운다.
+    """
+    orphans = sorted(f for f in os.listdir(docs_dir)
+                     if f.endswith(".md") and f not in listed)
+    for f in orphans:
+        os.remove(os.path.join(docs_dir, f))
+    if orphans:
+        print(f"manifest 에 없는 문서 {len(orphans)}건을 지웠습니다.")
+    return orphans
+
+
 def main():
-    cfg = json.load(open(os.path.join(HERE, "config.json"), encoding="utf-8"))["corpus"]
+    with open(os.path.join(HERE, "config.json"), encoding="utf-8") as f:
+        cfg = json.load(f)["corpus"]
     ap = argparse.ArgumentParser()
     ap.add_argument("--target", type=int, default=cfg["target_docs"])
     ap.add_argument("--refresh", action="store_true",
                     help="이미 고정된 코퍼스를 버리고 처음부터 다시 모은다")
+    ap.add_argument("--prune", action="store_true",
+                    help="manifest 에 없는 문서를 data/docs 에서 지운다")
     args = ap.parse_args()
+    docs_dir = os.path.join(HERE, "data", "docs")
 
     # 코퍼스는 한 번 모으면 고정한다.
     #
@@ -150,18 +174,28 @@ def main():
     # 이제는 manifest 에 적힌 목록이 곧 코퍼스이고, 완성돼 있으면 아무것도 하지 않는다.
     man_path = os.path.join(HERE, "data", "manifest.json")
     if os.path.exists(man_path) and not args.refresh:
-        man = json.load(open(man_path, encoding="utf-8"))
-        listed = [x["file"] for x in man.get("saved", [])]
-        missing = [f for f in listed
-                   if not os.path.exists(os.path.join(HERE, "data", "docs", f))]
-        if listed and not missing:
-            print(f"코퍼스가 이미 고정돼 있습니다 — {len(listed)}건 "
+        with open(man_path, encoding="utf-8") as f:
+            man = json.load(f)
+        rows = man.get("saved", [])
+        missing = [r for r in rows
+                   if not os.path.exists(os.path.join(docs_dir, r["file"]))]
+        if rows and missing:
+            # manifest 가 정한 목록에서 빠진 파일만 다시 받는다. 목록 자체는 건드리지 않는다.
+            # (예전에는 이 안내를 찍고도 전체 수집으로 넘어가 manifest 를 통째로 다시 썼다)
+            print(f"manifest 에 적힌 {len(rows)}건 중 {len(missing)}건이 없습니다. "
+                  f"빠진 것만 받습니다.")
+            for r in missing:
+                body = get_extract(r["title"])
+                cats = get_categories([r["title"]]).get(r["title"], [])
+                save(r["title"], cats, body)
+                print(f"  ✓ {r['title']}")
+        if rows:
+            if args.prune:
+                prune_orphans({r["file"] for r in rows}, docs_dir)
+            print(f"코퍼스가 고정돼 있습니다 — {len(rows)}건 "
                   f"(수집 시각 {man.get('collected_at')})")
             print("다시 모으려면: python collect_corpus.py --refresh")
             return 0
-        if listed:
-            print(f"manifest 에 적힌 {len(listed)}건 중 {len(missing)}건이 없습니다. "
-                  f"빠진 것만 받습니다.")
 
     seeds = cfg["seeds"]
     min_chars = cfg["min_chars"]
@@ -221,7 +255,7 @@ def main():
         if os.path.exists(path):
             # getsize() 는 바이트라 한글이 3배로 부풀려진다. 새로 받은 건은
             # len(body) 로 세므로, 같은 필드에 단위가 섞이지 않게 문자 수로 맞춘다.
-            body_chars = len(open(path, encoding="utf-8").read())
+            body_chars = len(Path(path).read_text(encoding="utf-8"))
             saved.append({"title": title, "file": name,
                           "chars": body_chars, "cached": True})
             print(f"  ↺ [{len(saved):2d}] {title} (이미 있음)")
@@ -267,12 +301,15 @@ def main():
         json.dump(manifest, f, ensure_ascii=False, indent=2)
 
     listed = {x["file"] for x in saved}
-    orphans = sorted(f for f in os.listdir(os.path.join(HERE, "data", "docs"))
+    if args.prune:
+        prune_orphans(listed, docs_dir)
+    orphans = sorted(f for f in os.listdir(docs_dir)
                      if f.endswith(".md") and f not in listed)
     if orphans:
         print(f"\n⚠️  manifest 에 없는 문서 {len(orphans)}건이 data/docs 에 있습니다: "
               f"{orphans[:3]}{' …' if len(orphans) > 3 else ''}")
         print("   build_graph.py 는 manifest 목록만 읽으므로 그래프에는 들어가지 않습니다.")
+        print("   지우려면: python collect_corpus.py --prune")
 
     print(f"\n저장 {len(saved)}건 → data/docs/  ·  기록 → data/manifest.json")
     if len(saved) < 50:

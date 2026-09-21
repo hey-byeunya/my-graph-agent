@@ -20,6 +20,7 @@ import re
 import sys
 import time
 from collections import deque
+from pathlib import Path
 from typing import TypedDict
 
 import networkx as nx
@@ -52,8 +53,7 @@ class AgentState(TypedDict, total=False):
 
 class GraphAgent:
     def __init__(self, cfg=None, graph=None):
-        self.cfg = cfg or json.load(
-            open(os.path.join(HERE, "config.json"), encoding="utf-8"))
+        self.cfg = cfg or json.loads(Path(os.path.join(HERE, "config.json")).read_text(encoding="utf-8"))
         self.G = graph if graph is not None else nx.read_graphml(
             os.path.join(HERE, "output", "graph.graphml"), force_multigraph=True)
         self.tv = self.cfg["traverse"]

@@ -35,7 +35,7 @@
       "WON",
       "WON_IN_YEAR(속성)"
     ],
-    "relations_note": "BELONGS_TO·INFLUENCED_BY·HAS_GENRE·WROTE_IN 은 평가셋에 쓰지 않았다. 코퍼스가 전기문뿐이라 이 관계들은 원문에 일관되게 나오지 않는다 — 문학사조는 분류에만 있고 본문에 없으며, '독일어로 썼다' 는 60건 중 1건(기엘레루프)에만 나온다. 이 한계와 그 대가는 REPORT 2절에 적는다."
+    "relations_note": "BELONGS_TO·INFLUENCED_BY·HAS_GENRE·WROTE_IN 은 평가셋에 쓰지 않았다. 코퍼스가 전기문뿐이라 이 관계들은 원문에 일관되게 나오지 않는다 — 문학사조는 분류에만 있고 본문에 없으며, '독일어로 썼다' 는 60건 중 1건(기엘레루프)에만 나온다. 이 한계와 그 대가는 REPORT 3절에 적는다."
   },
   "items": [
     {

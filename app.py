@@ -13,6 +13,7 @@
 import json
 import os
 import re
+from pathlib import Path
 
 import streamlit as st
 
@@ -57,7 +58,7 @@ def doc_files():
 def load_json(name):
     path = os.path.join(HERE, name)
     if os.path.exists(path):
-        return json.load(open(path, encoding="utf-8"))
+        return json.loads(Path(path).read_text(encoding="utf-8"))
     return None
 
 
@@ -160,7 +161,7 @@ def render(r):
                 path = os.path.join(HERE, "data", "docs", name)
                 with st.expander(s):
                     if os.path.exists(path):
-                        st.text(open(path, encoding="utf-8").read()[:2500])
+                        st.text(Path(path).read_text(encoding="utf-8")[:2500])
                     else:
                         st.caption(f"원문 파일을 찾지 못했습니다 ({name}).")
         else:

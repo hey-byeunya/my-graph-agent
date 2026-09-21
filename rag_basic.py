@@ -11,6 +11,7 @@ import json
 import os
 import re
 import sys
+from pathlib import Path
 
 from dotenv import load_dotenv
 from rank_bm25 import BM25Okapi
@@ -32,8 +33,7 @@ def tokenize(s):
 
 class BasicRAG:
     def __init__(self, cfg=None, chunk_chars=900, top_k=6):
-        self.cfg = cfg or json.load(
-            open(os.path.join(HERE, "config.json"), encoding="utf-8"))
+        self.cfg = cfg or json.loads(Path(os.path.join(HERE, "config.json")).read_text(encoding="utf-8"))
         self.top_k = top_k
         self._client = None
         self.token_in = self.token_out = 0
@@ -43,7 +43,7 @@ class BasicRAG:
         for f in sorted(os.listdir(ddir)):
             if not f.endswith(".md"):
                 continue
-            text = open(os.path.join(ddir, f), encoding="utf-8").read()
+            text = Path(os.path.join(ddir, f)).read_text(encoding="utf-8")
             title = f[:-3].replace("_", " ")
             for i in range(0, len(text), chunk_chars):
                 piece = text[i:i + chunk_chars].strip()

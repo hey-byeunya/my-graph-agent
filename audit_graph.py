@@ -14,6 +14,7 @@
 import json
 import os
 import sys
+from pathlib import Path
 
 import networkx as nx
 
@@ -21,8 +22,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def load():
-    cfg = json.load(open(os.path.join(HERE, "config.json"), encoding="utf-8"))
-    gs = json.load(open(os.path.join(HERE, "data", "goldenset.json"), encoding="utf-8"))
+    cfg = json.loads(Path(os.path.join(HERE, "config.json")).read_text(encoding="utf-8"))
+    gs = json.loads(Path(os.path.join(HERE, "data", "goldenset.json")).read_text(encoding="utf-8"))
     G = nx.read_graphml(os.path.join(HERE, "output", "graph.graphml"),
                         force_multigraph=True)
     return cfg, gs, G
@@ -124,8 +125,7 @@ def main():
     print("\n" + "=" * 72)
     n_scored = sum(1 for p in per_item if p["status"] != "N/A")
     print(f"색인 통과 {ok_total}/{n_scored}  ·  결손 {missing_total}건")
-    json.dump(per_item, open(os.path.join(HERE, "output", "index_audit.json"), "w",
-                             encoding="utf-8"), ensure_ascii=False, indent=2)
+    Path(os.path.join(HERE, "output", "index_audit.json")).write_text(json.dumps(per_item, ensure_ascii=False, indent=2), encoding="utf-8")
     print("기록 → output/index_audit.json")
     return 0
 

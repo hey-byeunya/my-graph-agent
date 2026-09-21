@@ -1,7 +1,9 @@
 {
-  "ran_at": "2026-09-21 13:50:15",
+  "ran_at": "2026-09-21 14:18:18",
   "all_ok": true,
-  "total_seconds": 32.9,
+  "total_seconds": 32.7,
+  "graph_sha256": "a749d968d1e2187db314b876ec574df33e8e685b217fdf3d2441c35c92703c1f",
+  "graph_matches_eval": true,
   "steps": [
     {
       "step": "① 코퍼스 수집",
@@ -9,6 +11,7 @@
       "exit": 0,
       "seconds": 0.1,
       "ok": true,
+      "stdout_tail": "",
       "stderr_tail": ""
     },
     {
@@ -17,6 +20,7 @@
       "exit": 0,
       "seconds": 0.2,
       "ok": true,
+      "stdout_tail": "",
       "stderr_tail": ""
     },
     {
@@ -25,6 +29,7 @@
       "exit": 0,
       "seconds": 0.4,
       "ok": true,
+      "stdout_tail": "",
       "stderr_tail": ""
     },
     {
@@ -33,6 +38,7 @@
       "exit": 0,
       "seconds": 0.1,
       "ok": true,
+      "stdout_tail": "",
       "stderr_tail": ""
     },
     {
@@ -41,14 +47,16 @@
       "exit": 0,
       "seconds": 2.2,
       "ok": true,
+      "stdout_tail": "",
       "stderr_tail": ""
     },
     {
       "step": "⑤ 채점 + 대조군",
       "cmd": "evaluate.py --repeat 1 --tag smoke",
       "exit": 0,
-      "seconds": 29.7,
+      "seconds": 29.5,
       "ok": true,
+      "stdout_tail": "",
       "stderr_tail": ""
     },
     {
@@ -57,6 +65,7 @@
       "exit": 0,
       "seconds": 0.2,
       "ok": true,
+      "stdout_tail": "",
       "stderr_tail": ""
     }
   ]

@@ -17,12 +17,14 @@
 결과 → output/eval.json
 """
 import argparse
+import hashlib
 import json
 import os
 import statistics
 import sys
 import time
 from collections import defaultdict
+from pathlib import Path
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -143,7 +145,7 @@ def main():
     from agent import GraphAgent
     from rag_basic import BasicRAG
 
-    gs = json.load(open(os.path.join(HERE, "data", "goldenset.json"), encoding="utf-8"))
+    gs = json.loads(Path(os.path.join(HERE, "data", "goldenset.json")).read_text(encoding="utf-8"))
     items = [i for i in gs["items"] if not args.only or i["id"] in args.only]
     agent = GraphAgent()
     if args.max_hops:
@@ -261,6 +263,10 @@ def main():
 
     out = {
         "evaluated_at": time.strftime("%Y-%m-%d %H:%M:%S"),
+        # 어떤 그래프로 잰 성적인지 남긴다. 그래프는 나중에 다시 빌드될 수 있어서,
+        # 시각만으로는 '이 수치가 지금 그래프의 것인가' 를 사후에 확인할 수 없다.
+        "graph_sha256": hashlib.sha256(
+            Path(HERE, "output", "graph.graphml").read_bytes()).hexdigest(),
         "tag": args.tag,
         "traverse": {"max_hops": agent.tv["max_hops"],
                      "widen_to_hops": agent.tv["widen_to_hops"]},
@@ -280,8 +286,7 @@ def main():
     }
     os.makedirs(os.path.join(HERE, "output"), exist_ok=True)
     name = f"eval_{args.tag}.json" if args.tag else "eval.json"
-    json.dump(out, open(os.path.join(HERE, "output", name), "w", encoding="utf-8"),
-              ensure_ascii=False, indent=2)
+    Path(os.path.join(HERE, "output", name)).write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\n기록 → output/{name}"
           f"  (토큰: graph in {agent.token_in:,}/out {agent.token_out:,}"
           + (f" · basic in {basic.token_in:,}/out {basic.token_out:,}" if basic else "") + ")")
