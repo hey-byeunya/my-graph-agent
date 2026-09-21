@@ -288,7 +288,7 @@ class GraphAgent:
         return g.compile()
 
     # ── 공개 API
-    def ask(self, question, log=True):
+    def ask(self, question, log=True, return_pool=False):
         t0 = time.time()
         final = self.app.invoke({"question": question, "notes": [], "refused": False})
         ev = final.get("evidence", [])
@@ -320,8 +320,12 @@ class GraphAgent:
             "notes": final.get("notes", []),
             "elapsed": round(time.time() - t0, 2),
         }
+        if return_pool:
+            # 채점에서 '탐색 실패' 와 '생성 실패' 를 가르려면 풀 전체가 필요하다.
+            # 근거 풀에 있는데 틀렸으면 생성, 풀에 없으면 탐색 문제다.
+            result["pool"] = ev
         if log:
-            self._log(result)
+            self._log({k: v for k, v in result.items() if k != "pool"})
         return result
 
     def _log(self, result):

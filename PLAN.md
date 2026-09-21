@@ -66,6 +66,6 @@
 - [x] 2. 평가셋 — 12문항 (1홉 3 · 2홉 5 · 3홉 2 · 거절 2), 근거 25개 전부 원문 대조 통과
 - [x] 3. 그래프 구축 — 노드 401 · 엣지 453, 색인 점검 10/10 통과
 - [x] 4. 에이전트 — LangGraph find_seed→expand→answer→widen/refuse, 단일 실행 12/12 (Q3 불안정)
-- [ ] 5. 평가
+- [x] 5. 평가 — GraphRAG 0.97 vs basic RAG 0.71, 반경 ablation 4종, 실패 층 분류 검증됨
 - [ ] 6. 데모
 - [ ] 7. REPORT · 공개
