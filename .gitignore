@@ -41,7 +41,7 @@ docs/CODE_REVIEW*.md
 output/runs.jsonl
 output/eval_smoke.json
 output/eval_*_check.json
-output/*
+output/
 .claude/
 .vscode/
 .idea/
