@@ -95,9 +95,19 @@ class GraphAgent:
 
         seeds, taken, year_seeds = [], [], []
         bridged = []
+        hub_hit = None
         for name in self.node_names:
-            if len(name) < 2 or name in self.never:
-                continue                      # 허브는 시작점으로도 쓰지 않는다
+            if len(name) < 2:
+                continue
+            if name in self.never:
+                # 허브는 '다리'로는 쓰지 않는다 — 여기서 잡으면 무관한 두 사람이
+                # 2홉으로 이어진다. 다만 질문에 이것 말고 다른 개체가 없다면
+                # 얘기가 다르다: 이을 '다른 사람'이 없으니 다리로 오용될 일도
+                # 없고, 그냥 '수상자 목록을 보여 달라'는 1홉 질문일 뿐이다.
+                # 아래에서 다른 시드가 하나도 안 잡혔을 때만 시드로 승격한다.
+                if name in q and hub_hit is None:
+                    hub_hit = name
+                continue
             if self.G.nodes[name].get("type") in self.cap_types:
                 # 언어·국가·갈래·사조는 '다리' 지 출발점이 아니다.
                 # 여기서 출발하면 첫 홉부터 fanout 상한에 걸려 정답이 잘려나간다
@@ -145,6 +155,18 @@ class GraphAgent:
             else:
                 notes.append(
                     f"{year}년을 질문에서 읽었지만, 그 해 수상자 문서가 코퍼스에 없다")
+
+        # 허브(상 이름) 말고는 아무것도 안 잡혔다 — '노벨 문학상 수상자 알려줘' 류.
+        # 두 사람을 잇는 다리로 쓰는 게 아니라 허브 자체가 질문의 대상이므로,
+        # 유일한 시드로만 승격한다. 반드시 연도 조회 **다음**에 와야 한다 —
+        # "1994년 노벨문학상 수상자는?"처럼 연도가 있는데 그 해 수상자가
+        # 코퍼스에 없는 경우, 여기서 허브를 대신 시드로 삼아 명단을 보여주면
+        # '그 해 수상자가 없다'는 거절이 조용히 틀린 답으로 바뀐다.
+        # 그래서 year 가 아예 없을 때만 (연도 질문이 아닐 때만) 적용한다.
+        if hub_hit and not seeds and not bridged and year is None:
+            seeds = [hub_hit]
+            notes.append(f"질문에 개체 이름 없이 허브 '{hub_hit}' 자체만 있다 — "
+                         f"다리로는 안 쓰지만 목록 조회의 시작점으로는 허용한다")
 
         if not seeds:
             notes.append("시작 개체가 없다 — 그래프에 없는 것을 묻고 있다")

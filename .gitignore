@@ -31,6 +31,8 @@ data/.raw_cache/
 # docs/code-review*   : 코드 리뷰 기록 — 작업 과정 산출물
 # output/runs.jsonl   : append 전용 실행 로그. 손으로 물어본 것까지 쌓인다
 # output/eval_smoke   : run_e2e 의 1회 연막 테스트. 기준 성적표는 eval.json
+# output/eval_*_check : 코드 수정 후 저비용(--repeat 1) 회귀 확인용 스크래치. 공식
+#                       성적표가 아니다 (--tag 로 eval.json 을 안 건드리게 분리한 것)
 # .claude/            : 브라우저 미리보기 등 하네스 설정
 PLAN.md
 make_screenshots.py
@@ -38,6 +40,7 @@ docs/code-review*.md
 docs/CODE_REVIEW*.md
 output/runs.jsonl
 output/eval_smoke.json
+output/eval_*_check.json
 .claude/
 .vscode/
 .idea/
