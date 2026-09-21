@@ -67,5 +67,5 @@
 - [x] 3. 그래프 구축 — 노드 401 · 엣지 453, 색인 점검 10/10 통과
 - [x] 4. 에이전트 — LangGraph find_seed→expand→answer→widen/refuse, 단일 실행 12/12 (Q3 불안정)
 - [x] 5. 평가 — GraphRAG 0.97 vs basic RAG 0.71, 반경 ablation 4종, 실패 층 분류 검증됨
-- [ ] 6. 데모
+- [x] 6. 데모 — streamlit, 경로·근거·출처·거절 모두 화면에 노출, 캡처 2장
 - [ ] 7. REPORT · 공개
