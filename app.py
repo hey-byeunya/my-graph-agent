@@ -196,9 +196,14 @@ def main():
     st.selectbox("예시 질문", labels, key="ex", on_change=_pick,
                  help="고르면 바로 물어봅니다. 직접 물어보려면 아래 질문 칸에 쓰세요.")
 
-    q = st.text_input("질문", key="q",
-                      placeholder="예: 조수에 카르두치와 같은 나라 출신인 다른 노벨문학상 수상자는?")
-    if st.button("물어보기", type="primary"):
+    # st.form 으로 감싸야 텍스트 칸에서 Enter 를 눌러도 "물어보기" 를 누른 것과
+    # 같이 제출된다 (폼 밖 text_input 은 Enter 를 눌러도 값만 반영될 뿐, 버튼을
+    # 따로 눌러야 실행됐다).
+    with st.form("ask_form"):
+        q = st.text_input("질문", key="q",
+                          placeholder="예: 조수에 카르두치와 같은 나라 출신인 다른 노벨문학상 수상자는?")
+        submitted = st.form_submit_button("물어보기", type="primary")
+    if submitted:
         st.session_state["run"] = True
 
     # 탭을 누르거나 슬라이더를 만지면 Streamlit 이 스크립트를 다시 돌린다.
