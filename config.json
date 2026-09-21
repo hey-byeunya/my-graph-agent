@@ -1,27 +1,58 @@
 {
-  "_comment": "도메인에 묶인 값만 여기 둔다. 코드에는 도메인 지식을 하드코딩하지 않는다. 주제 확정 후 채운다.",
-  "domain": "TBD",
+  "domain": "노벨문학상 수상자",
+  "domain_note": "한국어 위키백과의 노벨문학상 수상자·대표작 문서. 수상자들이 언어·국가·문학사조를 공유하며 겹치므로 한 문서만 읽어서는 답이 나오지 않는 2홉 질문이 성립한다.",
+
   "corpus": {
     "dir": "data/docs",
-    "seeds": [],
+    "manifest": "data/manifest.json",
+    "seeds": [
+      "한강 (작가)",
+      "가즈오 이시구로",
+      "올가 토카르추크",
+      "가브리엘 가르시아 마르케스",
+      "오르한 파무크",
+      "헤르타 뮐러",
+      "도리스 레싱",
+      "사뮈엘 베케트",
+      "윌리엄 포크너",
+      "파블로 네루다"
+    ],
     "min_chars": 800,
-    "target_docs": 60
+    "target_docs": 60,
+    "exclude_patterns": ["^\\d{4}년$", "목록$", "^분류:", "^틀:"]
   },
+
   "schema": {
-    "node_types": [],
-    "relations": []
+    "node_types": ["Laureate", "Work", "Country", "Language", "Genre", "Movement", "Award"],
+    "relations": [
+      {"name": "AUTHORED",      "from": "Laureate", "to": "Work",     "desc": "수상자가 그 작품을 썼다"},
+      {"name": "WROTE_IN",      "from": "Laureate", "to": "Language", "desc": "작품 활동의 주 언어"},
+      {"name": "NATIONALITY",   "from": "Laureate", "to": "Country",  "desc": "국적 또는 출신국"},
+      {"name": "WON",           "from": "Laureate", "to": "Award",    "desc": "받은 문학상 (노벨문학상 포함)"},
+      {"name": "HAS_GENRE",     "from": "Work",     "to": "Genre",    "desc": "작품의 갈래 (소설·희곡·시 등)"},
+      {"name": "BELONGS_TO",    "from": "Laureate", "to": "Movement", "desc": "속한 문학사조"},
+      {"name": "INFLUENCED_BY", "from": "Laureate", "to": "Laureate", "desc": "영향을 받았다고 원문이 밝힌 경우만"}
+    ],
+    "excluded_relations_note": "출판사·번역가·수상연도를 관계로 뽑지 않는다. 연도는 노드가 아니라 Laureate 속성으로 둔다 — 연도를 노드로 만들면 같은 해 수상자가 전부 묶여 의미 없는 허브가 된다. 대가: '1994년 수상자는?' 류 질문은 그래프 탐색이 아니라 속성 조회로 답해야 한다."
   },
+
   "normalize": {
     "alias_map": {},
-    "stopword_nodes": [],
-    "fuzzy_threshold": 90
+    "stopword_nodes": ["작가", "소설", "문학", "작품", "사람", "책"],
+    "fuzzy_threshold": 90,
+    "note": "동명이인·표기흔들림(파무크/파묵, 마르케스/가르시아 마르케스)은 build_graph 실행 후 실제로 나온 표기를 보고 alias_map 에 채운다."
   },
+
   "traverse": {
     "max_hops": 2,
-    "hub_degree_cutoff": 30,
+    "widen_to_hops": 3,
+    "hub_degree_cutoff": 25,
+    "hub_nodes_never_traverse": ["노벨문학상"],
     "max_nodes_per_hop": 40,
-    "max_evidence_triples": 60
+    "max_evidence_triples": 60,
+    "note": "노벨문학상 노드는 수상자 전원을 잇는 허브라 지나가면 아무 두 수상자나 2홉으로 연결된다. 통과 금지. 언어·국가도 차수가 cutoff 를 넘으면 자동 배제한다."
   },
+
   "llm": {
     "extract_model": "gpt-4o-mini",
     "answer_model": "gpt-4o-mini",
