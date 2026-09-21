@@ -45,7 +45,7 @@ class AgentState(TypedDict, total=False):
     notes: list            # 사람이 읽을 진행 기록
     widened: int           # widen 을 몇 번 썼는가
     used: list             # 답변이 실제로 인용한 근거 번호
-    asked_year: int        # 질문이 연도로 물었다면 그 연도
+    asked_year: object     # 질문이 연도로 물었다면 그 연도(int) 또는 연대(start, end) 튜플
     year_seeds: list       # 연도 조회로 얻은 시드 (연도 근거를 붙일 대상)
 
 
@@ -138,12 +138,10 @@ class GraphAgent:
         # 1989 는 부커상 연도인데, 그 해 노벨상 수상자(카밀로 호세 셀라)를 끌어와
         # 근거를 오염시킨다. 이름이 있으면 그쪽이 훨씬 확실한 시작점이다.
         year, by_year = self._year_lookup(q)
-        if year == "decade":
-            notes.append("연대(예: 1990년대)로 물었다 — 이 그래프는 수상 연도를 "
-                         "한 해 단위로만 담고 있어 연대 질문은 받지 않는다")
-            year = None
+        is_decade = isinstance(year, tuple)
+        year_label = f"{year[0]}~{year[1]}년" if is_decade else f"{year}년"
         if year and seeds:
-            notes.append(f"질문에 {year}년이 있지만 시작 개체를 이름으로 찾았으므로 "
+            notes.append(f"질문에 {year_label}이 있지만 시작 개체를 이름으로 찾았으므로 "
                          f"연도 조회는 쓰지 않는다")
         elif year:
             if by_year:
@@ -151,10 +149,19 @@ class GraphAgent:
                     if name not in seeds:
                         seeds.append(name)
                         year_seeds.append(name)
-                notes.append(f"{year}년 수상자를 속성에서 찾음: {', '.join(by_year)}")
+                notes.append(f"{year_label} 수상자를 속성에서 찾음: {', '.join(by_year)}")
+                if is_decade:
+                    # '왜 못 답하는지' 뿐 아니라 '왜 일부만 답하는지'도 밝힌다 —
+                    # 7명만 나오면 "10년인데 왜 7명이지" 라는 의문이 남는다.
+                    start, end = year
+                    found_years = {self.G.nodes[n].get("nobel_year") for n in by_year}
+                    missing = [y for y in range(start, end + 1) if y not in found_years]
+                    if missing:
+                        notes.append(f"{year_label} 중 {', '.join(f'{y}년' for y in missing)} "
+                                     f"수상자 문서는 코퍼스에 없다")
             else:
                 notes.append(
-                    f"{year}년을 질문에서 읽었지만, 그 해 수상자 문서가 코퍼스에 없다")
+                    f"{year_label}을 질문에서 읽었지만, 그 해 수상자 문서가 코퍼스에 없다")
 
         # 허브(상 이름) 말고는 아무것도 안 잡혔다 — '노벨 문학상 수상자 알려줘' 류.
         # 두 사람을 잇는 다리로 쓰는 게 아니라 허브 자체가 질문의 대상이므로,
@@ -175,15 +182,27 @@ class GraphAgent:
                 "notes": notes}
 
     def _year_lookup(self, question):
-        """질문의 연도와, 그 해에 수상한 사람들을 돌려준다.
+        """질문의 연도(또는 연대)와, 그 해(구간)에 수상한 사람들을 돌려준다.
 
         연도를 노드로 만들지 않았기 때문에(허브가 되므로) 이 조회가 필요하다.
         config 의 excluded_relations_note 가 말하는 '속성 조회' 가 이것이다.
+
+        반환하는 첫 값은 세 가지 모양이다 — None(연도 언급 없음) · int(단일 연도)
+        · (start, end) 튜플(연대, 예: (1980, 1989)).
         """
         # '1990년대' 는 한 해가 아니라 10년이다. 단년으로 읽으면 1990년 수상자를
         # 그 연대 전체의 답인 양 내놓게 된다 — 실제로 그렇게 답한 적이 있다.
-        if re.search(r"(1[89]\d{2}|20[0-2]\d)\s*년\s*대", question):
-            return "decade", []
+        # 예전에는 이걸 아예 거절했다(REPORT.md 참고). nobel_year 가 이미 속성으로
+        # 있으니 '정확히 그 해'를 '그 10년 구간'으로 넓히기만 하면 풀린다.
+        m_decade = re.search(r"(1[89]\d{2}|20[0-2]\d)\s*년\s*대", question)
+        if m_decade:
+            start = int(m_decade.group(1))
+            end = start + 9
+            winners = sorted(n for n, d in self.G.nodes(data=True)
+                             if d.get("type") == "Laureate"
+                             and d.get("nobel_year") is not None
+                             and start <= d["nobel_year"] <= end)
+            return (start, end), winners
         m = re.search(r"(1[89]\d{2}|20[0-2]\d)\s*년", question)
         if not m:
             return None, []
@@ -306,6 +325,14 @@ class GraphAgent:
         year_line = ("- `WON_IN_YEAR` 는 **그 사람이 노벨문학상을 받은 해**를 뜻한다. "
                      "연도로 물었다면 이 삼중항이 바로 답의 근거다.\n"
                      if any(e["relation"] == "WON_IN_YEAR" for e in ev) else "")
+        # 연대 질문(예: '1980년대')은 year_seeds 가 여럿이다. 이때만 연도순 나열을
+        # 요구한다 — 단일 연도·일반 질문까지 이 규칙에 걸리면 불필요한 형식을
+        # 강요하게 된다 (REPORT.md 7절 "프롬프트 규칙은 서로 간섭한다" 참고).
+        decade_line = ("- 질문이 여러 해(연대)를 묻고 있다. `WON_IN_YEAR` 삼중항을 "
+                       "연도 오름차순으로 정렬해 `{연도}년: {이름}` 형식으로 나열하고, "
+                       "코퍼스에 없는 해는 언급하지 않는다(이미 근거가 없다고 밝힌 것을 "
+                       "또 사과하지 않는다).\n"
+                       if len(state.get("year_seeds") or []) > 1 else "")
         system = (
             "너는 지식 그래프에서 뽑아 온 삼중항만 보고 질문에 답하는 도구다.\n\n"
             "지켜야 할 것\n"
@@ -315,6 +342,7 @@ class GraphAgent:
             "- 삼중항의 표기는 통일돼 있다. 질문의 표기가 달라도 같은 것으로 본다:\n"
             f"{alias_lines}\n"
             f"{year_line}"
+            f"{decade_line}"
             "- 질문에 연도·순서·'데뷔' 같은 부수 조건이 붙어 있고 그것을 삼중항으로 "
             "확인할 수 없더라도, 질문이 묻는 **핵심 관계**가 삼중항에 있으면 "
             "sufficient 를 true 로 두고 답한다.\n"
@@ -367,9 +395,10 @@ class GraphAgent:
     def refuse(self, state: AgentState) -> AgentState:
         year = state.get("asked_year")
         if not state["seeds"] and year:
-            # 연도는 알아들었다. 그 해 수상자가 코퍼스에 없을 뿐이다.
+            # 연도(또는 연대)는 알아들었다. 그 해 수상자가 코퍼스에 없을 뿐이다.
             # 이 둘을 같은 문장으로 뭉뚱그리면 '연도를 못 읽는다' 로 오해된다.
-            msg = (f"{year}년 수상자는 이 지식 그래프에 없습니다. "
+            year_label = f"{year[0]}~{year[1]}년" if isinstance(year, tuple) else f"{year}년"
+            msg = (f"{year_label} 수상자는 이 지식 그래프에 없습니다. "
                    f"코퍼스는 한국어 위키백과 문서 60건으로 만들어 모든 연도를 "
                    f"담고 있지 않습니다. 없는 사람을 지어내지 않겠습니다.")
         elif not state["seeds"]:
