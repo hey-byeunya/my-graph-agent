@@ -58,7 +58,6 @@ agent.py             ④ LangGraph 멀티홉 에이전트
 rag_basic.py         ⑤ 대조군 (BM25) — 같은 코퍼스·모델·채점
 evaluate.py          ⑤ 홉 수별 채점 · 경로 재현율 · 실패 층 분류
 app.py               ⑥ 데모 (streamlit)
-make_screenshots.py  문서용 화면 캡처 (playwright, 개발용)
 
 config.json          도메인에 묶인 값 전부 — 시드·스키마·허브 기준·반경
 data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json

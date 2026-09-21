@@ -1,15 +1,37 @@
-# 비밀
+# ── 비밀 (절대 커밋하지 않는다)
 .env
+.env.*
+!.env.example
 *.key
+*.pem
 
-# 파이썬
+# ── 파이썬
 .venv/
+venv/
+env/
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
 
-# 캐시 (재현 가능한 중간 산출물)
+# ── 재현 가능한 중간 산출물 (다시 돌리면 만들어진다)
 .cache/
 data/.raw_cache/
 
-# OS
+# ── 개발용 도구 · 설정 — 제출물을 돌리는 데 필요 없다
+#    make_screenshots.py 는 문서용 캡처 도구로, playwright 를 따로 깔아야 하고
+#    requirements.txt 에도 없다. 결과물인 docs/*.png 만 저장소에 남긴다.
+make_screenshots.py
+.claude/
+.streamlit/
+playwright-report/
+test-results/
+.vscode/
+.idea/
+*.log
+
+# ── OS
 .DS_Store
+Thumbs.db
