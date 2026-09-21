@@ -21,6 +21,7 @@ cp .env.example .env        # OPENAI_API_KEY 를 채웁니다
 
 ```bash
 python collect_corpus.py     # ① 위키백과에서 문서 60건 수집  → data/docs/
+                             #    (이미 모았으면 아무것도 하지 않음. --refresh 로 재수집)
 python verify_goldenset.py   # ② 평가셋 근거가 원문과 맞는지 대조
 python build_graph.py        # ③ 추출 + 정제            → output/graph.graphml
 python audit_graph.py        # ③' 기대 경로가 그래프에 깔렸는지 점검

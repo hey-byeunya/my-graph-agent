@@ -6,9 +6,12 @@
   python build_graph.py --no-cache    # 캐시 무시하고 다시 추출
 
 단계
-  1. 로드      data/docs/*.md
+  1. 로드      manifest.json 에 적힌 문서만 읽는다 (디렉토리 glob 아님 —
+               수집을 다시 돌려 쌓인 파일까지 흡수하는 사고가 있었다)
   2. 추출      config.json 의 관계 7종으로 제한해 LLM 이 삼중항을 뽑는다
-               (문서별 결과를 .cache/extract/ 에 남겨 재실행이 공짜가 되게 한다)
+               (문서별 결과를 .cache/extract/ 에 남겨 재실행이 공짜가 되게 한다.
+                캐시 키는 프롬프트·모델·문서 **내용 해시** 라, 같은 입력이면
+                같은 그래프가 나온다)
   3. 정규화    별칭 치환 -> 불용 노드 제거 -> 스키마 위반 제거 -> fuzzy 병합
                never_merge 쌍은 fuzzy 병합에서 제외한다
   4. 저장      output/graph.graphml · output/triples.json · output/build_report.json
@@ -127,13 +130,23 @@ def extract_all(cfg, docs, use_cache=True):
     pkey = hashlib.sha1(prompt.encode()).hexdigest()[:8]
 
     raw, tok_in, tok_out, n_cached = [], 0, 0, 0
+    tok_all_in = tok_all_out = 0      # 캐시 적중분까지 합한 '전량 추출' 기준
     for i, (title, text) in enumerate(docs, 1):
         # 길이만 쓰면 같은 길이의 다른 개정판이 옛 추출을 재사용한다. 내용 해시를 쓴다.
         thash = hashlib.sha1(text.encode("utf-8")).hexdigest()[:12]
         key = hashlib.sha1(f"{pkey}|{model}|{title}|{thash}".encode()).hexdigest()[:16]
         cpath = os.path.join(CACHE, f"{key}.json")
         if use_cache and os.path.exists(cpath):
-            triples = json.load(open(cpath, encoding="utf-8"))
+            blob = json.load(open(cpath, encoding="utf-8"))
+            # 옛 캐시는 삼중항 리스트만 담았다. 새 캐시는 토큰도 함께 담는다 —
+            # 캐시가 100% 적중해도 '전량 추출에 얼마가 드는가' 를 말할 수 있어야
+            # REPORT 의 비용 수치가 산출물로 뒷받침된다.
+            if isinstance(blob, dict):
+                triples = blob["triples"]
+                tok_all_in += blob.get("tokens", [0, 0])[0]
+                tok_all_out += blob.get("tokens", [0, 0])[1]
+            else:
+                triples = blob
             n_cached += 1
         else:
             for attempt in range(3):
@@ -141,6 +154,8 @@ def extract_all(cfg, docs, use_cache=True):
                     triples, (ti, to) = extract_doc(client, model, prompt, title, text)
                     tok_in += ti
                     tok_out += to
+                    tok_all_in += ti
+                    tok_all_out += to
                     break
                 except Exception as e:
                     if attempt == 2:
@@ -148,14 +163,15 @@ def extract_all(cfg, docs, use_cache=True):
                         triples = []
                         break
                     time.sleep(2 ** attempt)
-            json.dump(triples, open(cpath, "w", encoding="utf-8"), ensure_ascii=False)
+            json.dump({"triples": triples, "tokens": [ti, to]},
+                      open(cpath, "w", encoding="utf-8"), ensure_ascii=False)
         for t in triples:
             t["doc"] = title
         raw.extend(triples)
         print(f"\r  추출 {i}/{len(docs)}  (캐시 {n_cached})  누적 삼중항 {len(raw):,}",
               end="", flush=True)
     print()
-    return raw, tok_in, tok_out, n_cached
+    return raw, tok_in, tok_out, n_cached, (tok_all_in, tok_all_out)
 
 
 # ──────────────────────────────────────────────────────────── 정규화
@@ -343,8 +359,11 @@ def main():
         docs.append((f[:-3].replace("_", " "), text))
     print(f"문서 {len(docs)}건 · 모델 {cfg['llm']['extract_model']}\n")
 
-    raw, ti, to, n_cached = extract_all(cfg, docs, use_cache=not args.no_cache)
-    print(f"\n원시 삼중항 {len(raw):,}건  (토큰 in {ti:,} / out {to:,})")
+    raw, ti, to, n_cached, (all_in, all_out) = extract_all(
+        cfg, docs, use_cache=not args.no_cache)
+    cost = all_in / 1e6 * 0.15 + all_out / 1e6 * 0.60
+    print(f"\n원시 삼중항 {len(raw):,}건  (이번 실행 토큰 in {ti:,} / out {to:,})")
+    print(f"전량 추출 기준: in {all_in:,} / out {all_out:,} ≈ ${cost:.4f}")
 
     triples, stats = normalize(raw, cfg)
     print("\n정규화")

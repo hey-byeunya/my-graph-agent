@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 """1단계 — 한국어 위키백과에서 노벨문학상 수상자 코퍼스를 모은다.
 
-  python collect_corpus.py              # config.json 의 시드로 수집
+  python collect_corpus.py              # 코퍼스가 없으면 모으고, 있으면 그대로 둔다
+  python collect_corpus.py --refresh    # 고정된 코퍼스를 버리고 처음부터 다시
   python collect_corpus.py --target 40  # 목표 건수만 바꿔 빠르게 확인
+
+코퍼스는 한 번 모으면 고정한다. manifest.json 에 적힌 목록이 곧 코퍼스이고,
+완성돼 있으면 API 를 치지 않는다 — 위키백과는 살아 있는 소스라 재수집할 때마다
+후보가 달라져 문서가 계속 쌓였기 때문이다(60 -> 85 -> 98건).
 
 수집 방식
   MediaWiki API 만 쓴다. HTML 크롤링·파싱은 하지 않는다.
