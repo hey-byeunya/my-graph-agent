@@ -24,7 +24,6 @@ import sys
 import time
 from collections import defaultdict
 
-import networkx as nx
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REFUSAL_WORDS = ("찾지 못", "없습니다", "모르", "근거가 없", "확인할 수 없")
@@ -103,7 +102,7 @@ def classify_failure(item, result, G):
         return "생성"           # 거절 문항에서 틀렸다면 지어낸 것 = 생성
 
     # ① 색인 — 기대 경로의 개체가 그래프에 있는가
-    for subj, rel, obj in steps:
+    for subj, _rel, obj in steps:
         for name in (subj, obj):
             for part in [p.strip() for p in name.split("/")]:
                 if part and part != "작품" and part not in G:
@@ -239,7 +238,7 @@ def main():
 
     # ── 실패 층
     layers = [p["failure_layer"] for p in per_item if p["failure_layer"]]
-    print(f"\n실패 층 분류: "
+    print("\n실패 층 분류: "
           + (", ".join(f"{L} {layers.count(L)}건" for L in ("색인", "탐색", "생성")
                        if layers.count(L)) or "실패 없음"))
     unstable = [p["id"] for p in per_item if not p["stable"]]

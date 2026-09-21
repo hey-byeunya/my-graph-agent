@@ -263,9 +263,11 @@ def normalize(raw, cfg):
 
 def to_graph(triples, cfg):
     G = nx.MultiDiGraph()
+    # 노드 타입은 관계가 정한다 — AUTHORED 의 주어는 Laureate, 목적어는 Work.
+    # triples 는 스키마 필터를 이미 통과했으므로 여기서 못 찾는 관계는 없다.
     rel_to = {r["name"]: (r["from"], r["to"]) for r in cfg["schema"]["relations"]}
     for t in triples:
-        st, ot = rel_to.get(t["relation"], ("Unknown", "Unknown"))
+        st, ot = rel_to[t["relation"]]
         for name, typ in ((t["subject"], st), (t["object"], ot)):
             if name not in G:
                 G.add_node(name, type=typ)
@@ -295,7 +297,7 @@ def main():
     print(f"\n원시 삼중항 {len(raw):,}건  (토큰 in {ti:,} / out {to:,})")
 
     triples, stats = normalize(raw, cfg)
-    print(f"\n정규화")
+    print("\n정규화")
     print(f"  원시                 {stats['raw']:,}")
     print(f"  별칭 치환 후         {stats['after_alias']:,}")
     print(f"  스키마 필터 후       {stats['after_schema_filter']:,}")
@@ -328,7 +330,7 @@ def main():
     print(f"\n그래프: 노드 {G.number_of_nodes():,} · 엣지 {G.number_of_edges():,}")
     print(f"  노드 타입: {dict(by_type)}")
     print(f"  관계별:    {dict(by_rel)}")
-    print(f"  차수 상위 12 (허브 후보):")
+    print("  차수 상위 12 (허브 후보):")
     for n, d in deg[:12]:
         print(f"    {d:4d}  {n}  [{G.nodes[n].get('type')}]")
 
@@ -349,7 +351,7 @@ def main():
     }
     json.dump(report, open(os.path.join(out, "build_report.json"), "w", encoding="utf-8"),
               ensure_ascii=False, indent=2)
-    print(f"\n저장 → output/graph.graphml · triples.json · build_report.json")
+    print("\n저장 → output/graph.graphml · triples.json · build_report.json")
     return 0
 
 

@@ -21,9 +21,6 @@ from collections import Counter
 HERE = os.path.dirname(os.path.abspath(__file__))
 DOCS = os.path.join(HERE, "data", "docs")
 
-# 거절 문항이 코퍼스에 없어야 하는 핵심어
-ABSENT_EXPECTED = {11: ["무라카미"], 12: ["한강 + 포크너 동시 등장"]}
-
 
 def main():
     gs = json.load(open(os.path.join(HERE, "data", "goldenset.json"), encoding="utf-8"))

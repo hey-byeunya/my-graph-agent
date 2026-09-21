@@ -15,11 +15,10 @@ State 흐름
 import argparse
 import json
 import os
-import re
 import sys
 import time
 from collections import deque
-from typing import Annotated, TypedDict
+from typing import TypedDict
 
 import networkx as nx
 from dotenv import load_dotenv
@@ -41,13 +40,14 @@ class AgentState(TypedDict, total=False):
     sufficient: bool
     refused: bool
     notes: list            # 사람이 읽을 진행 기록
-    widened: int
+    widened: int           # widen 을 몇 번 썼는가
+    used: list             # 답변이 실제로 인용한 근거 번호
 
 
 # ──────────────────────────────────────────────────────────── 에이전트
 
 class GraphAgent:
-    def __init__(self, cfg=None, graph=None, quiet=True):
+    def __init__(self, cfg=None, graph=None):
         self.cfg = cfg or json.load(
             open(os.path.join(HERE, "config.json"), encoding="utf-8"))
         self.G = graph if graph is not None else nx.read_graphml(
@@ -56,7 +56,6 @@ class GraphAgent:
         self.never = set(self.tv["never_traverse"])
         self.cap_types = set(self.tv["cap_fanout_node_types"])
         self.alias = self.cfg["normalize"]["alias_map"]
-        self.quiet = quiet
         self._client = None
         self.token_in = self.token_out = 0
         # 긴 이름부터 맞춰야 '한강' 보다 '한강 (작가)' 류가 먼저 잡힌다
@@ -111,13 +110,10 @@ class GraphAgent:
 
     # ── 노드 2: n홉 확장
     def expand(self, state: AgentState) -> AgentState:
+        # 시드가 없으면 여기까지 오지 않는다 (_after_seed 가 refuse 로 보낸다)
         seeds, budget = state["seeds"], state["hops"]
-        if not seeds:
-            return {**state, "evidence": [], "path": [], "visited": []}
-
         evidence, path, visited = [], [], set(seeds)
-        seen_edges = set()
-        seed_set = set(seeds)
+        seen_edges, seed_set = set(), set(seeds)
         frontier = deque((s, 0) for s in seeds)
         HARD_CAP = 600          # 폭주 방지. 선별은 아래에서 따로 한다
 

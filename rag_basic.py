@@ -63,7 +63,7 @@ class BasicRAG:
         idx = sorted(range(len(scores)), key=lambda i: -scores[i])[: self.top_k]
         return [self.chunks[i] for i in idx]
 
-    def ask(self, question, log=False):
+    def ask(self, question):
         hits = self.retrieve(question)
         ctx = "\n\n".join(f"[{i+1}] ({h['doc']})\n{h['text']}" for i, h in enumerate(hits))
         system = (

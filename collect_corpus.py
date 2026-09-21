@@ -148,7 +148,7 @@ def main():
         print(f"⚠️  링크를 못 받은 시드: {missing}  (제목 표기를 확인하세요)")
 
     pointed = Counter()
-    for seed, targets in links.items():
+    for targets in links.values():
         for t in set(targets):
             if t not in seeds and not is_excluded(t, excludes):
                 pointed[t] += 1

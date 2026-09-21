@@ -14,7 +14,6 @@
 import json
 import os
 import sys
-from collections import Counter
 
 import networkx as nx
 
@@ -27,16 +26,6 @@ def load():
     G = nx.read_graphml(os.path.join(HERE, "output", "graph.graphml"),
                         force_multigraph=True)
     return cfg, gs, G
-
-
-def neighbors_via(G, node, relation, reverse=False):
-    """node 에 relation 으로 붙은 이웃. reverse=True 면 들어오는 간선을 본다."""
-    out = []
-    edges = G.in_edges(node, keys=True) if reverse else G.out_edges(node, keys=True)
-    for u, v, k in edges:
-        if k == relation or G.edges[u, v, k].get("relation") == relation:
-            out.append(u if reverse else v)
-    return sorted(set(out))
 
 
 def main():

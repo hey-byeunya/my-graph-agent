@@ -1,10 +1,10 @@
 {
-  "built_at": "2026-09-21 10:42:07",
+  "built_at": "2026-09-21 11:21:02",
   "n_docs": 60,
   "model": "gpt-4o-mini",
   "tokens": {
-    "in": 120734,
-    "out": 28081
+    "in": 0,
+    "out": 0
   },
   "normalize": {
     "raw": 466,
