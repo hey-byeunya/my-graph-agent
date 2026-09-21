@@ -307,6 +307,11 @@ class GraphAgent:
 
     # ── 노드 3: 근거만으로 답변
     def answer(self, state: AgentState) -> AgentState:
+        # 이 system 프롬프트를 고치면 먼저 `python3 check_prompt_regression.py`
+        # 부터 돌려라. 규칙 하나를 더할 때마다 다른 문항이 깨진 적이 두 번
+        # 있다(REPORT.md 7절 "④ 프롬프트 규칙은 서로 간섭한다") — 이 스크립트가
+        # 그 두 사고를 값싸게 재확인한다. 더 큰 규칙을 추가했다면
+        # `evaluate.py --repeat 1 --tag <이름>` 도 함께 돌릴 것.
         ev = state["evidence"]
         if not ev:
             return {**state, "answer": "", "sufficient": False,

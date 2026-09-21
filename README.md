@@ -19,6 +19,8 @@ pip install -r requirements.txt
 cp .env.example .env        # OPENAI_API_KEY 를 채웁니다
 ```
 
+![답변 화면](docs/demo-answer.png)
+
 ### 바로 써 보기 — 저장소에 든 그래프로
 
 그래프·평가 결과가 `output/` 에 이미 들어 있으므로 곧바로 질문할 수 있습니다.
@@ -52,6 +54,7 @@ python evaluate.py             # ⑤ 14문항 × 5회 채점 + basic RAG 대조 
 ```bash
 python agent.py --mermaid                               # LangGraph 구조도 (REPORT 5절의 원본)
 python evaluate.py --max-hops 3 --no-widen --tag hop3   # 반경 실험 → output/eval_hop3.json
+python check_prompt_regression.py                        # 답변 프롬프트를 고쳤다면 먼저 — 과거 두 회귀를 값싸게 재확인
 ```
 
 > **REPORT 의 수치를 그대로 재현하려면 `build_graph.py` 를 다시 돌리지 마세요.**
@@ -77,6 +80,7 @@ rag_basic.py         ⑤ 대조군 (BM25) — 같은 코퍼스·모델·채점
 evaluate.py          ⑤ 홉 수별 채점 · 경로 재현율 · 실패 층 분류
 app.py               ⑥ 데모 (streamlit)
 run_e2e.py           전 구간 구동 점검
+check_prompt_regression.py   답변 프롬프트 회귀 안전망 — 과거 두 사고를 Q3·Q6으로 재확인
 
 config.json          시드 · 스키마 · 별칭 · 병합 금지 쌍 · 허브 · 반경 · 모델
 data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json (코퍼스 목록)
