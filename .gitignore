@@ -1,0 +1,15 @@
+# 비밀
+.env
+*.key
+
+# 파이썬
+.venv/
+__pycache__/
+*.pyc
+
+# 캐시 (재현 가능한 중간 산출물)
+.cache/
+data/.raw_cache/
+
+# OS
+.DS_Store

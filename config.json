@@ -1,0 +1,30 @@
+{
+  "_comment": "도메인에 묶인 값만 여기 둔다. 코드에는 도메인 지식을 하드코딩하지 않는다. 주제 확정 후 채운다.",
+  "domain": "TBD",
+  "corpus": {
+    "dir": "data/docs",
+    "seeds": [],
+    "min_chars": 800,
+    "target_docs": 60
+  },
+  "schema": {
+    "node_types": [],
+    "relations": []
+  },
+  "normalize": {
+    "alias_map": {},
+    "stopword_nodes": [],
+    "fuzzy_threshold": 90
+  },
+  "traverse": {
+    "max_hops": 2,
+    "hub_degree_cutoff": 30,
+    "max_nodes_per_hop": 40,
+    "max_evidence_triples": 60
+  },
+  "llm": {
+    "extract_model": "gpt-4o-mini",
+    "answer_model": "gpt-4o-mini",
+    "temperature": 0
+  }
+}

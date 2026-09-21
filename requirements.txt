@@ -1,0 +1,23 @@
+# 그래프 · 데이터
+networkx
+pandas
+rapidfuzz
+
+# 코퍼스 수집
+requests
+
+# 검색 (basic RAG 대조군)
+rank_bm25
+
+# LLM / 에이전트
+langchain-core
+langchain-openai
+langchain-text-splitters
+langgraph
+python-dotenv
+
+# 데모
+streamlit
+
+# 시각화 (구조도 · 그래프 그림)
+matplotlib
