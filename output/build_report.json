@@ -1,62 +1,68 @@
 {
-  "built_at": "2026-09-21 11:46:48",
-  "n_docs": 60,
+  "built_at": "2026-09-21 13:06:04",
+  "n_docs": 98,
   "model": "gpt-4o-mini",
   "tokens": {
-    "in": 0,
-    "out": 0
+    "in": 39574,
+    "out": 7092
   },
-  "cached_docs": 60,
+  "cached_docs": 85,
   "award_years": {
-    "found": 59,
-    "of": 60,
+    "found": 97,
+    "of": 98,
     "missing": [
       "존 스타인벡"
     ]
   },
   "tokens_note": "이번 실행은 캐시에서 나온 문서가 있어 토큰이 실제 추출량보다 적다",
   "normalize": {
-    "raw": 466,
-    "after_alias": 466,
-    "after_schema_filter": 466,
-    "after_stopword_filter": 458,
-    "after_dedup": 453,
+    "raw": 762,
+    "after_alias": 762,
+    "after_schema_filter": 762,
+    "after_stopword_filter": 752,
+    "after_dedup": 746,
     "dropped": {
       "일반명사 노드": 3,
-      "한 글자 노드": 5
+      "한 글자 노드": 7
     },
     "title_pulls": {},
     "fuzzy_merges": []
   },
   "graph": {
-    "nodes": 401,
-    "edges": 453,
+    "nodes": 642,
+    "edges": 746,
     "by_node_type": {
-      "Laureate": 64,
-      "Country": 36,
-      "Award": 11,
-      "Work": 239,
-      "Language": 13,
-      "Movement": 33,
-      "Genre": 5
+      "Laureate": 102,
+      "Country": 44,
+      "Award": 27,
+      "Work": 394,
+      "Language": 18,
+      "Movement": 49,
+      "Genre": 8
     },
     "by_relation": {
-      "NATIONALITY": 60,
-      "WON": 72,
-      "AUTHORED": 247,
-      "BELONGS_TO": 39,
-      "WROTE_IN": 30,
-      "HAS_GENRE": 5
+      "NATIONALITY": 103,
+      "WON": 127,
+      "AUTHORED": 402,
+      "BELONGS_TO": 58,
+      "WROTE_IN": 47,
+      "HAS_GENRE": 8,
+      "INFLUENCED_BY": 1
     },
     "top_degree": [
       {
         "node": "노벨 문학상",
-        "degree": 56,
+        "degree": 93,
         "type": "Award"
       },
       {
         "node": "V. S. 나이폴",
-        "degree": 35,
+        "degree": 40,
+        "type": "Laureate"
+      },
+      {
+        "node": "압둘라자크 구르나",
+        "degree": 19,
         "type": "Laureate"
       },
       {
@@ -70,9 +76,24 @@
         "type": "Laureate"
       },
       {
+        "node": "옥타비오 파스",
+        "degree": 16,
+        "type": "Laureate"
+      },
+      {
+        "node": "토마스 만",
+        "degree": 15,
+        "type": "Laureate"
+      },
+      {
         "node": "페터 한트케",
         "degree": 15,
         "type": "Laureate"
+      },
+      {
+        "node": "영어",
+        "degree": 14,
+        "type": "Language"
       },
       {
         "node": "야로슬라프 사이페르트",
@@ -85,6 +106,16 @@
         "type": "Laureate"
       },
       {
+        "node": "가오싱젠",
+        "degree": 12,
+        "type": "Laureate"
+      },
+      {
+        "node": "프랑스",
+        "degree": 12,
+        "type": "Country"
+      },
+      {
         "node": "베르네르 폰 헤이덴스탐",
         "degree": 12,
         "type": "Laureate"
@@ -95,7 +126,17 @@
         "type": "Laureate"
       },
       {
+        "node": "오에 겐자부로",
+        "degree": 12,
+        "type": "Laureate"
+      },
+      {
         "node": "프레데리크 미스트랄",
+        "degree": 12,
+        "type": "Laureate"
+      },
+      {
+        "node": "해럴드 핀터",
         "degree": 12,
         "type": "Laureate"
       },
@@ -105,7 +146,22 @@
         "type": "Laureate"
       },
       {
+        "node": "넬리 작스",
+        "degree": 11,
+        "type": "Laureate"
+      },
+      {
         "node": "러디어드 키플링",
+        "degree": 11,
+        "type": "Laureate"
+      },
+      {
+        "node": "밥 딜런",
+        "degree": 11,
+        "type": "Laureate"
+      },
+      {
+        "node": "하인리히 뵐",
         "degree": 11,
         "type": "Laureate"
       },
@@ -117,61 +173,6 @@
       {
         "node": "미하일 숄로호프",
         "degree": 10,
-        "type": "Laureate"
-      },
-      {
-        "node": "장마리 귀스타브 르 클레지오",
-        "degree": 10,
-        "type": "Laureate"
-      },
-      {
-        "node": "파블로 네루다",
-        "degree": 10,
-        "type": "Laureate"
-      },
-      {
-        "node": "네이딘 고디머",
-        "degree": 9,
-        "type": "Laureate"
-      },
-      {
-        "node": "모리스 마테를링크",
-        "degree": 9,
-        "type": "Laureate"
-      },
-      {
-        "node": "모옌",
-        "degree": 9,
-        "type": "Laureate"
-      },
-      {
-        "node": "카밀로 호세 셀라",
-        "degree": 9,
-        "type": "Laureate"
-      },
-      {
-        "node": "파울 요한 루트비히 폰 하이제",
-        "degree": 9,
-        "type": "Laureate"
-      },
-      {
-        "node": "헤르만 헤세",
-        "degree": 9,
-        "type": "Laureate"
-      },
-      {
-        "node": "영어",
-        "degree": 8,
-        "type": "Language"
-      },
-      {
-        "node": "에위빈드 욘손",
-        "degree": 8,
-        "type": "Laureate"
-      },
-      {
-        "node": "올가 토카르추크",
-        "degree": 8,
         "type": "Laureate"
       }
     ]

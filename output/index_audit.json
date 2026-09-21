@@ -68,5 +68,18 @@
     "id": 12,
     "hops": 0,
     "status": "N/A"
+  },
+  {
+    "id": 13,
+    "hops": 1,
+    "status": "MISSING",
+    "gaps": [
+      "노드 없음: 1945"
+    ]
+  },
+  {
+    "id": 14,
+    "hops": 0,
+    "status": "N/A"
   }
 ]

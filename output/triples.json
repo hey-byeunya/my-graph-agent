@@ -1,5 +1,71 @@
 [
  {
+  "subject": "T. S. 엘리엇",
+  "relation": "NATIONALITY",
+  "object": "미국",
+  "docs": [
+   "T. S. 엘리엇"
+  ],
+  "evidence": [
+   "미국계 영국 시인, 극작가 그리고 문학 비평가였다."
+  ]
+ },
+ {
+  "subject": "T. S. 엘리엇",
+  "relation": "NATIONALITY",
+  "object": "영국",
+  "docs": [
+   "T. S. 엘리엇"
+  ],
+  "evidence": [
+   "후에 영국에 귀화했다."
+  ]
+ },
+ {
+  "subject": "T. S. 엘리엇",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "T. S. 엘리엇"
+  ],
+  "evidence": [
+   "1948년 노벨 문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "T. S. 엘리엇",
+  "relation": "AUTHORED",
+  "object": "황무지",
+  "docs": [
+   "T. S. 엘리엇"
+  ],
+  "evidence": [
+   "1922년 시 〈황무지〉를 발표하여 젊은 시인들에게 많은 영향을 끼쳤다."
+  ]
+ },
+ {
+  "subject": "T. S. 엘리엇",
+  "relation": "AUTHORED",
+  "object": "사원의 살인",
+  "docs": [
+   "T. S. 엘리엇"
+  ],
+  "evidence": [
+   "1935년 발표된 《사원의 살인》(Murder in the Cathedral)은 순교자 토머스 베켓을 주인공으로 한다."
+  ]
+ },
+ {
+  "subject": "T. S. 엘리엇",
+  "relation": "AUTHORED",
+  "object": "알프레드 프루프록의 연가",
+  "docs": [
+   "T. S. 엘리엇"
+  ],
+  "evidence": [
+   "그가 쓴 《J. 알프레드 프루프록의 연가》(The Love Song of J. Alfred Prufrock)"
+  ]
+ },
+ {
   "subject": "V. S. 나이폴",
   "relation": "NATIONALITY",
   "object": "트리니다드 토바고",
@@ -30,7 +96,8 @@
    "가와바타 야스나리",
    "게르하르트 하웁트만",
    "귄터 그라스",
-   "아니 에르노"
+   "아니 에르노",
+   "이보 안드리치"
   ],
   "evidence": [
    "그는 1971년에 맨부커상을, 2001년에 노벨 문학상을 받았다.",
@@ -322,6 +389,138 @@
   ],
   "evidence": [
    "1945년 라틴아메리카 작가로는 처음이자 여성으로는 다섯 번째로 노벨 문학상을 받았으며, 1951년에는 칠레 국가 문학상도 수상했다."
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "NATIONALITY",
+  "object": "중화인민공화국",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "중화인민공화국에서 출생한 프랑스의 소설가, 극작가, 비평가, 번역가, 연출가, 화가이다."
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "NATIONALITY",
+  "object": "프랑스",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "1998년에는 프랑스 시민권을 취득하면서 중국계 프랑스인이 되었다."
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "해외로 망명한 중국어권 작가로는 사상 처음으로 노벨 문학상 수상자로 선정되었지만 중국에서는 그가 노벨 문학상 수상자로 선정된 것에 비난이 일기도 했다."
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "WROTE_IN",
+  "object": "중국어",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "그의 작품들은 중국에서 금서로 지정되었다."
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "BELONGS_TO",
+  "object": "중국 공산당",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "1970년부터 1987년까지는 중국 공산당의 당원이었다."
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "AUTHORED",
+  "object": "내 할아버지를 위한 낚싯대",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "《내 할아버지를 위한 낚싯대 (給我老爺買魚竿)》 (1986년-1990년 작)"
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "AUTHORED",
+  "object": "영혼의 산",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "《영혼의 산 (靈山)》 (1989년 작)"
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "AUTHORED",
+  "object": "나 혼자만의 성경",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "《나 혼자만의 성경 (一個人的聖經)》 (1998년 작)"
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "AUTHORED",
+  "object": "절대 신호",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "《절대 신호 (絕對信號)》 (1982년 작)"
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "AUTHORED",
+  "object": "버스 정류장",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "《버스 정류장 (車站)》 (1983년 작)"
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "AUTHORED",
+  "object": "야인",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "《야인 (野人)》 (1985년 작)"
+  ]
+ },
+ {
+  "subject": "가오싱젠",
+  "relation": "AUTHORED",
+  "object": "피안",
+  "docs": [
+   "가오싱젠"
+  ],
+  "evidence": [
+   "《피안 (彼岸)》 (1986년 작)"
   ]
  },
  {
@@ -866,6 +1065,204 @@
   ]
  },
  {
+  "subject": "넬리 작스",
+  "relation": "NATIONALITY",
+  "object": "스웨덴",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "독일계 스웨덴의 시인·극작가다."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "WROTE_IN",
+  "object": "독일어",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "주로 독일어로 작품을 썼다."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "1966년 노벨문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "죽음의 집에서",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "시집으로는 《죽음의 집에서》(1947년)..."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "성식",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "시집으로는 《성식》(星蝕, 1949년)..."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "이상향으로의 행진",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "시집으로는 《이상향으로의 행진》(1960년)..."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "엘리",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "1966년 노벨 문학상을 수상하는데 영향을 준 시극 《엘리》(1962년)가 있다."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "그리고 아무도 더 이상 모른다",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "《그리고 아무도 더 이상 모른다》(1957년)..."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "그러나 이 태양도 역시 고향이 없다",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "《그러나 이 태양도 역시 고향이 없다》(1957년)..."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "피란과 방황",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "《피란과 방황》(1959년)..."
+  ]
+ },
+ {
+  "subject": "넬리 작스",
+  "relation": "AUTHORED",
+  "object": "모래 속의 미소",
+  "docs": [
+   "넬리 작스"
+  ],
+  "evidence": [
+   "《모래 속의 미소》(1964년)..."
+  ]
+ },
+ {
+  "subject": "다리오 포",
+  "relation": "NATIONALITY",
+  "object": "이탈리아",
+  "docs": [
+   "다리오 포"
+  ],
+  "evidence": [
+   "그는 1926년 이탈리아 롬바르디아주 바레세현 산자노에서 철도역 역장의 아들로 태어났으며..."
+  ]
+ },
+ {
+  "subject": "다리오 포",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "다리오 포"
+  ],
+  "evidence": [
+   "그는 1997년에 노벨 문학상을 수상했으며 그의 대표 작품으로..."
+  ]
+ },
+ {
+  "subject": "다리오 포",
+  "relation": "AUTHORED",
+  "object": "우스꽝스러운 비밀",
+  "docs": [
+   "다리오 포"
+  ],
+  "evidence": [
+   "그의 대표 작품으로 《우스꽝스러운 비밀 (Mistero Buffo)》 (1969년 작)..."
+  ]
+ },
+ {
+  "subject": "다리오 포",
+  "relation": "AUTHORED",
+  "object": "어느 무정부주의자의 우연한 죽음",
+  "docs": [
+   "다리오 포"
+  ],
+  "evidence": [
+   "그의 대표 작품으로 《어느 무정부주의자의 우연한 죽음 (Accidental Death of an Anarchist)》 (1970년 작)..."
+  ]
+ },
+ {
+  "subject": "다리오 포",
+  "relation": "AUTHORED",
+  "object": "트럼펫과 딸기",
+  "docs": [
+   "다리오 포"
+  ],
+  "evidence": [
+   "그의 대표 작품으로 《트럼펫과 딸기 (Trumpets and Raspberries)》 (1981년 작)..."
+  ]
+ },
+ {
+  "subject": "다리오 포",
+  "relation": "AUTHORED",
+  "object": "교황과 마녀",
+  "docs": [
+   "다리오 포"
+  ],
+  "evidence": [
+   "그의 대표 작품으로 《교황과 마녀 (The Pope and the Witch)》 (1989년 작)..."
+  ]
+ },
+ {
+  "subject": "다리오 포",
+  "relation": "AUTHORED",
+  "object": "요한 패던과 아메리카의 발견",
+  "docs": [
+   "다리오 포"
+  ],
+  "evidence": [
+   "그의 대표 작품으로 《요한 패던과 아메리카의 발견 (Johan Padan and the Discovery of America)》 (1992년 작)..."
+  ]
+ },
+ {
   "subject": "데릭 월컷",
   "relation": "NATIONALITY",
   "object": "세인트루시아",
@@ -1108,6 +1505,39 @@
   ]
  },
  {
+  "subject": "라빈드라나트 타고르",
+  "relation": "NATIONALITY",
+  "object": "인도",
+  "docs": [
+   "라빈드라나트 타고르"
+  ],
+  "evidence": [
+   "그는 인도의 시인 겸 철학자이다."
+  ]
+ },
+ {
+  "subject": "라빈드라나트 타고르",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "라빈드라나트 타고르"
+  ],
+  "evidence": [
+   "1913년 아시아에서는 처음으로 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "라빈드라나트 타고르",
+  "relation": "WROTE_IN",
+  "object": "벵골어",
+  "docs": [
+   "라빈드라나트 타고르"
+  ],
+  "evidence": [
+   "그가 시를 짓고 직접 곡까지 붙인 노래들은 로빈드로 숑기트(Rabindra Sangit)라고 하여 방글라데시와 인도 서벵골 주를 아우르는 벵골어권에서 지금도 널리 불리고 있다."
+  ]
+ },
+ {
   "subject": "러디어드 키플링",
   "relation": "NATIONALITY",
   "object": "영국",
@@ -1229,6 +1659,72 @@
   ]
  },
  {
+  "subject": "로맹 롤랑",
+  "relation": "NATIONALITY",
+  "object": "프랑스",
+  "docs": [
+   "로맹 롤랑"
+  ],
+  "evidence": [
+   "로맹 롤랑은 프랑스의 극작가·소설가·수필가·미술사학자이자 신비주의자이다."
+  ]
+ },
+ {
+  "subject": "로맹 롤랑",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "로맹 롤랑"
+  ],
+  "evidence": [
+   "1915년 문학 작품에 담긴 고결한 이상주의와 다양한 인간상을 묘사한 공감 및 진실에 대한 사랑을 인정받아 노벨 문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "로맹 롤랑",
+  "relation": "AUTHORED",
+  "object": "장 크리스토프",
+  "docs": [
+   "로맹 롤랑"
+  ],
+  "evidence": [
+   "가장 중요한 작품은 《장 크리스토프》이다."
+  ]
+ },
+ {
+  "subject": "로맹 롤랑",
+  "relation": "AUTHORED",
+  "object": "매혹된 영혼",
+  "docs": [
+   "로맹 롤랑"
+  ],
+  "evidence": [
+   "이 외에도 《매혹된 영혼》, 《미켈란젤로의 인생》 등의 작품이 있다."
+  ]
+ },
+ {
+  "subject": "로맹 롤랑",
+  "relation": "AUTHORED",
+  "object": "미켈란젤로의 인생",
+  "docs": [
+   "로맹 롤랑"
+  ],
+  "evidence": [
+   "이 외에도 《매혹된 영혼》, 《미켈란젤로의 인생》 등의 작품이 있다."
+  ]
+ },
+ {
+  "subject": "로맹 롤랑",
+  "relation": "WROTE_IN",
+  "object": "프랑스어",
+  "docs": [
+   "로맹 롤랑"
+  ],
+  "evidence": [
+   "로맹 롤랑의 삶과 글은 당대의 사회와 정치 및 정신 세계에서 일어난 주요 사건들과 깊은 영향을 주고 받았다."
+  ]
+ },
+ {
   "subject": "루돌프 크리스토프 오이켄",
   "relation": "NATIONALITY",
   "object": "독일",
@@ -1259,6 +1755,83 @@
   ],
   "evidence": [
    "오이켄의 학설은 '생의 철학'의 일종으로 볼 수 있으나, 자연적인 생명현상을 그대로 시인하는 것이 아니었으며, 오히려 자연을 초월해서 고양된 정신생활과 그에 대한 고유한 가치를 중시하는 것이었다."
+  ]
+ },
+ {
+  "subject": "루이즈 글릭",
+  "relation": "NATIONALITY",
+  "object": "미국",
+  "docs": [
+   "루이즈 글릭"
+  ],
+  "evidence": [
+   "루이즈 엘리자베스 글릭은 미국의 시인, 수필가이다."
+  ]
+ },
+ {
+  "subject": "루이즈 글릭",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "루이즈 글릭"
+  ],
+  "evidence": [
+   "루이즈 글릭은 2020년 노벨 문학상 수상자로 선정되었다."
+  ]
+ },
+ {
+  "subject": "루이즈 글릭",
+  "relation": "WON",
+  "object": "퓰리처상",
+  "docs": [
+   "루이즈 글릭"
+  ],
+  "evidence": [
+   "1993년엔 《야생 붓꽃》이 출간되었다. 글릭은 이 시집으로 퓰리처상을 수상했다."
+  ]
+ },
+ {
+  "subject": "루이즈 글릭",
+  "relation": "AUTHORED",
+  "object": "맏이",
+  "docs": [
+   "루이즈 글릭"
+  ],
+  "evidence": [
+   "투병 중의 경험을 바탕으로 25세 때인 1968년 첫 시집 《맏이》(Firstborn)를 냈다."
+  ]
+ },
+ {
+  "subject": "루이즈 글릭",
+  "relation": "AUTHORED",
+  "object": "야생 붓꽃",
+  "docs": [
+   "루이즈 글릭"
+  ],
+  "evidence": [
+   "1993년엔 《야생 붓꽃》이 출간되었다."
+  ]
+ },
+ {
+  "subject": "루이즈 글릭",
+  "relation": "AUTHORED",
+  "object": "아베르노",
+  "docs": [
+   "루이즈 글릭"
+  ],
+  "evidence": [
+   "PEN 뉴잉글랜드상(2007) - 시집 《아베르노》"
+  ]
+ },
+ {
+  "subject": "루이즈 글릭",
+  "relation": "AUTHORED",
+  "object": "신실하고 고결한 밤",
+  "docs": [
+   "루이즈 글릭"
+  ],
+  "evidence": [
+   "전미도서상(2014) - 시집 《독실하고 고결한 밤》"
   ]
  },
  {
@@ -1647,6 +2220,127 @@
   ]
  },
  {
+  "subject": "밥 딜런",
+  "relation": "NATIONALITY",
+  "object": "미국",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "밥 딜런은 미국의 싱어송라이터, 작가, 화가이다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "2016년 '위대한 미국의 전통 노래에서 새로운 시적 표현을 창조한' 공로로 노벨문학상을 수여받았다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "WROTE_IN",
+  "object": "영어",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "밥 딜런은 미국의 싱어송라이터, 작가, 화가이다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "HAS_GENRE",
+  "object": "포크",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "그는 포크, 블루스, 컨트리에서 가스펠, 로큰롤과 로커빌리에서 영국, 스코틀랜드, 아일랜드 포크 음악까지를 포섭하면서 고전 미국 노래를 탐구했다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "BELONGS_TO",
+  "object": "반문화",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "그의 가사는 현존한 대중음악의 관습에 저항하며 급성장하는 반문화에 호소했다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "WON",
+  "object": "그래미상",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "일곱 번의 그래미상, 골든 글로브상 한 번, 아카데미상 한 번을 받았다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "WON",
+  "object": "그래미 평생 공로상",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "일곱 번의 그래미상, 골든 글로브상 한 번, 아카데미상 한 번을 받았다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "WON",
+  "object": "폴라음악상",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "2000년에 스웨덴의 왕립음악원에서 주관하는 폴라음악상의 주인공이 되었다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "WON",
+  "object": "퓰리처상",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "2008년 퓰리처상 심사위원들은 딜런에게 '그의 가사 작품의 비범한 시적 힘이 아로새긴 대중음악 및 미국 문화에서의 깊은 영향'을 인정해 특별 표창을 했다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "AUTHORED",
+  "object": "바람만이 아는 대답",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "2004년 출판된 회고록 《바람만이 아는 대답: 밥 딜런 자서전》은 뉴욕 타임스의 논픽션 부문 베스트셀러 목록에 19주간 머물렀다."
+  ]
+ },
+ {
+  "subject": "밥 딜런",
+  "relation": "AUTHORED",
+  "object": "타란툴라",
+  "docs": [
+   "밥 딜런"
+  ],
+  "evidence": [
+   "타란툴라 (1971): 소설"
+  ]
+ },
+ {
   "subject": "버트런드 러셀",
   "relation": "NATIONALITY",
   "object": "영국",
@@ -1955,6 +2649,105 @@
   ]
  },
  {
+  "subject": "비스와바 심보르스카",
+  "relation": "NATIONALITY",
+  "object": "폴란드",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "폴란드의 시인이다."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "1996년 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "AUTHORED",
+  "object": "그것이 우리가 사는 목적이다",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "그의 첫 시집 《그것이 우리가 사는 목적이다》(1952년)는 공산주의의 큰 영향을 받았다."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "AUTHORED",
+  "object": "예티를 부르며",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "그러나 1957년에 발간한 《예티를 부르며》에는 소련의 독재자 이오시프 스탈린을 지긋지긋한 눈사람과 비교하는 내용이 담겨있다."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "AUTHORED",
+  "object": "100번의 즐거움",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "그녀의 다른 시집으로는 《100번의 즐거움》(1967년)..."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "AUTHORED",
+  "object": "다리 위의 사람들",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "그녀의 다른 시집으로는 《다리 위의 사람들》(1986년)..."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "AUTHORED",
+  "object": "모래알과 함께한 전경",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "그녀의 다른 시집으로는 《모래알과 함께한 전경》(1995년)..."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "AUTHORED",
+  "object": "개의 1인극",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "그녀의 다른 시집으로는 《개의 1인극》(2005년)이 있다."
+  ]
+ },
+ {
+  "subject": "비스와바 심보르스카",
+  "relation": "AUTHORED",
+  "object": "요구하지 않은 낭독",
+  "docs": [
+   "비스와바 심보르스카"
+  ],
+  "evidence": [
+   "그녀의 산문집은 2002년 《요구하지 않은 낭독》으로 출판되었다."
+  ]
+ },
+ {
   "subject": "사뮈엘 베케트",
   "relation": "NATIONALITY",
   "object": "아일랜드",
@@ -1985,6 +2778,72 @@
   ],
   "evidence": [
    "레지스탕스 메달 수훈자"
+  ]
+ },
+ {
+  "subject": "살바토레 콰시모도",
+  "relation": "NATIONALITY",
+  "object": "이탈리아",
+  "docs": [
+   "살바토레 콰시모도"
+  ],
+  "evidence": [
+   "살바토레 콰시모도는 이탈리아의 시인이다."
+  ]
+ },
+ {
+  "subject": "살바토레 콰시모도",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "살바토레 콰시모도"
+  ],
+  "evidence": [
+   "1959년에는 고전적 정열로서 현대 생활을 묘사한 서정시로 노벨 문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "살바토레 콰시모도",
+  "relation": "AUTHORED",
+  "object": "물과 흙",
+  "docs": [
+   "살바토레 콰시모도"
+  ],
+  "evidence": [
+   "1930년 처녀 시집 《물과 흙》을 비롯하여 10여 권의 시집을 냈고..."
+  ]
+ },
+ {
+  "subject": "살바토레 콰시모도",
+  "relation": "AUTHORED",
+  "object": "인생은 꿈이 아니다",
+  "docs": [
+   "살바토레 콰시모도"
+  ],
+  "evidence": [
+   "전후에는 시집 《날이 갈수록》과 《인생은 꿈이 아니다》 등에서 사회적 비판과 도덕적 책임을 더욱 강하게 드러냈다."
+  ]
+ },
+ {
+  "subject": "살바토레 콰시모도",
+  "relation": "AUTHORED",
+  "object": "그리스 서정시",
+  "docs": [
+   "살바토레 콰시모도"
+  ],
+  "evidence": [
+   "그의 작품으로는 《인생은 꿈이 아니다》와 번역 시집 《그리스 서정시》 등이 있다."
+  ]
+ },
+ {
+  "subject": "살바토레 콰시모도",
+  "relation": "BELONGS_TO",
+  "object": "에르메티즘",
+  "docs": [
+   "살바토레 콰시모도"
+  ],
+  "evidence": [
+   "콰시모도는 에르메티즘 시 운동과 가까운 작품을 썼고..."
   ]
  },
  {
@@ -2065,6 +2924,39 @@
   ]
  },
  {
+  "subject": "셀마 라겔뢰프",
+  "relation": "NATIONALITY",
+  "object": "스웨덴",
+  "docs": [
+   "셀마 라겔뢰프"
+  ],
+  "evidence": [
+   "셀마 오틸리아 로비사 라겔뢰프는 스웨덴의 작가이자 교사이다."
+  ]
+ },
+ {
+  "subject": "셀마 라겔뢰프",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "셀마 라겔뢰프"
+  ],
+  "evidence": [
+   "1909년 노벨 문학상 부문에서 여성 최초 수상자로 등극한 여류 문학작가로, 1914년 스웨덴 한림원 회원으로도 등극한 최초의 여성이기도 하다."
+  ]
+ },
+ {
+  "subject": "셀마 라겔뢰프",
+  "relation": "BELONGS_TO",
+  "object": "여자 노벨상 수상자",
+  "docs": [
+   "셀마 라겔뢰프"
+  ],
+  "evidence": [
+   "여자 노벨상 수상자 목록"
+  ]
+ },
+ {
   "subject": "셰이머스 히니",
   "relation": "NATIONALITY",
   "object": "아일랜드",
@@ -2128,6 +3020,94 @@
   ],
   "evidence": [
    "분류: 1939년 출생, 2013년 사망, 20세기 수필가, 21세기 수필가, 노벨 문학상 수상자, 런던데리주 출신, 미국철학학회 회원, 북아일랜드의 노벨상 수상자, 아일랜드의 노벨상 수상자, 아일랜드의 번역가, 아일랜드의 시인, 아일랜드의 작가, 옥스퍼드 대학교 세인트존스 칼리지 교수, 하버드 대학교 교수"
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "NATIONALITY",
+  "object": "프랑스",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "르네 프랑수아 아르망 \"쉴리\" 프뤼돔은 프랑스의 시인이자 수필가이다."
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "프뤼돔은 시적 이상주의와 예술적 완성도, 지성과 감성의 결합을 인정받아 최초의 노벨 문학상 수상자로 선정되었다."
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "BELONGS_TO",
+  "object": "고답파",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "진지하고 우울한 성격의 작품은 고답파와 연관되면서도 독자적인 특징을 보인다."
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "AUTHORED",
+  "object": "구절과 시",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "그는 1865년 자신의 첫 시집 《구절과 시 (Stances et Poèmes)》를 발표했고 1881년에는 아카데미 프랑세즈 회원으로 선출된다."
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "AUTHORED",
+  "object": "정의",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "《정의》(1878)와 《행복》(1888)에서는 철학적 주제를 시로 표현했다."
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "AUTHORED",
+  "object": "행복",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "《정의》(1878)와 《행복》(1888)에서는 철학적 주제를 시로 표현했다."
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "AUTHORED",
+  "object": "예술에서의 표현",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "이후에는 미학과 철학에 관한 산문으로 관심을 넓혀 《예술에서의 표현》(1884), 《시 형식에 대한 성찰》(1892) 등을 발표했다."
+  ]
+ },
+ {
+  "subject": "쉴리 프뤼돔",
+  "relation": "AUTHORED",
+  "object": "시 형식에 대한 성찰",
+  "docs": [
+   "쉴리 프뤼돔"
+  ],
+  "evidence": [
+   "이후에는 미학과 철학에 관한 산문으로 관심을 넓혀 《예술에서의 표현》(1884), 《시 형식에 대한 성찰》(1892) 등을 발표했다."
   ]
  },
  {
@@ -2263,6 +3243,28 @@
   ]
  },
  {
+  "subject": "시그리드 운세트",
+  "relation": "NATIONALITY",
+  "object": "노르웨이",
+  "docs": [
+   "시그리드 운세트"
+  ],
+  "evidence": [
+   "노르웨이의 소설가이다."
+  ]
+ },
+ {
+  "subject": "시그리드 운세트",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "시그리드 운세트"
+  ],
+  "evidence": [
+   "1928년 노벨 문학상을 받았다."
+  ]
+ },
+ {
   "subject": "싱클레어 루이스",
   "relation": "NATIONALITY",
   "object": "미국",
@@ -2304,6 +3306,314 @@
   ],
   "evidence": [
    "1984년 《아버지의 자리》로 르노도 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "NATIONALITY",
+  "object": "프랑스",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "알베르 카뮈는 프랑스의 피에 누아르 작가, 언론인이자 철학자이다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "그는 1957년 노벨 문학상을 수상하였으며..."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "BELONGS_TO",
+  "object": "실존주의자",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "그는 실존주의자이다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "AUTHORED",
+  "object": "이방인",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "1942년 《이방인》을 출판하였다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "AUTHORED",
+  "object": "시지프 신화",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "1942년 《시지프 신화》를 출판하였다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "AUTHORED",
+  "object": "페스트",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "1947년 《페스트》를 출판하였다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "AUTHORED",
+  "object": "전락",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "1956년 《전락》을 출판하였다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "AUTHORED",
+  "object": "행복한 죽음",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "《행복한 죽음》은 1971년에 사후 출간되었다."
+  ]
+ },
+ {
+  "subject": "알베르 카뮈",
+  "relation": "WROTE_IN",
+  "object": "프랑스어",
+  "docs": [
+   "알베르 카뮈"
+  ],
+  "evidence": [
+   "알베르 카뮈(프랑스어: Albert Camus...)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "NATIONALITY",
+  "object": "탄자니아",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "압둘라자크 구르나는 1948년 12월 20일에 잔지바르 술탄국(현재의 탄자니아)에서 태어났다."
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "2021년 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "출발의 기억",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 출발의 기억(Memory of Departure, 1987)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "순롓길",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 순롓길(Pilgrims Way, 1988)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "도티",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 도티(Dottie, 1990)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "낙원",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 낙원(Paradise, 1994)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "침묵의 경배",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 침묵의 경배(Admiring Silence, 1996)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "바다 옆에서",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 바다 옆에서(By the Sea, 2001)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "탈주",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 탈주(Desertion, 2005)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "마지막 선물",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 마지막 선물(The Last Gift, 2011)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "그레이블 하트",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 그레이블 하트(Gravel Heart, 2017)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "사후",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "장편 소설 사후(Afterlives, 2020)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "새장",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "단편 소설 새장(Cages, 1984)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "우두머리",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "단편 소설 우두머리(Bossy, 1994)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "호위",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "단편 소설 호위(Escort, 1996)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "왕자의 사진",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "단편 소설 왕자의 사진(The Photograph of the Prince, 2012)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "어머니는 아프리카의 농장에서 살았다",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "단편 소설 어머니는 아프리카의 농장에서 살았다(My Mother Lived on a Farm in Africa, 2006)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "도착한 자의 이야기",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "단편 소설 도착한 자의 이야기(The Arriver's Tale, 2016)"
+  ]
+ },
+ {
+  "subject": "압둘라자크 구르나",
+  "relation": "AUTHORED",
+  "object": "무국적자 이야기",
+  "docs": [
+   "압둘라자크 구르나"
+  ],
+  "evidence": [
+   "단편 소설 무국적자 이야기(The Stateless Person’s Tale, 2019)"
   ]
  },
  {
@@ -2758,6 +4068,116 @@
   ]
  },
  {
+  "subject": "엘리아스 카네티",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "엘리아스 카네티"
+  ],
+  "evidence": [
+   "1981년에 노벨 문학상을 수상한 영국의 작가이다."
+  ]
+ },
+ {
+  "subject": "엘리아스 카네티",
+  "relation": "NATIONALITY",
+  "object": "영국",
+  "docs": [
+   "엘리아스 카네티"
+  ],
+  "evidence": [
+   "1981년에 노벨 문학상을 수상한 영국의 작가이다."
+  ]
+ },
+ {
+  "subject": "엘리아스 카네티",
+  "relation": "NATIONALITY",
+  "object": "불가리아",
+  "docs": [
+   "엘리아스 카네티"
+  ],
+  "evidence": [
+   "불가리아 태생의 스파라드 유대인으로서, 빈과 런던, 취리히에서 독일어로 작품 활동을 하였다."
+  ]
+ },
+ {
+  "subject": "엘리아스 카네티",
+  "relation": "WROTE_IN",
+  "object": "독일어",
+  "docs": [
+   "엘리아스 카네티"
+  ],
+  "evidence": [
+   "빈과 런던, 취리히에서 독일어로 작품 활동을 하였다."
+  ]
+ },
+ {
+  "subject": "엘리아스 카네티",
+  "relation": "HAS_GENRE",
+  "object": "수필",
+  "docs": [
+   "엘리아스 카네티"
+  ],
+  "evidence": [
+   "20세기 수필가"
+  ]
+ },
+ {
+  "subject": "엘프리데 옐리네크",
+  "relation": "NATIONALITY",
+  "object": "오스트리아",
+  "docs": [
+   "엘프리데 옐리네크"
+  ],
+  "evidence": [
+   "엘프리데 옐리네크는 오스트리아의 슈타이어마르크주, 뮈르츠추슐라크 출신인 페미니스트 성향의 극작가이자 소설가이다."
+  ]
+ },
+ {
+  "subject": "엘프리데 옐리네크",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "엘프리데 옐리네크"
+  ],
+  "evidence": [
+   "2004년 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "엘프리데 옐리네크",
+  "relation": "WON",
+  "object": "게오르크 뷔히너상",
+  "docs": [
+   "엘프리데 옐리네크"
+  ],
+  "evidence": [
+   "1998년 게오르크 뷔히너 수상을 비롯해 다수의 문학상을 수상한 세계적으로 높은 평가를 받고 있지만 과격한 성 묘사와 신랄한 자국 비판 등에서 오스트리아의 보수 단체는 '포르노 작가'등으로 비난에 노출되는 것도 많다."
+  ]
+ },
+ {
+  "subject": "엘프리데 옐리네크",
+  "relation": "AUTHORED",
+  "object": "Die Klavierspielerin",
+  "docs": [
+   "엘프리데 옐리네크"
+  ],
+  "evidence": [
+   "1983년의 소설「피아노 치는 여자」는 미하엘 하네케에 의해 '피아니스트'로 영화화되어 2001년 칸 국제영화제에서 심사위원대상으로 선정되었다."
+  ]
+ },
+ {
+  "subject": "엘프리데 옐리네크",
+  "relation": "AUTHORED",
+  "object": "Lust",
+  "docs": [
+   "엘프리데 옐리네크"
+  ],
+  "evidence": [
+   "1990. 소설『Lust, 욕망』"
+  ]
+ },
+ {
   "subject": "오르한 파무크",
   "relation": "NATIONALITY",
   "object": "튀르키예",
@@ -2901,6 +4321,314 @@
   ]
  },
  {
+  "subject": "오에 겐자부로",
+  "relation": "NATIONALITY",
+  "object": "일본",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "오에 겐자부로(일본어: 大江健三郎, 1935년 1월 31일 ~ 2023년 3월 3일)는 일본의 작가로, 제2차 세계대전 패전 이후의 일본 전후세대를 대표한다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "그는 1994년 12월 8일 가와바타 야스나리(1968년 수상) 이후 26년 만에 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "AUTHORED",
+  "object": "사육",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "도쿄 대학 불문과 재학 당시 사르트르 소설에 심취했으며 <사육(飼育)>이란 작품으로 아쿠타가와 상을 수상했다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "AUTHORED",
+  "object": "아이 싹 훑기",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "데뷔한 다음 해인 1958년, 자신의 첫 장편소설 <아이 싹 훑기(芽むしり仔撃ち)>를 발표했다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "AUTHORED",
+  "object": "우리들의 시대",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "같은 해에 새로운 장편 《우리들의 시대(われらの時代)》를 발표하였다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "AUTHORED",
+  "object": "개인적 체험",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "1964년, 히카리의 탄생을 기점으로 쓴 자전적 소설 《개인적 체험(個人的な体験)》으로 제 11회 신초샤 문학상을 수상하였다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "AUTHORED",
+  "object": "히로시마 노트",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "같은 해에 히로시마를 수차례 방문했던 경험과 세계원수폭금지대회에 참가한 경험을 토대로 한 르포르타주 《히로시마 노트》를 연재하기 시작했다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "AUTHORED",
+  "object": "타오르는 푸른 나무",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "1993년 9월부터 《신조》에 있어서 가장 긴 장편소설 3부작 《타오르는 푸른 나무》를 연재하기 시작했다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "AUTHORED",
+  "object": "공중회전",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "1996년 다케미쯔 토오루의 영결식에서 그를 위해 신작을 바치겠다고 약속하고 1999년 《공중회전》에서 집필을 다시 시작했다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "WROTE_IN",
+  "object": "일본어",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "오에 겐자부로(일본어: 大江健三郎, 1935년 1월 31일 ~ 2023년 3월 3일)는 일본의 작가로, 제2차 세계대전 패전 이후의 일본 전후세대를 대표한다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "BELONGS_TO",
+  "object": "전후파",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "초기에는 전후파 작가답게 전쟁 체험과 그 후유증을 소재로 인간의 내면세계를 응시하는 사회비판적인 작품을 많이 썼다."
+  ]
+ },
+ {
+  "subject": "오에 겐자부로",
+  "relation": "INFLUENCED_BY",
+  "object": "가와바타 야스나리",
+  "docs": [
+   "오에 겐자부로"
+  ],
+  "evidence": [
+   "수상기념 연설문, 《애매한 일본의 나》를 통해 그는 스웨덴의 아동문학작품 《닐스의 모험》을 읽으며 꿈꿨던 어린 시절 1968년 노벨 문학상 수상자인 가와바타 야스나리의 일본적인 신비주의에 대한 회의, 전자공학이나 자동차 생산 기술로 유명한 조국 일본에 대한 비판적인 시각을 말하였다."
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "NATIONALITY",
+  "object": "멕시코",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "옥타비오 파스 로사노(Octavio Paz Lozano, 1914년 3월 31일 ~ 1998년 4월 19일)는 멕시코의 시인, 작가, 비평가 겸 외교관이다."
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "1981년에는 세르반테스상을 수상했고 1990년에는 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "BELONGS_TO",
+  "object": "20세기 수필가",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "분류: 1914년 출생, 1998년 사망, 20세기 수필가, 노벨 문학상 수상자..."
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "가석방 상태의 자유",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《가석방 상태의 자유 (Libertad bajo palabra)》 (1949년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "독수리인가? 태양인가?",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《독수리인가? 태양인가? (¿Águila o sol?)》 (1951년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "격렬한 계절",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《격렬한 계절 (La estación violenta)》 (1956년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "일장석",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《일장석 (Piedra de sol)》 (1957년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "도롱뇽",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《도롱뇽 (Salamandra)》 (1962년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "하양",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《하양 (Blanco)》 (1968년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "동쪽 비탈길",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《동쪽 비탈길 (Ladera este)》 (1969년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "공기의 아들들",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "시집 《공기의 아들들 (Hijos del aire)》(1981년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "고독의 미궁",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "수필집 《고독의 미궁 (El laberinto de la soledad)》 (1950년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "활과 리라",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "수필집 《활과 리라 (El arco y la lira)》 (1956년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "느릅나무에 열린 배",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "수필집 《느릅나무에 열린 배 (Las peras del olmo)》(1957년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "결합과 분리",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "수필집 《결합과 분리 (Conjunciones y disyunciones)》 (1970년 작)"
+  ]
+ },
+ {
+  "subject": "옥타비오 파스",
+  "relation": "AUTHORED",
+  "object": "원숭이 문법학자",
+  "docs": [
+   "옥타비오 파스"
+  ],
+  "evidence": [
+   "수필집 《원숭이 문법학자 (El mono gramático)》 (1974년 작)"
+  ]
+ },
+ {
   "subject": "올가 토카르추크",
   "relation": "NATIONALITY",
   "object": "폴란드",
@@ -2986,6 +4714,105 @@
   ],
   "evidence": [
    "올가 나보야 토카르추크(폴란드어: Olga Nawoja Tokarczuk, 1962년 1월 29일~)는 폴란드의 작가, 활동가이자 공적 지식인이다."
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "NATIONALITY",
+  "object": "그리스",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "그리스의 노벨상 수상자, 그리스의 시인, 그리스의 외교관"
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "그는 노벨 문학상 수상자이기도 하다."
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "WROTE_IN",
+  "object": "그리스어",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "그리스어: Γιώργος Σεφέρης"
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "BELONGS_TO",
+  "object": "현대 그리스 문학",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "세페리스는 현대 그리스 문학을 대표하는 20세기 시인으로, 고대 그리스 신화와 망명·귀향의 경험을 현대적 언어로 표현했다."
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "AUTHORED",
+  "object": "분기점",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "세페리스의 주요 작품으로는 시집 《분기점》, 《신화사》, 《항해 일지》, 《개똥지빠귀》 등이 있다."
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "AUTHORED",
+  "object": "신화사",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "세페리스의 주요 작품으로는 시집 《분기점》, 《신화사》, 《항해 일지》, 《개똥지빠귀》 등이 있다."
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "AUTHORED",
+  "object": "항해 일지",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "세페리스의 주요 작품으로는 시집 《분기점》, 《신화사》, 《항해 일지》, 《개똥지빠귀》 등이 있다."
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "AUTHORED",
+  "object": "개똥지빠귀",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "세페리스의 주요 작품으로는 시집 《분기점》, 《신화사》, 《항해 일지》, 《개똥지빠귀》 등이 있다."
+  ]
+ },
+ {
+  "subject": "요르고스 세페리스",
+  "relation": "WON",
+  "object": "윌리엄 포일상",
+  "docs": [
+   "요르고스 세페리스"
+  ],
+  "evidence": [
+   "그는 현대 그리스 문학에 기여한 공로로 1960년 윌리엄 포일상을 받았다."
   ]
  },
  {
@@ -3297,6 +5124,61 @@
   ]
  },
  {
+  "subject": "V. S. 나이폴",
+  "relation": "NATIONALITY",
+  "object": "유고슬라비아",
+  "docs": [
+   "이보 안드리치"
+  ],
+  "evidence": [
+   "유고슬라비아의 노벨상 수상자, 유고슬라비아의 소설가"
+  ]
+ },
+ {
+  "subject": "V. S. 나이폴",
+  "relation": "AUTHORED",
+  "object": "드리나 강의 다리",
+  "docs": [
+   "이보 안드리치"
+  ],
+  "evidence": [
+   "노벨 문학상을 받는 데 결정적 역할을 했던 소설 <드리나 강의 다리>는 보스니아와 세르비아의 접경에 위치한 작은 도시 비셰그라드와 이 도시를 가로질러 흐르고 있는 드리나 강 위에 놓인 다리를 중심으로 펼쳐지는 400여 년의 인간사를 다루고 있다."
+  ]
+ },
+ {
+  "subject": "V. S. 나이폴",
+  "relation": "WROTE_IN",
+  "object": "세르보크로아트어",
+  "docs": [
+   "이보 안드리치"
+  ],
+  "evidence": [
+   "이보 안드리치(세르보크로아트어: Ivo Andrić, 1892년 10월 10일 ~ 1975년 3월 13일)은 보스니아의 문학가이다."
+  ]
+ },
+ {
+  "subject": "V. S. 나이폴",
+  "relation": "NATIONALITY",
+  "object": "보스니아",
+  "docs": [
+   "이보 안드리치"
+  ],
+  "evidence": [
+   "안드리치의 작품 대부분의 배경은 그가 태어난 보스니아다."
+  ]
+ },
+ {
+  "subject": "V. S. 나이폴",
+  "relation": "BELONGS_TO",
+  "object": "청년 보스니아 운동",
+  "docs": [
+   "이보 안드리치"
+  ],
+  "evidence": [
+   "그는 혁명단체에 들어갔다. 이 단체의 조직원들은 남슬라브의 독립지원과 오스트리아-헝가리 제국으로부터 보스니아를 해방시키기 위해 투쟁했다.(‘청년 보스니아 운동’)"
+  ]
+ },
+ {
   "subject": "장마리 귀스타브 르 클레지오",
   "relation": "NATIONALITY",
   "object": "프랑스",
@@ -3407,6 +5289,72 @@
   ]
  },
  {
+  "subject": "장폴 사르트르",
+  "relation": "NATIONALITY",
+  "object": "프랑스",
+  "docs": [
+   "장폴 사르트르"
+  ],
+  "evidence": [
+   "무신론적 실존주의 사상을 대표하는 프랑스의 작가이자 철학자이다."
+  ]
+ },
+ {
+  "subject": "장폴 사르트르",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "장폴 사르트르"
+  ],
+  "evidence": [
+   "그해 노벨 문학상 수상자로 선정되었으나 수상을 거절한 것으로 유명하다."
+  ]
+ },
+ {
+  "subject": "장폴 사르트르",
+  "relation": "AUTHORED",
+  "object": "존재와 무",
+  "docs": [
+   "장폴 사르트르"
+  ],
+  "evidence": [
+   "사르트르의 작품은 <존재와 무L'Être et le Néant> (1943)..."
+  ]
+ },
+ {
+  "subject": "장폴 사르트르",
+  "relation": "AUTHORED",
+  "object": "실존주의는 휴머니즘이다",
+  "docs": [
+   "장폴 사르트르"
+  ],
+  "evidence": [
+   "사르트르의 주요 철학서로는 <존재와 무> (1943)와 <변증법적 이성 비판> (1960)이 있다."
+  ]
+ },
+ {
+  "subject": "장폴 사르트르",
+  "relation": "AUTHORED",
+  "object": "변증법적 이성 비판",
+  "docs": [
+   "장폴 사르트르"
+  ],
+  "evidence": [
+   "사르트르의 주요 철학서로는 <존재와 무> (1943)와 <변증법적 이성 비판> (1960)이 있다."
+  ]
+ },
+ {
+  "subject": "장폴 사르트르",
+  "relation": "BELONGS_TO",
+  "object": "실존주의",
+  "docs": [
+   "장폴 사르트르"
+  ],
+  "evidence": [
+   "사르트르는 프랑스 실존주의의 아버지로 여겨지며 1945년 그의 강연 <실존주의는 휴머니즘이다>는 실존주의 철학 사상의 선언문으로 여겨진다."
+  ]
+ },
+ {
   "subject": "조수에 카르두치",
   "relation": "NATIONALITY",
   "object": "이탈리아",
@@ -3459,6 +5407,281 @@
   ],
   "evidence": [
    "초기 시집 《유베닐리아》는 단테·페트라르카와 고전 시형식의 영향을 보여 주며."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "NATIONALITY",
+  "object": "아일랜드",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "조지 버너드 쇼(영어: George Bernard Shaw, 1856년 7월 26일~1950년 11월 2일)는 주로 버너드 쇼라는 필명으로 활동한 아일랜드 출신의 소설가, 극작가, 평론가, 연설가, 사회주의자, 사회활동가이다."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "쇼는 《성 죤》을 발표한 후 1925년에 노벨문학상을 수상했고, 1938년에는 《피그말리온》의 영화 각본으로 아카데미상을 수상했다."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "BELONGS_TO",
+  "object": "페이비언 협회",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "1880년대 중반 무렵에 정치적 각성을 계기로 점진주의적 사회주의 단체인 페이비언 협회에 가입한 후 저명한 연설문 작가가 되었다."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "AUTHORED",
+  "object": "워런부인의 직업",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "그는 5편의 소설과 60여 편의 희곡을 집필했으며, 대표작으로 《워런부인의 직업》(1893) 등이 있다."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "AUTHORED",
+  "object": "인간과 초인",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "그는 5편의 소설과 60여 편의 희곡을 집필했으며, 대표작으로 《인간과 초인》(1902) 등이 있다."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "AUTHORED",
+  "object": "참령 바버러",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "그는 5편의 소설과 60여 편의 희곡을 집필했으며, 대표작으로 《참령 바버러》(1905) 등이 있다."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "AUTHORED",
+  "object": "피그말리온",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "그는 5편의 소설과 60여 편의 희곡을 집필했으며, 대표작으로 《피그말리온》(1913) 등이 있다."
+  ]
+ },
+ {
+  "subject": "조지 버나드 쇼",
+  "relation": "AUTHORED",
+  "object": "성 죤",
+  "docs": [
+   "조지 버나드 쇼"
+  ],
+  "evidence": [
+   "그는 5편의 소설과 60여 편의 희곡을 집필했으며, 대표작으로 《성 죤》(Saint Joan, 1923) 등이 있다."
+  ]
+ },
+ {
+  "subject": "조지프 브로드스키",
+  "relation": "NATIONALITY",
+  "object": "러시아",
+  "docs": [
+   "조지프 브로드스키"
+  ],
+  "evidence": [
+   "러시아계 미국인 시인이자 에세이 작가이다."
+  ]
+ },
+ {
+  "subject": "조지프 브로드스키",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "조지프 브로드스키"
+  ],
+  "evidence": [
+   "1987년 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "조지프 브로드스키",
+  "relation": "WROTE_IN",
+  "object": "영어",
+  "docs": [
+   "조지프 브로드스키"
+  ],
+  "evidence": [
+   "러시아계 미국인 시인이자 에세이 작가이다."
+  ]
+ },
+ {
+  "subject": "조지프 브로드스키",
+  "relation": "NATIONALITY",
+  "object": "미국",
+  "docs": [
+   "조지프 브로드스키"
+  ],
+  "evidence": [
+   "1977년 미국 시민권을 취득했다."
+  ]
+ },
+ {
+  "subject": "존 골즈워디",
+  "relation": "NATIONALITY",
+  "object": "영국",
+  "docs": [
+   "존 골즈워디"
+  ],
+  "evidence": [
+   "영국의 소설가·극작가이자 변호사이다."
+  ]
+ },
+ {
+  "subject": "존 골즈워디",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "존 골즈워디"
+  ],
+  "evidence": [
+   "1932년에 노벨 문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "존 골즈워디",
+  "relation": "WROTE_IN",
+  "object": "영어",
+  "docs": [
+   "존 골즈워디"
+  ],
+  "evidence": [
+   "영어: John Galsworthy, OM, 1867년 8월 14일 ~ 1933년 1월 31일은 영국의 소설가·극작가이자 변호사이다."
+  ]
+ },
+ {
+  "subject": "존 골즈워디",
+  "relation": "AUTHORED",
+  "object": "포사이트가(家)의 이야기",
+  "docs": [
+   "존 골즈워디"
+  ],
+  "evidence": [
+   "3부작을 《포사이트가(家)의 이야기》라 하였으며 이것은 1886년부터 1920년까지의 중상류계급에 속하는 포사이트가의 생활을 묘사하고..."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "NATIONALITY",
+  "object": "남아프리카 공화국",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "존 맥스웰 쿳시(영어: John Maxwell Coetzee, IPA: [kʊtˈsiː]1940년 2월 9일 ~ )는 남아프리카 공화국 출신 오스트레일리아의 작가로, 2003년 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "그는 2003년 노벨 문학상을 수상하였다."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "WROTE_IN",
+  "object": "영어",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "그는 아프리칸스어도 사용했으나, 영어권을 중심으로 활동하고 작품도 영어로 썼기 때문에..."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "BELONGS_TO",
+  "object": "아프리카너",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "그는 네덜란드계 백인의 후손인 아프리카너이며..."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "AUTHORED",
+  "object": "어둠의 땅",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "1974년 《어둠의 땅》을 출간하여 등단한 이후..."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "AUTHORED",
+  "object": "야만인을 기다리며",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "1980년 《야만인을 기다리며(Waiting for the Barbarians)》로 큰 주목을 받았으며..."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "AUTHORED",
+  "object": "마이클 K",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "1983년 《마이클 K(The Life and Times of Michael K)》로 영어권 작가에게 수여하는 영국의 유명 문학상인 맨 부커 상을 받았다."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "AUTHORED",
+  "object": "추락",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "1999년 《추락(Disgrace)》으로 다시 부커상을 받아..."
+  ]
+ },
+ {
+  "subject": "존 맥스웰 쿳시",
+  "relation": "AUTHORED",
+  "object": "엘리자베스 코스텔로",
+  "docs": [
+   "존 맥스웰 쿳시"
+  ],
+  "evidence": [
+   "2003년 《엘리자베스 코스텔로(Elizabeth Costello)》 ISBN 89-7527-500-0"
   ]
  },
  {
@@ -3547,6 +5770,61 @@
   ],
   "evidence": [
    "그의 작품은 따뜻한 인간미가 넘치는 문체에 특징이 있다."
+  ]
+ },
+ {
+  "subject": "카를 슈피텔러",
+  "relation": "NATIONALITY",
+  "object": "스위스",
+  "docs": [
+   "카를 슈피텔러"
+  ],
+  "evidence": [
+   "그는 스위스의 시인이다."
+  ]
+ },
+ {
+  "subject": "카를 슈피텔러",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "카를 슈피텔러"
+  ],
+  "evidence": [
+   "그는 1919년에 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "카를 슈피텔러",
+  "relation": "AUTHORED",
+  "object": "프로메테우스와 에피메테우스",
+  "docs": [
+   "카를 슈피텔러"
+  ],
+  "evidence": [
+   "그는 1881년에 우화적 산문시인 《프로메테우스와 에피메테우스 (Prometheus und Epimetheus)》를 발표했다."
+  ]
+ },
+ {
+  "subject": "카를 슈피텔러",
+  "relation": "AUTHORED",
+  "object": "올림포스의 봄",
+  "docs": [
+   "카를 슈피텔러"
+  ],
+  "evidence": [
+   "그는 1900년부터 1905년까지 서사시 《올림포스의 봄 (Der olympische Frühling)》을 발표했다."
+  ]
+ },
+ {
+  "subject": "카를 슈피텔러",
+  "relation": "AUTHORED",
+  "object": "성충",
+  "docs": [
+   "카를 슈피텔러"
+  ],
+  "evidence": [
+   "그는 1906년에 자서전적 소설 《성충 (Imago)》를 발표했다."
   ]
  },
  {
@@ -3979,6 +6257,391 @@
   ]
  },
  {
+  "subject": "테오도어 몸젠",
+  "relation": "NATIONALITY",
+  "object": "독일",
+  "docs": [
+   "테오도어 몸젠"
+  ],
+  "evidence": [
+   "크리스티안 마티아스 테오도어 몸젠(Christian Matthias Theodor Mommsen, 1817년 11월 30일 ~ 1903년 11월 1일)은 독일의 고전학자이다."
+  ]
+ },
+ {
+  "subject": "테오도어 몸젠",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "테오도어 몸젠"
+  ],
+  "evidence": [
+   "그는 1902년에 노벨 문학상을 수상했는데, 역사가가 노벨 문학상을 수상한 것은 현재까지 그가 유일하다."
+  ]
+ },
+ {
+  "subject": "테오도어 몸젠",
+  "relation": "AUTHORED",
+  "object": "로마사",
+  "docs": [
+   "테오도어 몸젠"
+  ],
+  "evidence": [
+   "그의 저서로 《로마사》(A History Of Rome)가 있다."
+  ]
+ },
+ {
+  "subject": "로마사",
+  "relation": "HAS_GENRE",
+  "object": "비문학",
+  "docs": [
+   "테오도어 몸젠"
+  ],
+  "evidence": [
+   "역사 저술로 1902년 노벨 문학상을 받은 몇 안 되는 비문학 작가 가운데 한 명이다."
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "NATIONALITY",
+  "object": "미국",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "모리슨은 미국 오하이오주 로레인에서 태어났다."
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "1993년 노벨 문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "WON",
+  "object": "퓰리처상",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "1987년 《빌러비드》로 퓰리처상 픽션 부문을 수상하였다."
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "AUTHORED",
+  "object": "가장 푸른 눈",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "1970년에 첫 소설인 《가장 푸른 눈》(The Bluest Eye)을 출간했으며,"
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "AUTHORED",
+  "object": "솔로몬의 노래",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "1977년 소설 《솔로몬의 노래》(Song of Solomon)로 주목을 받아 전미 도서 비평가 협회상을 수상했다."
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "AUTHORED",
+  "object": "빌러비드",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "1987년 《빌러비드》로 퓰리처상 픽션 부문을 수상하였다."
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "AUTHORED",
+  "object": "재즈",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "1992년 여섯번째 소설 《재즈》(Jazz)를 발표했다."
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "WROTE_IN",
+  "object": "영어",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "1953년에 하워드 대학교에서 영어 학위를 받고,"
+  ]
+ },
+ {
+  "subject": "토니 모리슨",
+  "relation": "BELONGS_TO",
+  "object": "아프리카계 미국인",
+  "docs": [
+   "토니 모리슨"
+  ],
+  "evidence": [
+   "모리슨은 아프리카계 미국인이다."
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "NATIONALITY",
+  "object": "독일",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "토마스 만(독일어: Thomas Mann, 1875년 6월 6일 ~ 1955년 8월 12일)은 독일의 평론가이자 소설가이다."
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "1929년 노벨 문학상을 비롯, 괴테 상 등 많은 상을 받았다."
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "꼬마 프리데만 씨",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《꼬마 프리데만 씨 (Der kleine Herr Friedmann)》 (1898년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "부덴브로크가(家)",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《부덴브로크가(家)》(Buddenbrooks) (1901년): 토마스 만과 그의 형인 소설가 하인리히 만(Heinrich Mann)의 출생지인 북독일 뤼벡의 한 상인 가문의 가족사이다."
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "토니오 크뢰거",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《토니오 크뢰거 (Tonio Kröger)》 (1903년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "대공전하",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《대공전하 (Königliche Hoheit)》 (1909년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "베네치아에서의 죽음",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《베네치아에서의 죽음 (Der Tod in Venedig)》 (1912년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "마의 산",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《마의 산 (Der Zauberberg)》 (1924년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "요셉과 그의 형제들",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《요셉과 그의 형제들 (Joseph und seine Brüder)》 (1933년-43년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "Das Problem der Freiheit",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《Das Problem der Freiheit》 (1937년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "바이마르의 로테",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《바이마르의 로테 (Lotte in Weimar)》 (1939년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "Die vertauschten Köpfe - Eine indische Legende",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《Die vertauschten Köpfe - Eine indische Legende》 (1940년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "파우스투스 박사",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《파우스투스 박사 (Doktor Faustus)》 (1947년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "거룩한 죄인",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《거룩한 죄인 (Der Erwählte)》 (1951년)"
+  ]
+ },
+ {
+  "subject": "토마스 만",
+  "relation": "AUTHORED",
+  "object": "사기꾼 펠릭스 크룰의 고백",
+  "docs": [
+   "토마스 만"
+  ],
+  "evidence": [
+   "《사기꾼 펠릭스 크룰의 고백 (Bekenntnisse des Hochstaplers Felix Krull. Der Memoiren erster Teil)》 (1922년/1954년)"
+  ]
+ },
+ {
+  "subject": "토마스 트란스트뢰메르",
+  "relation": "NATIONALITY",
+  "object": "스웨덴",
+  "docs": [
+   "토마스 트란스트뢰메르"
+  ],
+  "evidence": [
+   "스웨덴의 시인, 번역가이다."
+  ]
+ },
+ {
+  "subject": "토마스 트란스트뢰메르",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "토마스 트란스트뢰메르"
+  ],
+  "evidence": [
+   "2011년 노벨 문학상을 수상하였다."
+  ]
+ },
+ {
+  "subject": "토마스 트란스트뢰메르",
+  "relation": "WROTE_IN",
+  "object": "스웨덴어",
+  "docs": [
+   "토마스 트란스트뢰메르"
+  ],
+  "evidence": [
+   "스웨덴어 시인, 스웨덴의 번역가이다."
+  ]
+ },
+ {
+  "subject": "토마스 트란스트뢰메르",
+  "relation": "AUTHORED",
+  "object": "정오의 해빙",
+  "docs": [
+   "토마스 트란스트뢰메르"
+  ],
+  "evidence": [
+   "대표작으로 〈정오의 해빙〉, 〈사물의 맥락〉, 〈몇 분간〉, 〈비가〉 등이 있다."
+  ]
+ },
+ {
+  "subject": "토마스 트란스트뢰메르",
+  "relation": "AUTHORED",
+  "object": "사물의 맥락",
+  "docs": [
+   "토마스 트란스트뢰메르"
+  ],
+  "evidence": [
+   "대표작으로 〈정오의 해빙〉, 〈사물의 맥락〉, 〈몇 분간〉, 〈비가〉 등이 있다."
+  ]
+ },
+ {
+  "subject": "토마스 트란스트뢰메르",
+  "relation": "AUTHORED",
+  "object": "몇 분간",
+  "docs": [
+   "토마스 트란스트뢰메르"
+  ],
+  "evidence": [
+   "대표작으로 〈정오의 해빙〉, 〈사물의 맥락〉, 〈몇 분간〉, 〈비가〉 등이 있다."
+  ]
+ },
+ {
+  "subject": "토마스 트란스트뢰메르",
+  "relation": "AUTHORED",
+  "object": "비가",
+  "docs": [
+   "토마스 트란스트뢰메르"
+  ],
+  "evidence": [
+   "대표작으로 〈정오의 해빙〉, 〈사물의 맥락〉, 〈몇 분간〉, 〈비가〉 등이 있다."
+  ]
+ },
+ {
   "subject": "파블로 네루다",
   "relation": "NATIONALITY",
   "object": "칠레",
@@ -4276,6 +6939,105 @@
   ]
  },
  {
+  "subject": "펄 S. 벅",
+  "relation": "NATIONALITY",
+  "object": "미국",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "펄 사이든스트리커 벅(영어: Pearl Sydenstricker Buck, 중국어: 賽珍珠 싸이전주[*], 문화어: 펄 바크, 1892년 6월 26일 ∼ 1973년 3월 6일)은 미국의 소설가이다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "1938년에는 미국의 여성 작가로서는 처음으로 노벨 문학상을 수상하였다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "AUTHORED",
+  "object": "대지의 집",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "이어 빈농으로부터 입신하여 대지주가 되는 왕룽을 중심으로 왕룽의 아내 오란과 세 명의 아들들의 역사를 그린 장편 《대지》(1931년)를 출판하여 작가로서의 명성을 남겼다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "AUTHORED",
+  "object": "동풍 서풍",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "1930년 중국에서 동·서양 문명의 갈등을 다룬 장편 첫 작품 《동풍 서풍》을 출판하였는데, 출판사의 예상을 뒤엎고 1년이 채 안 되어 3번이나 다시 인쇄해야 할 정도로 인기가 대단하였다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "AUTHORED",
+  "object": "아들들",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "대지는 왕룽이 죽은후 세 아들이 지주, 상인, 군벌로 각자의 삶을 개척하는 모습을 묘사한 《아들들》(1933년), 《분열된 집》(1933년)과 함께 3부작 《대지의 집》을 구성한다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "AUTHORED",
+  "object": "분열된 집",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "대지는 왕룽이 죽은후 세 아들이 지주, 상인, 군벌로 각자의 삶을 개척하는 모습을 묘사한 《아들들》(1933년), 《분열된 집》(1933년)과 함께 3부작 《대지의 집》을 구성한다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "AUTHORED",
+  "object": "갈대는 바람에 시달려도",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "한국을 몇 차례 방문하여 한국 관련 소설도 집필하였는데, 한국 농촌을 배경으로 쓴 《갈대는 바람에 시달려도》는 1881년부터 제2차 세계 대전 말까지의 한국 상류 가정의 변천을 묘사하고 있다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "AUTHORED",
+  "object": "새해",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "한국의 혼혈아를 소재로 한 소설 《새해》(1968년)를 쓰기도 했다."
+  ]
+ },
+ {
+  "subject": "펄 S. 벅",
+  "relation": "WROTE_IN",
+  "object": "영어",
+  "docs": [
+   "펄 S. 벅"
+  ],
+  "evidence": [
+   "펄 사이든스트리커 벅(영어: Pearl Sydenstricker Buck, 중국어: 賽珍珠 싸이전주[*], 문화어: 펄 바크, 1892년 6월 26일 ∼ 1973년 3월 6일)은 미국의 소설가이다."
+  ]
+ },
+ {
   "subject": "페터 한트케",
   "relation": "NATIONALITY",
   "object": "오스트리아",
@@ -4438,6 +7200,105 @@
   ],
   "evidence": [
    "《시 없는 삶》 (읻다) 2019년 10월 ISBN 979-11-894330-5-5"
+  ]
+ },
+ {
+  "subject": "프란스 에밀 실란패",
+  "relation": "NATIONALITY",
+  "object": "핀란드",
+  "docs": [
+   "프란스 에밀 실란패"
+  ],
+  "evidence": [
+   "그는 핀란드의 작가이다."
+  ]
+ },
+ {
+  "subject": "프란스 에밀 실란패",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "프란스 에밀 실란패"
+  ],
+  "evidence": [
+   "1939년 핀란드 작가로는 처음 노벨 문학상을 수상하였다."
+  ]
+ },
+ {
+  "subject": "프란스 에밀 실란패",
+  "relation": "AUTHORED",
+  "object": "삶과 태양",
+  "docs": [
+   "프란스 에밀 실란패"
+  ],
+  "evidence": [
+   "1916년 첫 장편소설인 《삶과 태양》(Elämä ja aurinko)을 발표하였다."
+  ]
+ },
+ {
+  "subject": "프란스 에밀 실란패",
+  "relation": "AUTHORED",
+  "object": "온순한 유산",
+  "docs": [
+   "프란스 에밀 실란패"
+  ],
+  "evidence": [
+   "이어서는 1919년에 핀란드 내전을 소재로 한 《온순한 유산》(Hurskas kurjuus)을 발표하였다."
+  ]
+ },
+ {
+  "subject": "프란스 에밀 실란패",
+  "relation": "AUTHORED",
+  "object": "젊었을 때 잠들다",
+  "docs": [
+   "프란스 에밀 실란패"
+  ],
+  "evidence": [
+   "그의 가장 유명한 작품은 1931년 발표한 《젊었을 때 잠들다》(Nuorena nukkunut, 한국에는 《실리아》라는 제목으로 소개)로 영어로 번역되어 미국과 영국에서 출판되었다."
+  ]
+ },
+ {
+  "subject": "프란스 에밀 실란패",
+  "relation": "AUTHORED",
+  "object": "인생의 아름다움과 고통스러움",
+  "docs": [
+   "프란스 에밀 실란패"
+  ],
+  "evidence": [
+   "1945년에는 마지막 장편인 《인생의 아름다움과 고통스러움》(Ihmiselon ihanuus ja kurjuus)을 발표하였다."
+  ]
+ },
+ {
+  "subject": "프랑수아 모리아크",
+  "relation": "NATIONALITY",
+  "object": "프랑스",
+  "docs": [
+   "프랑수아 모리아크"
+  ],
+  "evidence": [
+   "프랑수아 모리아크(François Mauriac, 1885년 10월 11일 ~ 1970년 9월 1일)는 프랑스의 소설가이다."
+  ]
+ },
+ {
+  "subject": "프랑수아 모리아크",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "프랑수아 모리아크"
+  ],
+  "evidence": [
+   "1952년에 노벨 문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "프랑수아 모리아크",
+  "relation": "BELONGS_TO",
+  "object": "아카데미 프랑세즈",
+  "docs": [
+   "프랑수아 모리아크"
+  ],
+  "evidence": [
+   "1933년 아카데미 프랑세즈 회원이 되었고"
   ]
  },
  {
@@ -4661,6 +7522,171 @@
   ]
  },
  {
+  "subject": "하신토 베나벤테",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "하신토 베나벤테"
+  ],
+  "evidence": [
+   "그는 스페인 연극의 뛰어난 전통을 이어 간 공로로 1922년 노벨 문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "하신토 베나벤테",
+  "relation": "NATIONALITY",
+  "object": "스페인",
+  "docs": [
+   "하신토 베나벤테"
+  ],
+  "evidence": [
+   "20세기 스페인을 대표하는 극작가 중 한 명이다."
+  ]
+ },
+ {
+  "subject": "하신토 베나벤테",
+  "relation": "BELONGS_TO",
+  "object": "모더니즘",
+  "docs": [
+   "하신토 베나벤테"
+  ],
+  "evidence": [
+   "'모더니즘'과 '98년 사조'의 두 종류와 상관없이 전시대의 '생활 사생문학'을 연극을 통해 이어받은 극작가이다."
+  ]
+ },
+ {
+  "subject": "하신토 베나벤테",
+  "relation": "WROTE_IN",
+  "object": "스페인어",
+  "docs": [
+   "하신토 베나벤테"
+  ],
+  "evidence": [
+   "그는 스페인 연극의 뛰어난 전통을 이어 간 공로로 1922년 노벨 문학상을 받았다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "NATIONALITY",
+  "object": "독일",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "하인리히 뵐(Heinrich Böll 듣기 , 1917년 12월 21일 ~ 1985년 7월 16일)은 독일의 소설가다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "1971년에는 성취 지향 사회에 대한 저항을 담은 ≪여인과 군상≫을 발표하고 이듬해 노벨문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "WON",
+  "object": "게오르크 뷔흐너 상",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "1967년에는 독일 최고 권위의 문학상인 '게오르크 뷔흐너 상'을 수상했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "BELONGS_TO",
+  "object": "폐허 문학",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "전후 귀향하여 ‘전쟁에서 본 것’과 전후의 ‘폐허’에 대해서 쓰기 시작했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "AUTHORED",
+  "object": "열차는 정확했다",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "1949년 병사들의 절망적인 삶을 묘사한 『열차는 정확했다』를 시작으로, 참혹한 참전 경험과 전후 독일의 참상을 그린 작품들을 주로 발표했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "AUTHORED",
+  "object": "그리고 아무 말도 하지 않았다",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "1953년에 출간한 『그리고 아무 말도 하지 않았다』로 비평가와 독자들 모두로부터 찬사를 받으며 작가로서의 대성공을 거두었다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "AUTHORED",
+  "object": "카타리나 블룸의 잃어버린 명예",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "사회적으로 엄청난 반향을 일으킨 문제작 『카타리나 블룸의 잃어버린 명예』를 비롯해 『9시 반의 당구』, 『어느 광대의 견해』, 『신변 보호』 등의 작품을 집필했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "AUTHORED",
+  "object": "9시 반의 당구",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "사회적으로 엄청난 반향을 일으킨 문제작 『카타리나 블룸의 잃어버린 명예』를 비롯해 『9시 반의 당구』, 『어느 광대의 견해』, 『신변 보호』 등의 작품을 집필했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "AUTHORED",
+  "object": "어느 어릿 광대의 견해",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "사회적으로 엄청난 반향을 일으킨 문제작 『카타리나 블룸의 잃어버린 명예』를 비롯해 『9시 반의 당구』, 『어느 광대의 견해』, 『신변 보호』 등의 작품을 집필했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "AUTHORED",
+  "object": "여인과 군상",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "1971년에는 성취 지향 사회에 대한 저항을 담은 ≪여인과 군상≫을 발표하고 이듬해 노벨문학상을 수상했다."
+  ]
+ },
+ {
+  "subject": "하인리히 뵐",
+  "relation": "AUTHORED",
+  "object": "그 소년이 어떻게 될 것인가?：책들과 관계 있는 어떤 것",
+  "docs": [
+   "하인리히 뵐"
+  ],
+  "evidence": [
+   "그 소년이 어떻게 될 것인가?：책들과 관계 있는 어떤 것 (Was soll aus dem Jungen bloss werden? Oder: Irgendwas mit Büchern) (1981)"
+  ]
+ },
+ {
   "subject": "한강",
   "relation": "NATIONALITY",
   "object": "대한민국",
@@ -4713,6 +7739,138 @@
   ],
   "evidence": [
    "2015년 황순원문학상 수상(눈 한 송이가 녹는 동안)"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "NATIONALITY",
+  "object": "영국",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "해럴드 핀터(영어: Harold Pinter, CH, CBE, 1930년 10월 10일~2008년 12월 24일)는 영국의 극작가로, 사뮈엘 베케트와 비견되며 부조리 연극의 대표적인 작가로 꼽힌다."
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "2005년 노벨 문학상 시상식에도 참석하지 못했고, 수년 간의 투병생활 끝에 2008년 12월 24일 세상을 떠났다."
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "대영 제국 훈장 3등급",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "1966년 대영 제국 훈장 3등급(CBE)"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "토니상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "1967년 제21회 토니상 최우수연극상"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "셰익스피어상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "1970년 셰익스피어상(Shakespeare Prize)"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "오스트리아 유럽문학상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "1973년 오스트리아 유럽문학상(Austrian State Prize for European Literature)"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "피란델로상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "1980년 피란델로상(Pirandello Prize)"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "데이비드 코언 문학상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "1995년 데이비드 코언 문학상(David Cohen Prize)"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "로런스 올리비에상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "1996년 로런스 올리비에상 특별상"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "컴패니언 오브 아너",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "2002년 컴패니언 오브 아너(Order of the Companions of Honour; CH)"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "WON",
+  "object": "프란츠 카프카 문학상",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "2005년 프란츠 카프카 문학상"
+  ]
+ },
+ {
+  "subject": "해럴드 핀터",
+  "relation": "BELONGS_TO",
+  "object": "부조리극",
+  "docs": [
+   "해럴드 핀터"
+  ],
+  "evidence": [
+   "해럴드 핀터는 영국의 극작가로, 사뮈엘 베케트와 비견되며 부조리 연극의 대표적인 작가로 꼽힌다."
   ]
  },
  {
@@ -4917,6 +8075,72 @@
   ],
   "evidence": [
    "레지옹 도뇌르 슈발리에 훈장(1904년)"
+  ]
+ },
+ {
+  "subject": "헨리크 폰토피단",
+  "relation": "NATIONALITY",
+  "object": "덴마크",
+  "docs": [
+   "헨리크 폰토피단"
+  ],
+  "evidence": [
+   "덴마크의 노벨상 수상자, 덴마크의 소설가, 프레데리시아 출신"
+  ]
+ },
+ {
+  "subject": "헨리크 폰토피단",
+  "relation": "WON",
+  "object": "노벨 문학상",
+  "docs": [
+   "헨리크 폰토피단"
+  ],
+  "evidence": [
+   "카를 아돌프 기엘레루프와 함께 “오늘날 덴마크의 삶을 진실하게 묘사한 공로로” 1917년 노벨 문학상을 공동 수상한"
+  ]
+ },
+ {
+  "subject": "헨리크 폰토피단",
+  "relation": "AUTHORED",
+  "object": "약속의 땅",
+  "docs": [
+   "헨리크 폰토피단"
+  ],
+  "evidence": [
+   "폰토피단의 대표 장편인 《약속의 땅》(1891~1895)은 시골 목사가 되려는 이상주의자의 자기기만과 좌절을 다루며"
+  ]
+ },
+ {
+  "subject": "헨리크 폰토피단",
+  "relation": "AUTHORED",
+  "object": "행운아 페르",
+  "docs": [
+   "헨리크 폰토피단"
+  ],
+  "evidence": [
+   "자전적 소설 《행운아 페르》(1898~1904)는 종교적 가정과 결별하고 공학자가 되려는 인물의 성공과 귀환을 그린다"
+  ]
+ },
+ {
+  "subject": "헨리크 폰토피단",
+  "relation": "AUTHORED",
+  "object": "죽은 자의 왕국",
+  "docs": [
+   "헨리크 폰토피단"
+  ],
+  "evidence": [
+   "《죽은 자의 왕국》(1912~1916)은 민주주의가 정착한 뒤에도 정치적 이상이 쇠퇴하고 자본주의와 언론이 타락하는 덴마크 사회를 묘사한다"
+  ]
+ },
+ {
+  "subject": "헨리크 폰토피단",
+  "relation": "BELONGS_TO",
+  "object": "사실주의",
+  "docs": [
+   "헨리크 폰토피단"
+  ],
+  "evidence": [
+   "덴마크의 사실주의 작가이다."
   ]
  },
  {

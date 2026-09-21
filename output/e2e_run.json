@@ -1,0 +1,63 @@
+{
+  "ran_at": "2026-09-21 13:06:38",
+  "all_ok": true,
+  "total_seconds": 327.2,
+  "steps": [
+    {
+      "step": "① 코퍼스 수집",
+      "cmd": "collect_corpus.py",
+      "exit": 0,
+      "seconds": 233.4,
+      "ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "step": "② 평가셋 자체검사",
+      "cmd": "verify_goldenset.py",
+      "exit": 0,
+      "seconds": 0.2,
+      "ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "step": "③ 그래프 구축",
+      "cmd": "build_graph.py",
+      "exit": 0,
+      "seconds": 58.8,
+      "ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "step": "③' 색인 점검",
+      "cmd": "audit_graph.py",
+      "exit": 0,
+      "seconds": 0.1,
+      "ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "step": "④ 답변 생성",
+      "cmd": "agent.py 파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는?",
+      "exit": 0,
+      "seconds": 1.9,
+      "ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "step": "⑤ 채점 + 대조군",
+      "cmd": "evaluate.py --repeat 1",
+      "exit": 0,
+      "seconds": 32.6,
+      "ok": true,
+      "stderr_tail": ""
+    },
+    {
+      "step": "⑥ 데모 임포트",
+      "cmd": "-c import app; print('app.py import OK')",
+      "exit": 0,
+      "seconds": 0.2,
+      "ok": true,
+      "stderr_tail": ""
+    }
+  ]
+}

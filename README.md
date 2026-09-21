@@ -25,6 +25,7 @@ python verify_goldenset.py   # ② 평가셋 근거가 원문과 맞는지 대�
 python build_graph.py        # ③ 추출 + 정제            → output/graph.graphml
 python audit_graph.py        # ③' 기대 경로가 그래프에 깔렸는지 점검
 python evaluate.py           # ⑤ 홉 수별 채점 + basic RAG 대조 → output/eval.json
+python run_e2e.py            # 전 구간을 이어서 돌려 무오류 확인 → output/e2e_run.json
 ```
 
 이미 만들어진 `output/` 을 쓴다면 바로:
@@ -48,6 +49,7 @@ agent.py             ④ LangGraph 멀티홉 에이전트
 rag_basic.py         ⑤ 대조군 (BM25) — 같은 코퍼스·모델·채점
 evaluate.py          ⑤ 홉 수별 채점 · 경로 재현율 · 실패 층 분류
 app.py               ⑥ 데모 (streamlit)
+run_e2e.py           전 구간 구동 점검 — 수집부터 답변까지 한 번에
 
 config.json          도메인에 묶인 값 전부 — 시드·스키마·허브 기준·반경
 data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json
