@@ -26,6 +26,8 @@ import time
 from collections import defaultdict
 from pathlib import Path
 
+import grading
+
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REFUSAL_WORDS = ("찾지 못", "없습니다", "모르", "근거가 없", "확인할 수 없")
@@ -284,6 +286,15 @@ def main():
         "unstable_items": unstable,
         "items": per_item,
     }
+    # 채점기가 잘못 세는 문항을 사람이 고쳐 적은 성적표를 함께 담는다.
+    # 원점수(by_hops · overall)는 그대로 두고 regraded 에 따로 붙인다 —
+    # 무엇이 기계 채점이고 무엇이 사람 판단인지 산출물에서 갈라 보여야 한다.
+    regraded = grading.regrade(out, gs)
+    if regraded:
+        out["regraded"] = regraded
+        print(f"\n사람 재채점(goldenset.manual_regrade) 반영: "
+              f"전체 {regraded['overall']['graph']:.2f}  "
+              f"— 고친 문항 {regraded['applied']}")
     os.makedirs(os.path.join(HERE, "output"), exist_ok=True)
     name = f"eval_{args.tag}.json" if args.tag else "eval.json"
     Path(os.path.join(HERE, "output", name)).write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")

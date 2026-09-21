@@ -1,7 +1,7 @@
 {
-  "ran_at": "2026-09-21 14:18:18",
+  "ran_at": "2026-09-21 18:41:05",
   "all_ok": true,
-  "total_seconds": 32.7,
+  "total_seconds": 44.2,
   "graph_sha256": "a749d968d1e2187db314b876ec574df33e8e685b217fdf3d2441c35c92703c1f",
   "graph_matches_eval": true,
   "steps": [
@@ -9,7 +9,7 @@
       "step": "① 코퍼스 수집",
       "cmd": "collect_corpus.py",
       "exit": 0,
-      "seconds": 0.1,
+      "seconds": 0.2,
       "ok": true,
       "stdout_tail": "",
       "stderr_tail": ""
@@ -18,7 +18,7 @@
       "step": "② 평가셋 자체검사",
       "cmd": "verify_goldenset.py",
       "exit": 0,
-      "seconds": 0.2,
+      "seconds": 0.3,
       "ok": true,
       "stdout_tail": "",
       "stderr_tail": ""
@@ -27,7 +27,7 @@
       "step": "③ 그래프 구축",
       "cmd": "build_graph.py",
       "exit": 0,
-      "seconds": 0.4,
+      "seconds": 0.8,
       "ok": true,
       "stdout_tail": "",
       "stderr_tail": ""
@@ -36,7 +36,7 @@
       "step": "③' 색인 점검",
       "cmd": "audit_graph.py",
       "exit": 0,
-      "seconds": 0.1,
+      "seconds": 0.2,
       "ok": true,
       "stdout_tail": "",
       "stderr_tail": ""
@@ -45,7 +45,7 @@
       "step": "④ 답변 생성",
       "cmd": "agent.py 파블로 네루다와 같은 나라 출신인 다른 노벨문학상 수상자는?",
       "exit": 0,
-      "seconds": 2.2,
+      "seconds": 2.7,
       "ok": true,
       "stdout_tail": "",
       "stderr_tail": ""
@@ -54,7 +54,7 @@
       "step": "⑤ 채점 + 대조군",
       "cmd": "evaluate.py --repeat 1 --tag smoke",
       "exit": 0,
-      "seconds": 29.5,
+      "seconds": 39.7,
       "ok": true,
       "stdout_tail": "",
       "stderr_tail": ""
@@ -63,7 +63,7 @@
       "step": "⑥ 데모 적재",
       "cmd": "-c import app; print('app.py import OK')",
       "exit": 0,
-      "seconds": 0.2,
+      "seconds": 0.3,
       "ok": true,
       "stdout_tail": "",
       "stderr_tail": ""

@@ -29,23 +29,31 @@ data/.raw_cache/
 #                       제출에 필요한 설계 근거는 REPORT.md 가 담는다
 # make_screenshots.py : 문서용 캡처 도구 (playwright 를 따로 깔아야 한다)
 # docs/code-review*   : 코드 리뷰 기록 — 작업 과정 산출물
-# output/runs.jsonl   : append 전용 실행 로그. 손으로 물어본 것까지 쌓인다
-# output/eval_smoke   : run_e2e 의 1회 연막 테스트. 기준 성적표는 eval.json
-# output/eval_*_check : 코드 수정 후 저비용(--repeat 1) 회귀 확인용 스크래치. 공식
-#                       성적표가 아니다 (--tag 로 eval.json 을 안 건드리게 분리한 것)
+# output/             : 기본은 전부 무시하고, 제출물(REPORT 가 인용하는 산출물)만
+#                       아래 '!' 줄로 명시해 올린다. runs.jsonl(실행 로그),
+#                       eval_smoke(run_e2e 연막), eval_*_check(--repeat 1 스크래치)
+#                       같은 부산물은 따로 적지 않아도 저절로 빠진다.
+#                       'output/' 가 아니라 'output/*' 여야 '!' 예외가 먹는다
 # .claude/            : 브라우저 미리보기 등 하네스 설정
 PLAN.md
 make_screenshots.py
 docs/code-review*.md
 docs/CODE_REVIEW*.md
-output/runs.jsonl
-output/eval_smoke.json
-output/eval_*_check.json
-output/
+output/*
+!output/graph.graphml
+!output/triples.json
+!output/build_report.json
+!output/index_audit.json
+!output/eval.json
+!output/eval_hop[0-9]*.json
+!output/e2e_run.json
 .claude/
 .vscode/
 .idea/
-.streamlit/
+# .streamlit/ 은 secrets.toml 등 개인 설정이 들어가는 곳이라 막되, 데모 테마
+# (config.toml)는 제출물의 일부라 올린다
+.streamlit/*
+!.streamlit/config.toml
 playwright-report/
 test-results/
 *.log

@@ -6,7 +6,8 @@
 
 ```
 노드 416 · 엣지 468 · 평가셋 14문항 (5회 반복)
-GraphRAG 0.90  vs  basic RAG(BM25) 0.66     ← 2홉 구간은 1.00 vs 0.30
+GraphRAG 0.93  vs  basic RAG(BM25) 0.68     ← 2홉 구간은 1.00 vs 0.30
+(채점기 원점수 0.99 — Q3 은 사람이 다시 채점, REPORT 4절)
 ```
 
 설계 근거·측정 결과·실패 분석은 [REPORT.md](REPORT.md) 에 있습니다.
@@ -78,11 +79,13 @@ audit_graph.py       ③' 색인 층 점검 — 기대 경로가 그래프에 �
 agent.py             ④ LangGraph 멀티홉 에이전트
 rag_basic.py         ⑤ 대조군 (BM25) — 같은 코퍼스·모델·채점
 evaluate.py          ⑤ 홉 수별 채점 · 경로 재현율 · 실패 층 분류
+grading.py           ⑤' 채점기가 잘못 센 문항(Q3)을 사람이 고쳐 적는 자리 — 데모도 같은 값을 쓴다
 app.py               ⑥ 데모 (streamlit)
 run_e2e.py           전 구간 구동 점검
 check_prompt_regression.py   답변 프롬프트 회귀 안전망 — 과거 두 사고를 Q3·Q6으로 재확인
 
 config.json          시드 · 스키마 · 별칭 · 병합 금지 쌍 · 허브 · 반경 · 모델
+.streamlit/          데모 화면 테마 (터미널 콘솔 디자인 시스템의 색·글자 토큰)
 data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json (코퍼스 목록)
 output/              graph.graphml · triples.json · eval.json · eval_hop*.json
                      build_report.json · index_audit.json · e2e_run.json
@@ -96,6 +99,6 @@ REPORT.md            제출용 보고서
 
 - `build_graph.py` 의 수상 연도 추출 — 본문에서 "노벨 문학상" 옆의 연도를 찾는 정규식
 - `agent.py` 의 답변 프롬프트 — 실제로 틀렸던 사례(골딩의 데뷔작, '스웨덴'을 작품이라 답한 것)를 예시로 담고 있음
-- `app.py` 의 제목과 예시 질문
+- `app.py` 의 제목과 예시 질문 (화면 모양은 `.streamlit/config.toml` 과 `app.py` 의 CSS 한 블록에 모여 있어 주제와 무관하다)
 
 > `.env` 와 실행 로그(`output/runs.jsonl`)는 커밋하지 않습니다.
