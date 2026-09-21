@@ -164,6 +164,38 @@ class GraphAgent:
                 notes.append(
                     f"{year_label}을 질문에서 읽었지만, 그 해 수상자 문서가 코퍼스에 없다")
 
+        # 연도를 경유지로 쓰는 질문 — "헤밍웨이와 같은 해에 받은 사람은?" 류.
+        # 질문에 연도 숫자는 없지만(그래서 위 분기는 안 걸린다), 이미 찾은 시드의
+        # nobel_year 속성을 읽어 "역색인"처럼 같은 해의 다른 수상자를 찾는다.
+        # REPORT.md 7절 "⑤ 연도를 경유지로 쓰는 질문은 여전히 못 푼다"가 남겨 둔
+        # 한계 중, 질문에 다른 개체가 있어 시작점을 이미 아는 경우만 푼다 —
+        # "1945년 수상자와 같은 해에 받은 사람은?" 처럼 연도 숫자로 시작하는
+        # 경우는 여전히 못 푼다(위 분기가 먼저 seeds 를 채우면 이 블록은 건너뛴다).
+        if year is None and seeds and re.search(r"같은\s*해", q):
+            anchor = seeds[0]
+            anchor_year = self.G.nodes.get(anchor, {}).get("nobel_year")
+            if anchor_year:
+                if anchor not in year_seeds:
+                    year_seeds.append(anchor)  # 앵커 자신의 수상 연도도 근거로 보여준다
+                co_winners = sorted(n for n, d in self.G.nodes(data=True)
+                                    if d.get("type") == "Laureate"
+                                    and d.get("nobel_year") == anchor_year
+                                    and n != anchor)
+                for name in co_winners:
+                    if name not in seeds:
+                        seeds.append(name)
+                        year_seeds.append(name)
+                if co_winners:
+                    notes.append(f"'같은 해' 질문 — {anchor}의 수상 연도({anchor_year}년)를 "
+                                 f"속성에서 찾고, 같은 해 다른 수상자를 시드로 추가함: "
+                                 f"{', '.join(co_winners)}")
+                else:
+                    notes.append(f"'같은 해' 질문이지만 {anchor}과 같은 해({anchor_year}년)에 "
+                                 f"받은 다른 수상자는 코퍼스에 없다")
+            else:
+                notes.append(f"'같은 해' 질문이지만 {anchor}의 수상 연도를 속성에서 "
+                             f"찾지 못했다")
+
         # 허브(상 이름) 말고는 아무것도 안 잡혔다 — '노벨 문학상 수상자 알려줘' 류.
         # 두 사람을 잇는 다리로 쓰는 게 아니라 허브 자체가 질문의 대상이므로,
         # 유일한 시드로만 승격한다. 반드시 연도 조회 **다음**에 와야 한다 —
@@ -336,14 +368,21 @@ class GraphAgent:
             for i, e in enumerate(ev)
         )
         # 연도 근거 설명(year_line)과 연대 나열 형식(decade_line)은 사실 하나의
-        # 블록이다 — decade_line 이 켜지는 조건(year_seeds 2개 이상)이면 evidence
-        # 에 WON_IN_YEAR 가 반드시 있어 year_line 도 항상 같이 켜진다. 늘 붙이면
-        # 연도와 무관한 질문까지 연도로 끌려간다 — "맨부커상을 받은 다른
-        # 수상자는?" 이 "같은 해에 받은 다른 수상자는?" 으로 답해졌다.
+        # 블록이다 — decade_line 이 켜지는 조건(연도가 서로 다른 year_seeds 2개
+        # 이상)이면 evidence 에 WON_IN_YEAR 가 반드시 있어 year_line 도 항상 같이
+        # 켜진다. 늘 붙이면 연도와 무관한 질문까지 연도로 끌려간다 — "맨부커상을
+        # 받은 다른 수상자는?" 이 "같은 해에 받은 다른 수상자는?" 으로 답해졌다.
         if any(e["relation"] == "WON_IN_YEAR" for e in ev):
             year_block = ("- `WON_IN_YEAR` 는 **그 사람이 노벨문학상을 받은 해**를 뜻한다. "
                          "연도로 물었다면 이 삼중항이 바로 답의 근거다.\n")
-            if len(state.get("year_seeds") or []) > 1:
+            # 연대("1980년대")는 서로 다른 해가 여럿이라 정렬이 의미 있다. 반면
+            # "X와 같은 해에 받은 사람은?" 은 year_seeds 가 여럿이어도 전부 같은
+            # 해다 — 이때 "연도 오름차순으로 나열하라"고 시키면 틀린 지시가 된다.
+            # 그래서 사람 수가 아니라 **서로 다른 연도 수**로 건다.
+            distinct_years = {self.G.nodes.get(n, {}).get("nobel_year")
+                              for n in (state.get("year_seeds") or [])}
+            distinct_years.discard(None)
+            if len(distinct_years) > 1:
                 # 정렬은 expand() 가 이미 연도 오름차순으로 해서 넣었다 —
                 # 여기서는 "정렬해라"가 아니라 "받은 순서대로" 라고만 시킨다.
                 year_block += ("  질문이 여러 해(연대)를 묻고 있다. 이 삼중항들은 "
