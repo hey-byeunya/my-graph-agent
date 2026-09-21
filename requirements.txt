@@ -12,6 +12,7 @@ rank_bm25
 # LLM / 에이전트
 langchain-core
 langchain-openai
+openai
 langchain-text-splitters
 langgraph
 python-dotenv
