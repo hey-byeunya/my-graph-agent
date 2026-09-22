@@ -16,7 +16,8 @@ GraphRAG 0.93  vs  basic RAG(BM25) 0.68     ← 2홉 구간은 1.00 vs 0.30
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-lock.txt   # 검증한 버전 그대로 (Python 3.12)
+                                       # 범위로 받으려면 requirements.txt
 cp .env.example .env        # OPENAI_API_KEY 를 채웁니다
 ```
 
@@ -85,6 +86,8 @@ run_e2e.py           전 구간 구동 점검
 check_prompt_regression.py   답변 프롬프트 회귀 안전망 — 과거 두 사고를 Q3·Q6으로 재확인
 
 config.json          시드 · 스키마 · 별칭 · 병합 금지 쌍 · 허브 · 반경 · 모델
+requirements.txt     직접 쓰는 패키지와 허용 범위 (검증한 버전 이상 · 다음 메이저 미만)
+requirements-lock.txt  위 범위를 검증한 정확한 버전으로 풀어 적은 것 — 재현용
 .streamlit/          데모 화면 테마 (터미널 콘솔 디자인 시스템의 색·글자 토큰)
 data/                docs/ (원본 60건) · goldenset.json (평가셋) · manifest.json (코퍼스 목록)
 output/              graph.graphml · triples.json · eval.json · eval_hop*.json

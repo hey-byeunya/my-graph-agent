@@ -1,17 +1,28 @@
+# 직접 쓰는 패키지와 허용 범위.
+# 하한은 이 저장소를 실제로 검증한 버전, 상한은 다음 메이저 — 메이저가 바뀌면
+# API 가 깨질 수 있어 막는다. Python 3.12 에서 검증했다.
+#
+# REPORT 의 숫자를 그대로 재현하려면 범위 대신 정확한 버전을 쓴다:
+#   pip install -r requirements-lock.txt
+
 # 그래프 · 데이터
-networkx
-rapidfuzz
+networkx>=3.6.1,<4
+rapidfuzz>=3.14.6,<4
 
 # 코퍼스 수집
-requests
+requests>=2.34.2,<3
 
 # 검색 (basic RAG 대조군)
-rank_bm25
+rank_bm25>=0.2.2,<0.3
 
 # LLM / 에이전트
-openai
-langgraph
-python-dotenv
+openai>=3.16.2,<4
+langgraph>=1.2.11,<2
+python-dotenv>=1.2.3,<2
+# langgraph · openai 가 끌고 오는 검증 계층. 파이썬 새 버전용 wheel 이 늦게
+# 나오는 일이 있어(pydantic-core) 직접 쓰지 않아도 범위를 건다
+pydantic>=2.13.5,<3
 
-# 데모
-streamlit
+# 데모 — .streamlit/config.toml 의 테마 키(baseRadius · borderColor 등)는
+# 오래된 버전에 없어, 검증한 1.64 를 하한으로 둔다
+streamlit>=1.64.0,<2

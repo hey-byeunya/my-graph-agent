@@ -249,7 +249,7 @@ def sidebar(agent):
             board = ev.get("regraded") or ev
             rows = [{"홉": k, "graph": v["graph"], "basic": v["basic"]}
                     for k, v in board["by_hops"].items()]
-            st.dataframe(rows, hide_index=True, use_container_width=True)
+            st.dataframe(rows, hide_index=True, width="stretch")
             st.markdown(
                 f'<div class="kv">전체 <b>{board["overall"]["graph"]:.2f}</b> '
                 f'vs basic RAG {board["overall"]["basic"]:.2f} · '

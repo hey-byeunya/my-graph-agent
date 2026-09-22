@@ -536,7 +536,7 @@ graph TD;
 
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+pip install -r requirements-lock.txt   # 이 숫자를 잰 버전 그대로 (Python 3.12)
 cp .env.example .env          # OPENAI_API_KEY
 
 python run_e2e.py             # 아래 ①~⑥ 을 이어서 돌려 무오류 확인 (2절)
